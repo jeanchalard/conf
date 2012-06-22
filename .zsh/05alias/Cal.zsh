@@ -1,0 +1,1 @@
+alias cal='cal -m'

@@ -1,0 +1,13 @@
+#CONF static test "$HOST" = "akiko"
+hash -d src=/home/j/PVCS/src
+hash -d bin=/home/j/PVCS/bin
+hash -d lib=/home/j/PVCS/lib
+hash -d var=/home/j/PVCS/var
+hash -d share=/home/j/PVCS/share
+hash -d etc=/home/j/PVCS/etc
+hash -d trtn1=/home/j/PVCS/src/reception/trt_n1
+hash -d idcli=/home/j/PVCS/src/reception/id_cli
+hash -d trtn2=/home/j/PVCS/src/stockage/sto_tr
+hash -d co=/home/j/PVCS/src/api_communes
+hash -d tools=/home/j/PVCS/src/tools
+hash -d frame=/home/j/PVCS/src/api_communes/id_framework

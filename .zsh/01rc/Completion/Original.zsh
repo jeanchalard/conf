@@ -1,0 +1,2 @@
+zstyle ':completion:*' original true
+

@@ -1,0 +1,3 @@
+# Dvorak keyboard
+setopt dvorak
+

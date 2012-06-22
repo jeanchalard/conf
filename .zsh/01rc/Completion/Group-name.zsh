@@ -1,0 +1,2 @@
+zstyle ':completion:*' group-name ''
+

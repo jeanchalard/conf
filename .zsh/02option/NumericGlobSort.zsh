@@ -1,0 +1,2 @@
+setopt numeric_globsort
+
