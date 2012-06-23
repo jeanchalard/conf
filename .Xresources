@@ -1,0 +1,114 @@
+/*
+** .Xdefaults for default X resources in ~/../.env
+**
+** Made by Nicolas Sadirac
+** Login   <zool@epita.fr>
+**
+## Last update Tue Nov 27 11:44:50 2001 jean chalard
+*/
+
+/* emacs */
+Emacs.font:			7x13
+Emacs.background:               black
+Emacs.foreground:               white
+Emacs.cursorColor:              white
+
+/* xterm */
+xterm*reverseVideo:		on
+xterm*multiScroll:  		on
+xterm*jumpScroll:  		on
+xterm*reverseWrap:  		off
+xterm*curses:  			on
+Xterm*Font:  			-misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+aterm*Font:  			-misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+xterm*scrollBar: 		off
+xterm*scrollbar*thickness:	5
+xterm*multiClickTime: 		500
+xterm*charClass:  		33:48,37:48,45-47:48,64:48
+xterm*cutNewline: 		off
+xterm*Border: 	    		gray
+/* xterm*Background:   		black */
+xterm*BodyFont:     		9x15
+/* xterm*Foreground:   		white */
+xterm*DeiconifyWarp: 		off
+xterm*MarginBell:   		on
+xterm*MenuFont:	    		timrom12
+xterm*Mouse:	    		yellow
+xterm*TitleFont:    		vtbold
+xterm*AllowIconInput: 		on
+xterm*InternalBorder: 		1
+xterm*saveLines:		5000
+Xterm*saveLines:		5000
+uxterm*saveLines:		5000
+Uxterm*saveLines:		5000
+XTerm*color1:                   IndianRed1
+XTerm*color4:                   DeepSkyBlue
+XTerm*color5:                   violet
+XTerm*color6:                   cyan
+XTerm*color7:                   BlanchedAlmond
+
+/* xterm */
+rxvt*multiScroll:  		on
+rxvt*jumpScroll:  		on
+rxvt*reverseWrap:  		off
+rxvt*curses:  			on
+Rxvt*Font:  			-misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+rxvt*scrollbar*thickness:	5
+rxvt*multiClickTime: 		500
+rxvt*charClass:  		33:48,37:48,45-47:48,64:48
+rxvt*cutNewline: 		off
+rxvt*Border: 	    		gray
+rxvt*BodyFont:     		9x15
+rxvt*DeiconifyWarp: 		off
+rxvt*MarginBell:   		on
+rxvt*MenuFont:	    		timrom12
+rxvt*Mouse:	    		yellow
+rxvt*TitleFont:    		vtbold
+rxvt*AllowIconInput: 		on
+rxvt*InternalBorder: 		1
+rxvt*saveLines:		5000
+Rxvt*saveLines:		5000
+urxvt*saveLines:		5000
+Urxvt*saveLines:		5000
+Rxvt*iso14755:                 false
+Rxvt*color1:                   IndianRed1
+Rxvt*color4:                   DeepSkyBlue
+Rxvt*color5:                   violet
+Rxvt*color6:                   cyan
+Rxvt*color7:                   BlanchedAlmond
+Rxvt*scrollBar:		       False
+Rxvt.keysym.C-Left:	       \033[1;5D
+Rxvt.keysym.C-Right:	       \033[1;5C
+Rxvt.keysym.M-Left:	       \033[D
+Rxvt.keysym.M-Right:	       \033[C
+Rxvt.keysym.End:	       \033[8~
+Rxvt.keysym.Home:	       \033[7~
+URxvt.depth:                   32
+URxvt.background:              [85]black
+
+/* xbitmap */
+xbitmap.Background:  		forest green
+xbitmap.Border:      		salmon
+xbitmap.Foreground:  		white
+xbitmap.Highlight:   		red
+
+/* Xm */
+Xm.geometry:                    400x200+0-0
+Xm*foreground:                  white
+Xm*background:                  black
+gv*background:			gray
+
+*Aterm*colorMode:		on
+*Aterm*dynamicColors:		on
+*Aterm*color12:			DeepSkyBlue
+
+/* Japanese */
+*inputMethod:			kinput2
+
+/* Sanity */
+*foreground: white
+*background: black
+
+Xmessage.Form.background: black
+Xmessage.Form.foreground: green
+Xmessage.Form.Text.background: dark blue
