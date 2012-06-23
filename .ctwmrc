@@ -1,0 +1,550 @@
+## -*-m4-*-
+#
+# Behaviour
+#
+
+IgnoreLockModifier
+RandomPlacement "on"
+NoRaiseOnResize
+NoRaiseOnMove
+ReallyMoveInWorkspaceManager
+RestartPreviousState
+PackNewWindows
+OpaqueMove
+OpaqueResize
+UsePPosition "non-zero"
+DefaultFunction f.nop
+NoTitle
+RaiseOnClickButton 2
+MoveDelta 10
+MovePackResistance 400
+DontMoveOff
+NoGrabServer
+NoCaseSensitive
+StartInMapState
+
+#
+# Titles
+#
+UseThreeDTitles
+ButtonIndent 1
+TitleButtonBorderWidth 0
+
+#
+# Borders
+#
+BorderShadowDepth 1
+BorderWidth 1
+BorderResizeCursors
+#ClientBorderWidth
+
+#
+# Icon Manager
+#
+UseThreeDIconManagers
+IconManagers
+{
+	"XTerm"		"=142x5-152-0" 1
+	"Rxvt"		"=142x5-152-0" 1
+	"emacs*"	"=142x5-0-0" 1
+}
+IconManagerGeometry "=142x5+0+0" 1
+NoIconTitle
+{
+	"WorkSpaceManager"
+	"KDE Desktop"
+}
+WindowGeometries
+{
+	"ePSXe" "-1-1"
+	"Warcraft III" "-0-0"
+	"FINAL" "-4-23"
+	"PlayOnline" "+0+0"
+}
+IconManagerDontShow
+{
+	"WorkSpaceManager"
+	"dclock"
+}
+
+#
+# Workspace Manager
+#
+WorkSpaceManagerGeometry "=300x50" 8
+WorkSpaces
+{
+	"One"		{ "blue" "black" }
+	"Two"		{ "blue" "black" }
+	"Three"		{ "blue" "black" }
+	"Four"		{ "blue" "black" }
+	"Five"		{ "blue" "black" }
+	"Six"		{ "blue" "black" }
+	"Seven"		{ "blue" "black" }
+	"Eight"		{ "blue" "black" }
+	"Nine"		{ "blue" "black" }
+	"Ten"		{ "blue" "black" }
+	"Eleven"	{ "blue" "black" }
+	"Twelve"	{ "blue" "black" }
+}
+WMgrButtonShadowDepth 0
+WMgrHorizButtonIndent 1
+WMgrVertButtonIndent 1
+
+# StartSqueezed
+# {
+# 	"WorkSpaceManager"
+# }
+#
+# AutoSqueeze
+# {
+# 	"WorkSpaceManager"
+# }
+
+NoOpaqueMove
+{
+	"aterm"
+	"konsole"
+}
+
+#
+# Cursors
+#
+Cursors
+{
+#	Root		"top_left_arrow"
+	Frame		"top_left_arrow"
+	Title		"top_left_arrow"
+	Icon		"top_left_arrow"
+	IconMgr		"top_left_arrow"
+	Move		"fleur"
+	Resize		"fleur"
+	Menu		"top_left_arrow"
+	Button		"hand2"
+	Wait		"dot"
+	Select		"dot"
+	Destroy		"pirate"
+}
+
+#
+# Colors
+#
+Color
+{
+	BorderColor		"white"
+	{
+		"xterm1" "#7f0000"
+		"xterm2" "#ff7f00"
+		"xterm3" "darkblue"
+		"xterm4" "darkgreen"
+		"xterm5" "grey"
+		"xterm6" "#bfbf00"
+		"xterm7" "#7f7fff"
+		"xterm8" "#00dfff"
+		"rxvt1" "#7f0000"
+		"rxvt2" "#ff7f00"
+		"rxvt3" "darkblue"
+		"rxvt4" "darkgreen"
+		"rxvt5" "grey"
+		"rxvt6" "#bfbf00"
+		"rxvt7" "#7f7fff"
+		"rxvt8" "#00dfff"
+		"emacs" "#7f0000"
+		"xv" "white"
+	}
+	BorderTileBackground "grey"
+	{
+		"xterm1" "#3f0000"
+		"xterm2" "#7f3f00"
+		"xterm3" "#000045"
+		"xterm4" "#003200"
+		"xterm5" "#7f7f7f"
+		"xterm6" "#5f5f00"
+		"xterm7" "#3f3fff"
+		"xterm8" "#006f7f"
+		"rxvt1" "#3f0000"
+		"rxvt2" "#7f3f00"
+		"rxvt3" "#000045"
+		"rxvt4" "#003200"
+		"rxvt5" "#7f7f7f"
+		"rxvt6" "#5f5f00"
+		"rxvt7" "#3f3fff"
+		"rxvt8" "#006f7f"
+		"emacs" "#3f0000"
+		"xv" "grey"
+	}
+	BorderTileForeground "grey"
+	{
+		"xterm1" "#3f0000"
+		"xterm2" "#7f3f00"
+		"xterm3" "#000045"
+		"xterm4" "#003200"
+		"xterm5" "#7f7f7f"
+		"xterm6" "#5f5f00"
+		"xterm7" "#3f3fff"
+		"xterm8" "#006f7f"
+		"rxvt1" "#3f0000"
+		"rxvt2" "#7f3f00"
+		"rxvt3" "#000045"
+		"rxvt4" "#003200"
+		"rxvt5" "#7f7f7f"
+		"rxvt6" "#5f5f00"
+		"rxvt7" "#3f3fff"
+		"rxvt8" "#006f7f"
+		"emacs" "#3f0000"
+		"xv" "grey"
+	}
+	TitleBackground		"darkblue"
+	TitleForeground		"grey"
+	IconManagerBackground	"black"
+	IconManagerForeground	"navy"
+	MenuForeground		"black"
+	MenuBackground		"grey"
+	MenuShadowColor		"darkgrey"
+	MenuTitleBackground	"black"
+	MenuTitleForeground	"#7f0000"
+	DefaultBackground	"grey"
+	DefaultForeground	"black"
+	BorderTileForeground	"black"
+	IconBackground		"grey"
+	IconForeground		"black"
+	IconBorderColor		"black"
+	IconManagerHighlight	"lightgrey"
+}
+
+# SaveColor
+# {
+# 	"black"
+# 	"white"
+# 	"grey"
+# 	"red"
+# 	"green"
+# 	"blue"
+# }
+
+#
+# Fonts
+#
+TitleFont	"-adobe-courier-medium-r-*-*-10-*-*-*-*-*-*-*"
+MenuFont	"-adobe-courier-medium-r-*-*-10-*-*-*-*-*-*-*"
+IconFont	"-adobe-courier-medium-r-*-*-10-*-*-*-*-*-*-*"
+ResizeFont	"-adobe-courier-medium-r-*-*-10-*-*-*-*-*-*-*"
+IconManagerFont	"-adobe-courier-medium-r-*-*-8-*-*-*-*-*-*-*"
+
+#
+# Icons
+#
+# IconDirectory "~/.conf/.icons"
+
+#
+# Special cases
+#
+NoStackMode
+IconRegion "800x800-0-0" South East 1 1 {}
+#IconRegionAlignment "bottom"
+#IconJustification "right"
+AlwaysOnTop
+{
+	"WorkSpaceManager"
+	"dclock"
+	"xmms"
+	"MPlayer"
+	"xdaliclock"
+}
+NoBorder
+{
+	"konsole"
+	"WorkSpaceManager"
+	"MPlayer"
+	"superkaramba"
+	"aterm"
+	"Gecko"
+	"konqueror"
+	"Skype"
+	"Kopete"
+}
+OccupyAll
+{
+	"xmms"
+	"xdaliclock"
+}
+
+WarpRingOnScreen
+WarpUnmapped
+WindowRing
+{
+	"xterm"
+	"rxvt"
+	"aterm"
+	"emacs"
+	"Acrobat"
+	"Gecko"
+	"konqueror"
+	"gv"
+	"gwenview"
+	"Gwenview"
+	"xpdf"
+	"kpdf"
+	"XChat"
+	"Untitled"
+	"KDE"
+	"FINAL"
+	"PlayOnline"
+	"Sim"
+	"MPlayer"
+	"Kopete"
+	"Skype"
+}
+
+#
+# Functions
+#
+function "move-or-iconify"	{ f.move f.deltastop f.iconify }
+function "raise-resize"		{ f.raise f.resize }
+function "lower-resize"		{ f.lower f.resize }
+function "force-raise-move"	{ f.forcemove f.deltastop f.raise }
+function "lower-move"		{ f.movepack f.deltastop f.lower }
+function "pack-tl"		{ f.pack "top" f.pack "left" }
+function "pack-tr"		{ f.pack "top" f.pack "right" }
+function "pack-bl"		{ f.pack "bottom" f.pack "left" }
+function "pack-br"		{ f.pack "bottom" f.pack "right" }
+function "fill-tl"		{ f.fill "top" f.fill "left" }
+function "fill-tr"		{ f.fill "top" f.fill "right" }
+function "fill-bl"		{ f.fill "bottom" f.fill "left" }
+function "fill-br"		{ f.fill "bottom" f.fill "right" }
+function "fill-horizontal"	{ f.fill "left" f.fill "right" }
+function "fill-vertical"	{ f.fill "up" f.fill "down" }
+
+#
+# Key Bindings
+#
+
+Button1 =	: root		: f.menu "start"
+Button1 = m2	: root		: f.menu "start"
+Button1 = s	: root		: f.menu "games"
+Button1 = s|m2	: root		: f.menu "games"
+Button3 = 	: root		: f.menu "Space"
+Button3 = m2	: root		: f.menu "Space"
+Button3 = s	: root		: f.menu "Else"
+Button3 = s|m2	: root		: f.menu "Else"
+
+##<<<
+Button3 =	: window	: f.function "force-raise-move"
+Button3 = m2	: window	: f.function "force-raise-move"
+Button3 = m4|m5	  	: window: f.function "force-raise-move"
+Button3 = m4|m2|m5	: window: f.function "force-raise-move"
+
+Button3 = c	: window	: f.function "lower-move"
+Button3 = c|m2	: window	: f.function "lower-move"
+Button3 = s	: window	: f.resize
+Button3 = s|m2	: window	: f.resize
+	"F1"	= 		:all:	!"/home/j/.conf/randaterm &"
+##>>>
+
+Button1 =	: frame		: f.resize
+Button1 = m2	: frame		: f.resize
+
+Button1 =	: icon   	: f.function "move-or-iconify"
+Button1 = m2	: icon   	: f.function "move-or-iconify"
+Button1 =	: frame		: f.resize
+Button1 = m2	: frame		: f.resize
+Button2 =	: icon   	: f.iconify
+Button2 = m2	: icon   	: f.iconify
+Button3 =	: icon   	: f.menu "menubar"
+Button3 = m2	: icon   	: f.menu "menubar"
+
+#
+# Menus
+#
+UseThreeDMenus
+
+Menu "start"
+{
+	"Xterm"		!"/home/j/.conf/randaterm &"
+	"Emacs"		!"emacs &"
+	"Konqueror"	!"konqueror &"
+	"Firefox"	!"firefox &"
+	"IM clients"	!"skype & kopete &"
+}
+
+Menu "games"
+{
+	"Warcraft III"	!"wine c:\\\\Program\\ Files\\\\Warcraft\\ III\\\\Frozen\\ Throne.exe -opengl &"
+	"Sim City 4"	!"wine c:\\\\Program\\ Files\\\\SimCity\\ 4\\\\Apps\\\\SimCity\\\ 4.exe -intro:off -window &"
+	"FFXI"	  	!"LC_ALL=ja_JP.UTF-8 LANG=ja_JP.UTF-8 wine c:\\\\Program\\ Files\\\\PlayOnlineJP\\\\SQUARE\\\\PlayOnlineViewer\\\\pol.exe &"
+	"FFXI anglais"	!"wine c:\\\\Program\\ Files\\\\PlayOnline\\\\SquareEnix\\\\PlayOnlineViewer\\\\pol.exe -opengl &"
+}
+
+Menu "Space"
+{
+	"xkill"		!"xkill"
+	"Degage de la !"	f.deleteordestroy
+	"Exit"		f.quit
+}
+
+Menu "Else"
+{
+	"Edit conf"	!"emacs ~/.ctwmrc &"
+	"Identify"	f.identify
+	"Restart"	f.restart
+}
+
+
+#Keyboard Shortcut
+
+# Change workspace
+	"Up"	= m4		:all:	f.prevworkspace
+	"Down"	= m4		:all:	f.nextworkspace
+	"Left"	= m4		:all:	f.prevworkspace
+	"Right"	= m4		:all:	f.nextworkspace
+	"Up"	= m4|m5		:all:	f.prevworkspace
+	"Down"	= m4|m5		:all:	f.nextworkspace
+	"Left"	= m4|m5		:all:	f.prevworkspace
+	"Right"	= m4|m5		:all:	f.nextworkspace
+	"Up"	= m4|m2		:all:	f.prevworkspace
+	"Left"	= m4|m2		:all:	f.prevworkspace
+	"Right"	= m4|m2		:all:	f.nextworkspace
+	"Down"	= m4|m2		:all:	f.nextworkspace
+	"Up"	= m4|m2|m5	:all:	f.prevworkspace
+	"Left"	= m4|m2|m5	:all:	f.prevworkspace
+	"Right"	= m4|m2|m5	:all:	f.nextworkspace
+	"Down"	= m4|m2|m5	:all:	f.nextworkspace
+
+# Move and resize window via keyboard
+
+	"Up"	= m4|c|m|s	:window:f.jumpup "1"
+	"Down"	= m4|c|m|s	:window:f.jumpdown "1"
+	"Left"	= m4|c|m|s	:window:f.jumpleft "1"
+	"Right"	= m4|c|m|s	:window:f.jumpright "1"
+	"Up"	= m4|c|m|s|m2	:window:f.jumpup "1"
+	"Down"	= m4|c|m|s|m2	:window:f.jumpdown "1"
+	"Left"	= m4|c|m|s|m2	:window:f.jumpleft "1"
+	"Right"	= m4|c|m|s|m2	:window:f.jumpright "1"
+
+	"Up"	= m4|c		:window:f.pack "top"
+	"Down"	= m4|c		:window:f.pack "bottom"
+	"Left"	= m4|c		:window:f.pack "left"
+	"Right"	= m4|c		:window:f.pack "right"
+	"Up"	= m4|c|m2	:window:f.pack "top"
+	"Down"	= m4|c|m2	:window:f.pack "bottom"
+	"Left"	= m4|c|m2	:window:f.pack "left"
+	"Right"	= m4|c|m2	:window:f.pack "right"
+	"Insert"= m4|c		:window:f.function "pack-tl"
+	"Delete"= m4|c		:window:f.function "pack-bl"
+	"Prior"	= m4|c		:window:f.function "pack-tr"
+	"Next"	= m4|c		:window:f.function "pack-br"
+	"Insert"= m4|c|m2	:window:f.function "pack-tl"
+	"Delete"= m4|c|m2	:window:f.function "pack-bl"
+	"Prior"	= m4|c|m2	:window:f.function "pack-tr"
+	"Next"	= m4|c|m2	:window:f.function "pack-br"
+
+
+	"Up"	= m4|c|s	:window:f.fill "top"
+	"Down"	= m4|c|s	:window:f.fill "bottom"
+	"Left"	= m4|c|s	:window:f.fill "left"
+	"Right"	= m4|c|s	:window:f.fill "right"
+	"Up"	= m4|c|s|m2	:window:f.fill "top"
+	"Down"	= m4|c|s|m2	:window:f.fill "bottom"
+	"Left"	= m4|c|s|m2	:window:f.fill "left"
+	"Right"	= m4|c|s|m2	:window:f.fill "right"
+	"Insert"= m4|c|s	:window:f.function "fill-tl"
+	"Delete"= m4|c|s	:window:f.function "fill-bl"
+	"Home"	= m4|c|s	:window:f.function "fill-vertical"
+	"End"	= m4|c|s	:window:f.function "fill-horizontal"
+	"Prior"	= m4|c|s	:window:f.function "fill-tr"
+	"Next"	= m4|c|s	:window:f.function "fill-br"
+	"Insert"= m4|c|s|m2	:window:f.function "fill-tl"
+	"Delete"= m4|c|s|m2	:window:f.function "fill-bl"
+	"Home"	= m4|c|s|m2	:window:f.function "fill-vertical"
+	"End"	= m4|c|s|m2	:window:f.function "fill-horizontal"
+	"Prior"	= m4|c|s|m2	:window:f.function "fill-tr"
+	"Next"	= m4|c|s|m2	:window:f.function "fill-br"
+
+	"F10"	=		:window:f.fullzoom
+	"F10"	= m2		:window:f.fullzoom
+	"F10"	= m		:window:f.horizoom
+	"F10"	= m|m2		:window:f.horizoom
+	"F10"	= s		:window:f.zoom
+	"F10"	= s|m2		:window:f.zoom
+	"F10"	= c		:window:f.iconify
+	"F10"	= c|m2		:window:f.iconify
+
+	"F4"	= m		:window:f.destroy
+	"F4"	= m|m2		:window:f.destroy
+
+# Window ring
+
+	"Tab"	= m4		:all:	f.warpring "next"
+	"Tab"	= m4|m2		:all:	f.warpring "next"
+	"Tab"	= m4|s		:all:	f.warpring "prev"
+	"Tab"	= m4|s|m2	:all:	f.warpring "prev"
+	"space" = m4|m		:window:f.ring
+	"space" = m4|m|m2	:window:f.ring
+
+# Save and restore geometry
+
+	"Return"=m4		:window:f.savegeometry
+	"Return"=m4|m2		:window:f.savegeometry
+	"BackSpace"=m4		:window:f.restoregeometry
+	"BackSpace"=m4|m2	:window:f.restoregeometry
+
+# Occupation
+
+	"Escape"= m4		:all:	f.occupy
+	"Escape"= m4|m2		:all:	f.occupy
+	"Escape"= m4|m5		:all:	f.occupy
+	"Escape"= m4|m2|m5	:all:	f.occupy
+
+	"Escape"= c|m4		:all:	f.toggleworkspacemgr
+	"Escape"= c|m4|m2	:all:	f.toggleworkspacemgr
+	"Escape"= c|m4|m5	:all:	f.toggleworkspacemgr
+	"Escape"= c|m4|m2|m5	:all:	f.toggleworkspacemgr
+
+	"Escape"= m4|c|m|s	:window:f.occupyall
+	"Escape"= m4|c|m|s|m2	:window:f.occupyall
+
+	"1"	= m4		:all:	f.toggleoccupation "One"
+	"1"	= m4|m2		:all:	f.toggleoccupation "One"
+	"2"	= m4		:all:	f.toggleoccupation "Two"
+	"2"	= m4|m2		:all:	f.toggleoccupation "Two"
+	"3"	= m4		:all:	f.toggleoccupation "Three"
+	"3"	= m4|m2		:all:	f.toggleoccupation "Three"
+	"4"	= m4		:all:	f.toggleoccupation "Four"
+	"4"	= m4|m2		:all:	f.toggleoccupation "Four"
+	"5"	= m4		:all:	f.toggleoccupation "Five"
+	"5"	= m4|m2		:all:	f.toggleoccupation "Five"
+	"6"	= m4		:all:	f.toggleoccupation "Six"
+	"6"	= m4|m2		:all:	f.toggleoccupation "Six"
+	"7"	= m4		:all:	f.toggleoccupation "Seven"
+	"7"	= m4|m2		:all:	f.toggleoccupation "Seven"
+	"8"	= m4		:all:	f.toggleoccupation "Eight"
+	"8"	= m4|m2		:all:	f.toggleoccupation "Eight"
+
+# Focus
+	"space"	= m4		:all:	f.focus
+	"space"	= m4|m2		:all:	f.focus
+
+# Commands
+
+	"F1"	= c		:all:	!"/home/j/.conf/randaterm &"
+	"F1"	= c|m2		:all:	!"/home/j/.conf/randaterm &"
+	"F1"	= m2		:all:	!"/home/j/.conf/randaterm &"
+	"F2"	= c		:all:	f.exec "sh -c 'bg=$(ra /backgrounds/*); dcop kdesktop KBackgroundIface setWallpaper $bg 4; xv -root -quit -maxpect -rmode 5 $bg'"
+	"F2"	= c|m2		:all:	f.exec "sh -c 'bg=$(ra /backgrounds/*); dcop kdesktop KBackgroundIface setWallpaper $bg 4; xv -root -quit -maxpect -rmode 5 $bg'"
+	"F12"	= m4		:all:   f.exec "sh -c 'ps auxww | grep nsplugin | tr -s \\  | cut -f 2 -d \\  | xargs kill -9'"
+	"F12"	= m4|m2		:all:   f.exec "sh -c 'ps auxww | grep nsplugin | tr -s \\  | cut -f 2 -d \\  | xargs kill -9'"
+
+	"F10"	=		:window:f.fullzoom
+	"F10"	= m2		:window:f.fullzoom
+	"F10"	= s		:window:f.zoom
+	"F10"	= s|m2		:window:f.zoom
+	"F10"	= m		:window:f.horizoom
+	"F10"	= m|m2		:window:f.horizoom
+	"F10"	= c		:window:f.iconify
+	"F10"	= c|m2		:window:f.iconify
+
+	"F11"	=		:all:   f.exec "setxkbmap dvorak; xmodmap /home/j/.xmodmap"
+	"F11"	= s		:all:	f.exec "setxkbmap fr"
+	"F11"	= s|c		:all:	f.exec "setxkbmap us"
+	"F11"	= m2		:all:   f.exec "setxkbmap dvorak; xmodmap /home/j/.xmodmap"
+	"F11"	= s|m2		:all:	f.exec "setxkbmap fr"
+	"F11"	= s|c|m2	:all:	f.exec "setxkbmap us"

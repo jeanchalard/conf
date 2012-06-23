@@ -1,0 +1,20 @@
+[cpu]
+cycles=13000
+
+[sdl]
+usescancodes=false
+
+[autoexec]
+mount c /data/Game/dos
+c:
+
+[sblaster]
+sbtype=sb2
+sbbase=220
+irq=7
+dma=1
+hdma=5
+mixer=true
+oplmode=auto
+oplrate=22050
+
