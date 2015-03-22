@@ -22,6 +22,8 @@ DontMoveOff
 NoGrabServer
 NoCaseSensitive
 StartInMapState
+IgnoreCaseInMenuSelection
+NoMenuShadows
 
 #
 # Titles
@@ -56,10 +58,10 @@ NoIconTitle
 }
 WindowGeometries
 {
-	"ePSXe" "-1-1"
+	"ePSXe*" "-1-1"
 	"Warcraft III" "-0-0"
-	"FINAL" "-4-23"
-	"PlayOnline" "+0+0"
+	"FINAL*" "-4-23"
+	"PlayOnline*" "+0+0"
 }
 IconManagerDontShow
 {
@@ -102,7 +104,7 @@ WMgrVertButtonIndent 1
 
 NoOpaqueMove
 {
-	"aterm"
+	"aterm*"
 	"konsole"
 }
 
@@ -211,16 +213,6 @@ Color
 	IconManagerHighlight	"lightgrey"
 }
 
-# SaveColor
-# {
-# 	"black"
-# 	"white"
-# 	"grey"
-# 	"red"
-# 	"green"
-# 	"blue"
-# }
-
 #
 # Fonts
 #
@@ -229,11 +221,6 @@ MenuFont	"-adobe-courier-medium-r-*-*-10-*-*-*-*-*-*-*"
 IconFont	"-adobe-courier-medium-r-*-*-10-*-*-*-*-*-*-*"
 ResizeFont	"-adobe-courier-medium-r-*-*-10-*-*-*-*-*-*-*"
 IconManagerFont	"-adobe-courier-medium-r-*-*-8-*-*-*-*-*-*-*"
-
-#
-# Icons
-#
-# IconDirectory "~/.conf/.icons"
 
 #
 # Special cases
@@ -245,7 +232,6 @@ IconRegion "800x800-0-0" South East 1 1 {}
 AlwaysOnTop
 {
 	"WorkSpaceManager"
-	"dclock"
 	"xmms"
 	"MPlayer"
 	"xdaliclock"
@@ -257,9 +243,9 @@ NoBorder
 	"MPlayer"
 	"superkaramba"
 	"aterm"
-	"Gecko"
-	"konqueror"
-	"Skype"
+	"Gecko*"
+	"konqueror*"
+	"Skype*"
 	"Kopete"
 }
 OccupyAll
@@ -272,24 +258,25 @@ WarpRingOnScreen
 WarpUnmapped
 WindowRing
 {
-	"xterm"
-	"rxvt"
-	"aterm"
-	"emacs"
-	"Acrobat"
-	"Gecko"
-	"konqueror"
-	"gv"
+	"xterm*"
+	"rxvt*"
+	"aterm*"
+	"emacs*"
+	"Acrobat*"
+	"Gecko*"
+	"konqueror*"
+	"*Chrome*"
+	"gv*"
 	"gwenview"
 	"Gwenview"
 	"xpdf"
 	"kpdf"
-	"XChat"
-	"Untitled"
-	"KDE"
-	"FINAL"
-	"PlayOnline"
-	"Sim"
+	"XChat*"
+	"Untitled*"
+	"KDE*"
+	"FINAL*"
+	"PlayOnline*"
+	"Sim*"
 	"MPlayer"
 	"Kopete"
 	"Skype"
@@ -337,7 +324,6 @@ Button3 = c	: window	: f.function "lower-move"
 Button3 = c|m2	: window	: f.function "lower-move"
 Button3 = s	: window	: f.resize
 Button3 = s|m2	: window	: f.resize
-	"F1"	= 		:all:	!"/home/j/.conf/randaterm &"
 ##>>>
 
 Button1 =	: frame		: f.resize
@@ -363,6 +349,7 @@ Menu "start"
 	"Emacs"		!"emacs &"
 	"Konqueror"	!"konqueror &"
 	"Firefox"	!"firefox &"
+        "Gimp"          !"gimp &"
 	"IM clients"	!"skype & kopete &"
 }
 
@@ -378,6 +365,12 @@ Menu "Space"
 {
 	"xkill"		!"xkill"
 	"Degage de la !"	f.deleteordestroy
+        "--"            f.nop
+        "--"            f.nop
+        "--"            f.nop
+        "--"            f.nop
+        "--"            f.nop
+        "--"            f.nop
 	"Exit"		f.quit
 }
 
@@ -525,9 +518,10 @@ Menu "Else"
 
 # Commands
 
-	"F1"	= c		:all:	!"/home/j/.conf/randaterm &"
-	"F1"	= c|m2		:all:	!"/home/j/.conf/randaterm &"
-	"F1"	= m2		:all:	!"/home/j/.conf/randaterm &"
+        "F1"	= 		:all:	!"rxvt &"
+	"F1"	= c		:all:	!"rxvt &"
+	"F1"	= c|m2		:all:	!"rxvt &"
+	"F1"	= m2		:all:	!"rxvt &"
 	"F2"	= c		:all:	f.exec "sh -c 'bg=$(ra /backgrounds/*); dcop kdesktop KBackgroundIface setWallpaper $bg 4; xv -root -quit -maxpect -rmode 5 $bg'"
 	"F2"	= c|m2		:all:	f.exec "sh -c 'bg=$(ra /backgrounds/*); dcop kdesktop KBackgroundIface setWallpaper $bg 4; xv -root -quit -maxpect -rmode 5 $bg'"
 	"F12"	= m4		:all:   f.exec "sh -c 'ps auxww | grep nsplugin | tr -s \\  | cut -f 2 -d \\  | xargs kill -9'"

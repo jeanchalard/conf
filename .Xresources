@@ -70,6 +70,8 @@ rxvt*saveLines:		5000
 Rxvt*saveLines:		5000
 urxvt*saveLines:		5000
 Urxvt*saveLines:		5000
+URxvt.inputMethod:              ibus
+URxvt.preeditType:              OverTheSpot
 Rxvt*iso14755:                 false
 Rxvt*color1:                   IndianRed1
 Rxvt*color4:                   DeepSkyBlue
@@ -103,7 +105,7 @@ gv*background:			gray
 *Aterm*color12:			DeepSkyBlue
 
 /* Japanese */
-*inputMethod:			kinput2
+*inputMethod:			ibus
 
 /* Sanity */
 *foreground: white
