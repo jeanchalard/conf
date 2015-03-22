@@ -15,12 +15,61 @@
       smtpmail-default-smtp-server "smtp.gmail.com"
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587
-      smtpmail-local-domain "warp.dnsalias.org")
+      smtpmail-local-domain "cobalt.jeanchalard.org")
+
+(setq gnus-posting-styles
+      '((".*"
+         (signature-file "~/.signature")
+         (name "Jean Chalard")
+	 (address "jean.chalard@gmail.com")
+         )))
 
 (setq mail-yank-prefix "> ")
 (setq gnus-treat-display-smileys nil)
 (setq-default case-fold-search t)
 (setq gnus-topic-display-empty-topics t)
+(setq gnus-article-display-hook         '(gnus-article-highlight gnus-article-hide-headers))
+(setq message-hidden-headers "\\(X-\\)?Face")
+(setq nnmail-crosspost nil)
+(setq nnimap-split-crosspost nil)
+(setq nnmail-resplit-incoming t)
+(setq gnus-article-skip-boring t)
+
+(custom-set-variables
+ '(gnus-group-line-format "%M%S%p%P%5y: %(%C%)%l
+"))
+
+(cond (window-system
+       (setq custom-background-mode 'light)
+       (defface read-group-face
+	 '((t (:foreground "PaleGreen3" :bold t))) "Read groups")
+       (defface unread-group-face
+	 '((t (:foreground "SteelBlue1" :bold t))) "Unread groups")))
+
+(setq gnus-group-highlight
+      '(((zerop unread) . read-group-face)
+	(t . unread-group-face)))
+
+;(setq gnus-message-archive-method '(nnimap ""
+;					   (nnimap-inhibit-expiry t)))
+;(setq gnus-message-archive-group "INBOX/Sent")
+
+;(setq nnimap-split-inbox '("INBOX"))
+;(setq nnimap-split-rule
+;      '(("INBOX/Bouygues subscriber report" "^Subject:.*BOUYGUES-FR-SUB.*")
+;	("INBOX/Gnus" "^From: .*gnus.org")
+;	("INBOX/machine reports" "^Subject: .*run output")
+;	("INBOX/J" "^To: .*jeanc.*\\|Cc: .*jeanc.*\\|CC: .*jeanc.*\\|From: wvgs@mwsjpgen.*")
+;	("INBOX/junk" "")))
+;;(setq nnmail-split-methods
+;      '(("Bouygues subscriber report" "^Subject:.*BOUYGUES-FR-SUB.*")
+;	("mws" "^Subject: .*MWS-PROJ.*")
+;	("mobileengine" "Subject: .*MOBILEENGINE-ERRORS.*")
+;	("junk" "^Subject:.*I-Mode subscriptions.*\\|^From:.*maedam@mobdev.*\\|^From: withstation@wni.com\\|^From: mobile-support@wni.com\\|^Subject:.*mirror_.*")
+;	("junk" "")))
+;
+
+(require 'nnir)
 
 ;(setq smtpmail-local-domain "epita.fr")
 ;(setq mail-host-address     "epita.fr")

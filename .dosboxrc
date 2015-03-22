@@ -5,7 +5,7 @@ cycles=13000
 usescancodes=false
 
 [autoexec]
-mount c /data/Game/dos
+mount c /mnt/data1/Game/dos
 c:
 
 [sblaster]
@@ -17,4 +17,3 @@ hdma=5
 mixer=true
 oplmode=auto
 oplrate=22050
-
