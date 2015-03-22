@@ -1,6 +1,7 @@
 clear mod5
 add mod5 = Scroll_Lock
-!keycode 113 = Mode_switch
+
+! The following codes are dependant on the keyboard and possibly on X
 keycode 100 = space
 keycode 132 = BackSpace
 keycode 211 = Shift_R
@@ -8,6 +9,7 @@ keycode 131 = Alt_L
 keycode 108 = Mode_switch
 keycode 101 = Mode_switch
 keycode 225 = NoSymbol
+
 !194 = MSKB4000 menu 3
 keycode 194 = XF86WebCam
 !195 = MSKB4000 menu 5
@@ -23,7 +25,7 @@ keysym 7 = 7 ampersand sevensuperior sevensubscript
 keysym 8 = 8 asterisk eightsuperior eightsubscript
 keysym 9 = 9 parenleft ninesuperior ninesubscript
 keysym 0 = 0 parenright zerosuperior zerosubscript
-keysym bracketleft = bracketleft braceleft
+keysym bracketleft = bracketleft braceleft backslash questiondown
 keysym bracketright = bracketright braceright dead_tilde dead_ogonek
 keysym apostrophe = apostrophe quotedbl dead_acute dead_diaeresis
 keysym comma = comma less dead_cedilla dead_caron
@@ -74,7 +76,7 @@ keysym z = z Z dead_belowdot dead_abovedot
 !keysym o = o O oe OE
 !keysym e = e E eth ETH
 !keysym u = u U dstroke ordfeminine
-!keysym i = i I 
+!keysym i = i I
 !keysym d = d D hstroke Hstroke
 !keysym h = h H
 !keysym t = t T kra ampersand

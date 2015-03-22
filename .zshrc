@@ -109,15 +109,19 @@ bindkey -e
 #
 
 bindkey "[A" history-beginning-search-backward	# Up arrow
+bindkey "OA" history-beginning-search-backward	# Up arrow
 bindkey "[B" history-beginning-search-forward	# Down arrow
+bindkey "OB" history-beginning-search-forward	# Down arrow
 bindkey "" backward-delete-word	# Ctrl-Backspace
 bindkey "[1;5C" forward-word		# Ctrl-Right
 bindkey "[1;5D" backward-word		# Ctrl-Left
 bindkey "[C" forward-word		# Alt-Right
 bindkey "[D" backward-word		# Alt-Left
 bindkey "[3~" delete-char		# Delete
-bindkey "[F" end-of-line		# End
+bindkey "[7~" beginning-of-line       # Home
 bindkey "[H" beginning-of-line	# Home
+bindkey "[8~" end-of-line       # End
+bindkey "[F" end-of-line		# End
 bindkey "í" menu-select		# Alt-m
 bindkey "OP" run-help		# F1
 bindkey "[23~" run-help		# Shift-F1
@@ -250,7 +254,7 @@ RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(
           zstyle ':completion:all-matches:*' old-matches only
           zstyle ':completion:all-matches::::' completer _all_matches
 
-export PATH=$PATH:${HOME}/sdk/tools:${HOME}/sdk/platform-tools
+export PATH=$PATH:${HOME}/adt-bundle-linux-x86_64-20130219/sdk//tools:${HOME}/adt-bundle-linux-x86_64-20130219/sdk/platform-tools
 export EDITOR=emacs
 
 alias e='ssh -p 42 chalar_j@ssh.epita.fr'
@@ -558,6 +562,9 @@ allservers()
 }
 alias news='emacs -f gnus'
 alias new='emacs -f gnus'
+hash -d p=/mnt/data1/Photos/Gens
+
+
 function pocketize()
 {
   if [ "" != "$2" ]
