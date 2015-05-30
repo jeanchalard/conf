@@ -1,6 +1,3 @@
-; My libs
-(add-to-list 'load-path (expand-file-name "~/.emacs.d"))
-
 ;;;
 ; To allow loading libs not present everywhere.
 (defun try-require (feature)
@@ -61,7 +58,6 @@ of an error, just add the package to a list of missing packages."
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (setq next-line-add-newlines nil)
-(pc-selection-mode)
 (setq default-major-mode 'text-mode)
 (global-font-lock-mode t)
 (prefer-coding-system 'utf-8)
