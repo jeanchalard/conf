@@ -84,8 +84,8 @@ xkb_symbols "basic" {
                  [ idiaeresis,       Idiaeresis     ] };
     key <AC11> { [ minus,	     underscore	    ],
                  [ ugrave,           Ugrave         ] };
-    key <BKSL> { [ backslash,        bar            ] };
-    // TODO : have some real use for Alt+\
+    key <BKSL> { [ backslash,        bar            ],
+                 [ questiondown,     exclamdown     ] };
 
     key <CAPS> { [ BackSpace,        BackSpace      ] };
     key <AB01> { [ semicolon,	     colon          ],
