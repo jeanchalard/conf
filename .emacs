@@ -57,6 +57,7 @@ of an error, just add the package to a list of missing packages."
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
+(delete-selection-mode t)
 (setq next-line-add-newlines nil)
 (setq default-major-mode 'text-mode)
 (global-font-lock-mode t)
