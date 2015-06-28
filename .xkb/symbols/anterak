@@ -1,0 +1,297 @@
+partial alphanumeric_keys
+xkb_symbols "basic" {
+
+    name[Group1] = "Universal (Anterak)";
+
+    key <TLDE> { [ grave,            asciitilde     ] };
+    // TODO : define something for AltGr+TLDE
+
+    key <AE01> { [ 1,	             exclam         ],
+                 [ onesuperior,      onehalf        ] };
+    key <AE02> { [ 2,	             at	            ],
+                 [ twosuperior,      twothirds      ] };
+    key <AE03> { [ 3,	             numbersign	    ],
+                 [ threesuperior,    onethird       ] };
+    key <AE04> { [ 4,	             dollar         ],
+                 [ foursuperior,     onequarter     ] };
+    key <AE05> { [ 5,	             percent	    ],
+                 [ fivesuperior,     threequarters  ] };
+    key <AE06> { [ 6,	             asciicircum    ],
+                 [ sixsuperior,      U2200          ] }; // For all
+    key <AE07> { [ 7,                ampersand      ],
+                 [ sevensuperior,    U2203          ] }; // There exists
+    key <AE08> { [ 8,	             asterisk       ],
+                 [ eightsuperior,    U2204          ] }; // There does not exist
+    key <AE09> { [ 9,	             parenleft      ],
+                 [ ninesuperior,     U2208          ] }; // Element of
+    key <AE10> { [ 0,	             parenright     ],
+                 [ zerosuperior,     infinity       ] };
+    key <AE11> { [ bracketleft,	     braceleft      ],
+                 [ dead_abovedot,    U0307          ] };
+    key <AE12> { [ bracketright,     braceright     ],
+                 [ dead_belowdot,    U0323          ] };
+
+    key <AD01> { [ apostrophe,       quotedbl       ],
+                 [ dead_acute,       U0301          ] };
+    key <AD02> { [ comma,            less           ],
+                 [ dead_grave,       U0300          ] };
+    key <AD03> { [ period,	     greater        ],
+                 [ dead_macron,      U0304          ] };
+    key <AD04> { [ p,                P              ],
+                 [ dead_breve,       U0306          ] };
+    key <AD05> { [ y,                Y              ],
+                 [ dead_circumflex,  U0302          ] };
+    key <AD06> { [ f,                F              ],
+                 [ dead_diaeresis,   U0308          ] };
+    key <AD07> { [ g,                G              ],
+                 [ ssharp,           EuroSign       ] };
+    key <AD08> { [ c,                C              ],
+                 [ dead_cedilla,     U0327          ] };
+    key <AD09> { [ r,                R              ],
+                 [ dead_ogonek,      U0328          ] };
+    key <AD10> { [ l,                L              ],
+                 [ dead_abovering,   U030A          ] };
+    key <AD11> { [ slash,            question       ],
+                 [ dead_doubleacute, U030B          ] };
+    key <AD12> { [ equal,            plus           ],
+                 [ dead_tilde,       U0303          ] };
+    key <AD13> { [ BackSpace,        BackSpace      ] };
+    // TODO : be creative and use AltGr+Backspace, also
+    // mirror on <CAPS> key
+
+    key <TAB>  { [ Tab,              ISO_Left_Tab   ] };
+    // TODO : have some real use for AltGr+Tab
+    key <AC01> { [ a,                A              ],
+                 [ agrave,           Agrave         ] };
+    key <AC02> { [ o,	             O              ],
+                 [ oe,               OE             ] };
+    key <AC03> { [ e,	             E              ],
+                 [ eacute,           Eacute         ] };
+    key <AC04> { [ u,	             U              ],
+                 [ egrave,           Egrave         ] };
+    key <AC05> { [ i,	             I              ],
+                 [ ccedilla,         Ccedilla       ] };
+    key <AC06> { [ d,	             D              ],
+                 [ adiaeresis,       Adiaeresis     ] };
+    key <AC07> { [ h,	             H              ],
+                 [ odiaeresis,       Odiaeresis     ] };
+    key <AC08> { [ t,	             T              ],
+                 [ ediaeresis,       Ediaeresis     ] };
+    key <AC09> { [ n,	             N              ],
+                 [ udiaeresis,       Udiaeresis     ] };
+    key <AC10> { [ s,	             S              ],
+                 [ idiaeresis,       Idiaeresis     ] };
+    key <AC11> { [ minus,	     underscore	    ],
+                 [ ugrave,           Ugrave         ] };
+    key <BKSL> { [ backslash,        bar            ] };
+    // TODO : have some real use for Alt+\
+
+    key <CAPS> { [ BackSpace,        BackSpace      ] };
+    key <AB01> { [ semicolon,	     colon          ],
+                 [ acircumflex,      Acircumflex    ] };
+    key <AB02> { [ q,	             Q              ],
+                 [ ocircumflex,      Ocircumflex    ] };
+    key <AB03> { [ j,	             J              ],
+                 [ ecircumflex,      Ecircumflex    ] };
+    key <AB04> { [ k,	             K              ],
+                 [ ucircumflex,      Ucircumflex    ] };
+    key <AB05> { [ x,	             X              ],
+                 [ icircumflex,      Icircumflex    ] };
+    key <AB06> { [ b,	             B              ],
+                 [ ae,               AE             ] };
+    key <AB07> { [ m,	             M              ],
+                 [ leftarrow,        guillemotleft  ] };
+    key <AB08> { [ w,	             W              ],
+                 [ rightarrow,       guillemotright ] };
+    key <AB09> { [ v,	             V              ],
+                 [ uparrow,          copyright    ] };
+    key <AB10> { [ z,	             Z              ],
+                 [ downarrow,        mu    ] };
+    key <AB11> { [ question,         exclam         ],
+                 [ questiondown,     exclamdown     ] };
+
+    // U3000 = double width space ; U2588 = full block
+    key <SPCE> { [ space,            space          ],
+                 [ nobreakspace,     U2588          ] };
+
+    key <RALT> {
+      type = "TWO_LEVEL",
+      symbols[Group1] = [ Mode_switch, NoSymbol ] };
+};
+
+default  partial alphanumeric_keys modifier_keys
+xkb_symbols "pc105" {
+
+    key <ESC>  {	[ Escape		]	};
+
+    // The extra key on many European keyboards:
+    key <LSGT> {	[ less, greater, bar, brokenbar ] };
+
+    // The following keys are common to all layouts.
+    key <BKSL> {	[ backslash,	bar	]	};
+    key <SPCE> {	[ 	 space		]	};
+
+    include "srvr_ctrl(fkey2vt)"
+    include "pc(editing)"
+    include "keypad(x11)"
+
+    key <BKSP> {	[ BackSpace, BackSpace	]	};
+
+//    key  <TAB> {	[ Tab,	ISO_Left_Tab	]	};
+    key <RTRN> {	[ Return		]	};
+
+//    key <CAPS> {	[ Caps_Lock		]	};
+    key <NMLK> {	[ Num_Lock 		]	};
+
+    key <LFSH> {	[ Shift_L		]	};
+    key <LCTL> {	[ Control_L		]	};
+    key <LWIN> {	[ Super_L		]	};
+
+    key <RTSH> {	[ Shift_R		]	};
+    key <RCTL> {	[ Control_R		]	};
+    key <RWIN> {	[ Super_R		]	};
+    key <MENU> {	[ Menu			]	};
+
+    // Beginning of modifier mappings.
+    modifier_map Shift  { Shift_L, Shift_R };
+    modifier_map Lock   { Caps_Lock };
+    modifier_map Control{ Control_L, Control_R };
+    modifier_map Mod2   { Num_Lock };
+    modifier_map Mod4   { Super_L, Super_R };
+
+    // Fake keys for virtual<->real modifiers mapping:
+    key <LVL3> {	[ ISO_Level3_Shift	]	};
+    key <MDSW> {	[ Mode_switch 		]	};
+    modifier_map Mod5   { <LVL3>, <MDSW> };
+
+    key <ALT>  {	[ NoSymbol, Alt_L	]	};
+    include "altwin(meta_alt)"
+
+    key <META> {	[ NoSymbol, Meta_L	]	};
+    modifier_map Mod1   { <META> };
+
+    key <SUPR> {	[ NoSymbol, Super_L	]	};
+    modifier_map Mod4   { <SUPR> };
+
+    key <HYPR> {	[ NoSymbol, Hyper_L	]	};
+    modifier_map Mod4   { <HYPR> };
+    // End of modifier mappings.
+
+    key <OUTP> { [ XF86Display ] };
+    key <KITG> { [ XF86KbdLightOnOff ] };
+    key <KIDN> { [ XF86KbdBrightnessDown ] };
+    key <KIUP> { [ XF86KbdBrightnessUp ] };
+};
+
+partial hidden alphanumeric_keys
+xkb_symbols "editing" {
+    key <PRSC> {
+	type= "PC_ALT_LEVEL2",
+	symbols[Group1]= [ Print, Sys_Req ]
+    };
+    key <SCLK> {	[  Scroll_Lock		]	};
+    key <PAUS> {
+	type= "PC_CONTROL_LEVEL2",
+	symbols[Group1]= [ Pause, Break ]
+    };
+    key  <INS> {	[  Insert		]	};
+    key <HOME> {	[  Home			]	};
+    key <PGUP> {	[  Prior		]	};
+    key <DELE> {	[  Delete		]	};
+    key  <END> {	[  End			]	};
+    key <PGDN> {	[  Next			]	};
+
+    key   <UP> {	[  Up			]	};
+    key <LEFT> {	[  Left			]	};
+    key <DOWN> {	[  Down			]	};
+    key <RGHT> {	[  Right		]	};
+};
+
+
+
+// XCompose is out! Unicode combining is in!  For those of us who live
+// on the edge: A keymap using Unicode combining characters instead of
+// deadkeys.  This variation does not deviate from the lame MS-style
+// US-intl layout; but it uses AltGr for combining, like altgr-intl.
+//
+// This might break your font layout layout systems (because they
+// suck), caveat emptor.  Also, most of today's software will count
+// individual combining marks for selection, deletion, character
+// counting &c., and won't be smart enough to do canonical equivalence
+// when searching, &c.
+//
+// With Unicode combining you use "handwriting order", not
+// "typewriting order" as with deadkeys.  That is, you first type the
+// base character, then the diacritics/accents/modifiers.  This has
+// the advantage of avoiding hidden states --- each keypress changes
+// something on screen.
+//
+// TODO: as of now, this duplicates all us(intl) functionality with
+// combining.  With care, perhaps we could add more combining marks
+// not present in intl, and support all major languages.
+partial alphanumeric_keys
+xkb_symbols "intl-unicode" {
+
+ name[Group1]= "English (US, international AltGr Unicode combining)";
+
+ include "us(intl)"
+ include "level3(ralt_switch)"
+
+ // grave, tilde
+ key <TLDE> { [grave, asciitilde, U0300, U0303 ] };
+ // double acute
+ key <AE02> { [ 2, at, twosuperior, U030B ] };
+ // macron
+ key <AE03> { [ 3, numbersign, threesuperior, U0304 ] };
+ // circumflex
+ key <AE06> { [ 6, asciicircum, onequarter, U0302 ] };
+ // horn
+ key <AE07> { [ 7, ampersand, onehalf, U031B ] };
+ // ogonek
+ key <AE08> { [ 8, asterisk, threequarters, U0328 ] };
+ // breve
+ key <AE09> { [	 9, parenleft, leftsinglequotemark, U0306 ] };
+ // abovering
+ key <AE10> { [	 0, parenright, rightsinglequotemark, U030A ] };
+
+ // belowdot
+ key <AE11> { [ minus, underscore, yen, U0323 ] };
+ // acute, diaeresis
+ key <AC11> { [apostrophe, quotedbl, U0301, U0308 ] };
+ // abovedot, caron
+ key <AB09> { [ period, greater, U0307, U030C ] };
+ // hook
+ key <AB10> { [ slash, question, questiondown, U0309 ] };
+
+ // alt-intl compatibility
+ // cedilla, caron
+ key <AB08> { [ comma, less,	 U0327, U030C ] };
+ // ogonek, diaeresis
+ key <AC10> { [ semicolon, colon,	 U0328, U0308 ] };
+ // doubleacute, horn
+ key <AE12> { [ equal, plus,	 U030B, U031B ] };
+
+ // we don't do combining latin letters and combining enclosures
+ // because support for those is very rare.
+};
+
+// XCompose is out! Unicode combining is in! For those of us who live
+// on the edge: A keymap using Unicode combining characters instead of
+// deadkeys. This variation does break compatibility with us-intl,
+// whenever I thought it would be more mnemonic or Unicodeish.
+partial alphanumeric_keys
+xkb_symbols "alt-intl-unicode" {
+
+ name[Group1]= "English (US, international AltGr Unicode combining, alternative)";
+
+ include "us(intl-unicode)"
+
+ // easier macron; em-dash.
+ // em-dash is available via compose, but I added here since it's such
+ // an important typographic character.
+ key <AE11> { [ minus, underscore, U0304, U2014 ] };
+
+ // belowdot, abovedot (caron at coma/less key, per above)
+ key <AB09> { [ period, greater, U0323, U0307 ] };
+
+};

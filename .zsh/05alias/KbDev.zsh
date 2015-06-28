@@ -1,2 +1,2 @@
-#CONF static test -d ${HOME}/xkb
-alias kb='xkbcomp -I${HOME}/xkb ~/xkb/j.xkb $DISPLAY'
+#CONF static test -d ${HOME}/.xkb
+alias kb='xkbcomp -I${HOME}/xkb ~/.xkb/j.xkb $DISPLAY'
