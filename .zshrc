@@ -511,7 +511,7 @@ alias push='git push origin master'
 alias e='iconv -f EUC-JISX0213 -t utf-8'
 alias s='iconv -f SHIFT_JISX0213 -t utf-8'
 alias irb='irb --readline -r irb/completion'
-alias kb='xkbcomp -I${HOME}/xkb ~/.xkb/j.xkb $DISPLAY'
+alias kb='xkbcomp -I${HOME}/.xkb ~/.xkb/j.xkb $DISPLAY'
 alias less='less -ir'
 if [[ `ls --color >& /dev/null ; print $?` == 0 ]]
 then

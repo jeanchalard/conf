@@ -30,6 +30,7 @@ xkb_symbols "basic" {
                  [ dead_abovedot,    U0307          ] };
     key <AE12> { [ bracketright,     braceright     ],
                  [ dead_belowdot,    U0323          ] };
+    key <AE13> { [ BackSpace,        BackSpace      ] };
 
     key <AD01> { [ apostrophe,       quotedbl       ],
                  [ dead_acute,       U0301          ] };
