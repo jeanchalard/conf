@@ -1,2 +1,2 @@
-#CONF static test -d /backgrounds
+#CONF static test "$USER" = "j"
 alias ssu='su -'

@@ -246,6 +246,7 @@ setopt no_pushd_to_home
 setopt auto_pushd
 # Ignore duplicate directory stack entries
 setopt pushd_ignore_dups
+PROMPT='%{[01m[34m%}%n%{[0m%}@%{[34m%}%m%{[0m%} %{[01m%}%{[3%0(?,%(!,1,3),4)m%}%35<...<%~%{[0m%} %0(?,^_^,%{[31m%}%1(?,>_<,%139(?,^_^;,%130(?,>_<,%135(?,^_^;,>_<)))))%{[0m%} %{[0m%}'
 PROMPT='%{[01m%}%{[3%0(?,%(!,1,3),4)m%}%35<...<%~%{[0m%} %0(?,^_^,%{[31m%}%1(?,>_<,%139(?,^_^;,%130(?,>_<,%135(?,^_^;,>_<)))))%{[0m%} %{[0m%}'
 RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(?,Bus Error,%141(?,Broken pipe,Err %?))))%{[0m%} )%B%T%b'
 
@@ -254,7 +255,6 @@ RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(
           zstyle ':completion:all-matches:*' old-matches only
           zstyle ':completion:all-matches::::' completer _all_matches
 
-export PATH=$PATH:${HOME}/adt-bundle-linux-x86_64-20130219/sdk//tools:${HOME}/adt-bundle-linux-x86_64-20130219/sdk/platform-tools
 export EDITOR=emacs
 
 alias e='ssh -p 42 chalar_j@ssh.epita.fr'
@@ -448,18 +448,6 @@ bindkey -M zed "\e[A" up-line-or-history
 bindkey -M zed "\e[B" down-line-or-history
 export ZLS_COLORS='ow=34;04:di=37:ln=01;37:pi=40;33:so=01;34:bd=40;33;01:cd=40;33;01:or=40;31;01:*.tar=33:*.tgz=33:*.arj=33:*.zip=33:*.gz=33:*.bz2=33:*.jpg=35:*.gif=35:*.bmp=35:*.pgm=35:*.pbm=35:*.ppm=35:*.tga=35:*.png=35:*.GIF=35:*.JPG=35:*.xbm=35:*.xpm=35:*.tif=35:*.mpg=01;35:*.avi=01;35'
 alias cal='cal -m'
-cbg()
-{
-  if [ "$1" = "" ];
-  then
-    bg=`ra /backgrounds/*`
-  else
-    bg=$1
-  fi
-  dcop kdesktop KBackgroundIface setWallpaper $bg 4
-  xv -root -quit -maxpect -rmode 5 $bg
-  echo 1 >! $HOME/.bg
-}
 alias 'cd..'='builtin cd ..'
 alias -- '-'='cd -'
 cd () {
@@ -517,18 +505,13 @@ colorize()
 }
 alias cp=cp -i --reply=query
 
-function get()
-{
-    rsync -r --links --bwlimit=2000 --partial --progress --rsh=ssh 192.168.0.2:$1 .
-}
 alias commit='git commit -a'
 alias push='git push origin master'
 
-alias h='ssh j@hatsuki.dyndns.org'
-alias h='ssh_over_https j@hatsuki.dyndns.org'
 alias e='iconv -f EUC-JISX0213 -t utf-8'
 alias s='iconv -f SHIFT_JISX0213 -t utf-8'
 alias irb='irb --readline -r irb/completion'
+alias kb='xkbcomp -I${HOME}/xkb ~/xkb/j.xkb $DISPLAY'
 alias less='less -ir'
 if [[ `ls --color >& /dev/null ; print $?` == 0 ]]
 then
@@ -562,9 +545,6 @@ allservers()
 }
 alias news='emacs -f gnus'
 alias new='emacs -f gnus'
-hash -d p=/mnt/data1/Photos/Gens
-
-
 function pocketize()
 {
   if [ "" != "$2" ]
@@ -682,10 +662,6 @@ function pprint() {
    [[ "$_newline[1]" == "y" ]] && print
 
    return 0
-}
-function put()
-{
-    rsync -r --links --bwlimit=2000 --partial --progress --rsh=ssh $1 192.168.0.2:$2
 }
 alias randomize="ruby -e 'a = ARGV; while not a.empty? do i = rand * a.size; puts a[i]; a -= [a[i]] end'"
 alias rm=rm -i
