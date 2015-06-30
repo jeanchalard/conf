@@ -1,298 +1,324 @@
-partial alphanumeric_keys
+default alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
-
-    name[Group1] = "Universal (Anterak)";
-
-    key <TLDE> { [ grave,            asciitilde     ] };
-    // TODO : define something for AltGr+TLDE
-
-    key <AE01> { [ 1,	             exclam         ],
-                 [ onesuperior,      onehalf        ] };
-    key <AE02> { [ 2,	             at	            ],
-                 [ twosuperior,      twothirds      ] };
-    key <AE03> { [ 3,	             numbersign	    ],
-                 [ threesuperior,    onethird       ] };
-    key <AE04> { [ 4,	             dollar         ],
-                 [ foursuperior,     onequarter     ] };
-    key <AE05> { [ 5,	             percent	    ],
-                 [ fivesuperior,     threequarters  ] };
-    key <AE06> { [ 6,	             asciicircum    ],
-                 [ sixsuperior,      U2200          ] }; // For all
-    key <AE07> { [ 7,                ampersand      ],
-                 [ sevensuperior,    U2203          ] }; // There exists
-    key <AE08> { [ 8,	             asterisk       ],
-                 [ eightsuperior,    U2204          ] }; // There does not exist
-    key <AE09> { [ 9,	             parenleft      ],
-                 [ ninesuperior,     U2208          ] }; // Element of
-    key <AE10> { [ 0,	             parenright     ],
-                 [ zerosuperior,     infinity       ] };
-    key <AE11> { [ bracketleft,	     braceleft      ],
-                 [ dead_abovedot,    U0307          ] };
-    key <AE12> { [ bracketright,     braceright     ],
-                 [ dead_belowdot,    U0323          ] };
-    key <AE13> { [ BackSpace,        BackSpace      ] };
-
-    key <AD01> { [ apostrophe,       quotedbl       ],
-                 [ dead_acute,       U0301          ] };
-    key <AD02> { [ comma,            less           ],
-                 [ dead_grave,       U0300          ] };
-    key <AD03> { [ period,	     greater        ],
-                 [ dead_macron,      U0304          ] };
-    key <AD04> { [ p,                P              ],
-                 [ dead_breve,       U0306          ] };
-    key <AD05> { [ y,                Y              ],
-                 [ dead_circumflex,  U0302          ] };
-    key <AD06> { [ f,                F              ],
-                 [ dead_diaeresis,   U0308          ] };
-    key <AD07> { [ g,                G              ],
-                 [ ssharp,           EuroSign       ] };
-    key <AD08> { [ c,                C              ],
-                 [ dead_cedilla,     U0327          ] };
-    key <AD09> { [ r,                R              ],
-                 [ dead_ogonek,      U0328          ] };
-    key <AD10> { [ l,                L              ],
-                 [ dead_abovering,   U030A          ] };
-    key <AD11> { [ slash,            question       ],
-                 [ dead_doubleacute, U030B          ] };
-    key <AD12> { [ equal,            plus           ],
-                 [ dead_tilde,       U0303          ] };
-    key <AD13> { [ BackSpace,        BackSpace      ] };
-    // TODO : be creative and use AltGr+Backspace, also
-    // mirror on <CAPS> key
-
-    key <TAB>  { [ Tab,              ISO_Left_Tab   ] };
-    // TODO : have some real use for AltGr+Tab
-    key <AC01> { [ a,                A              ],
-                 [ agrave,           Agrave         ] };
-    key <AC02> { [ o,	             O              ],
-                 [ oe,               OE             ] };
-    key <AC03> { [ e,	             E              ],
-                 [ eacute,           Eacute         ] };
-    key <AC04> { [ u,	             U              ],
-                 [ egrave,           Egrave         ] };
-    key <AC05> { [ i,	             I              ],
-                 [ ccedilla,         Ccedilla       ] };
-    key <AC06> { [ d,	             D              ],
-                 [ adiaeresis,       Adiaeresis     ] };
-    key <AC07> { [ h,	             H              ],
-                 [ odiaeresis,       Odiaeresis     ] };
-    key <AC08> { [ t,	             T              ],
-                 [ ediaeresis,       Ediaeresis     ] };
-    key <AC09> { [ n,	             N              ],
-                 [ udiaeresis,       Udiaeresis     ] };
-    key <AC10> { [ s,	             S              ],
-                 [ idiaeresis,       Idiaeresis     ] };
-    key <AC11> { [ minus,	     underscore	    ],
-                 [ ugrave,           Ugrave         ] };
-    key <BKSL> { [ backslash,        bar            ],
-                 [ questiondown,     exclamdown     ] };
-
-    key <CAPS> { [ BackSpace,        BackSpace      ] };
-    key <AB01> { [ semicolon,	     colon          ],
-                 [ acircumflex,      Acircumflex    ] };
-    key <AB02> { [ q,	             Q              ],
-                 [ ocircumflex,      Ocircumflex    ] };
-    key <AB03> { [ j,	             J              ],
-                 [ ecircumflex,      Ecircumflex    ] };
-    key <AB04> { [ k,	             K              ],
-                 [ ucircumflex,      Ucircumflex    ] };
-    key <AB05> { [ x,	             X              ],
-                 [ icircumflex,      Icircumflex    ] };
-    key <AB06> { [ b,	             B              ],
-                 [ ae,               AE             ] };
-    key <AB07> { [ m,	             M              ],
-                 [ leftarrow,        guillemotleft  ] };
-    key <AB08> { [ w,	             W              ],
-                 [ rightarrow,       guillemotright ] };
-    key <AB09> { [ v,	             V              ],
-                 [ uparrow,          copyright    ] };
-    key <AB10> { [ z,	             Z              ],
-                 [ downarrow,        mu    ] };
-    key <AB11> { [ question,         exclam         ],
-                 [ questiondown,     exclamdown     ] };
-
-    // U3000 = double width space ; U2588 = full block
-    key <SPCE> { [ space,            space          ],
-                 [ nobreakspace,     U2588          ] };
-
-    key <RALT> {
-      type = "TWO_LEVEL",
-      symbols[Group1] = [ Mode_switch, NoSymbol ] };
+  include "anterak(alpha)"
+  include "anterak(special)"
+  include "anterak(modifiers)"
+  include "anterak(editing)"
+  include "anterak(inet)"
+  include "anterak(other)"
 };
 
-default  partial alphanumeric_keys modifier_keys
-xkb_symbols "pc105" {
+partial hidden alphanumeric_keys
+xkb_symbols "alpha" {
+    key <AE01> { [ 1,	             exclam,        onesuperior,      onehalf        ] };
+    key <AE02> { [ 2,	             at,            twosuperior,      twothirds      ] };
+    key <AE03> { [ 3,	             numbersign,    threesuperior,    onethird       ] };
+    key <AE04> { [ 4,	             dollar,        foursuperior,     onequarter     ] };
+    key <AE05> { [ 5,	             percent,       fivesuperior,     threequarters  ] };
+    key <AE06> { [ 6,	             asciicircum,   sixsuperior,      U2200          ] }; // For all
+    key <AE07> { [ 7,                ampersand,     sevensuperior,    U2203          ] }; // There exists
+    key <AE08> { [ 8,	             asterisk,      eightsuperior,    U2204          ] }; // There does not exist
+    key <AE09> { [ 9,	             parenleft,     ninesuperior,     U2208          ] }; // Element of
+    key <AE10> { [ 0,	             parenright,    zerosuperior,     infinity       ] };
+    key <AE11> { [ bracketleft,	     braceleft,     dead_abovedot,    U0307          ] };
+    key <AE12> { [ bracketright,     braceright,    dead_belowdot,    U0323          ] };
+    key <AE13> { [ BackSpace,        BackSpace      ] };
 
-    key <ESC>  {	[ Escape		]	};
+    key <AD01> { [ apostrophe,       quotedbl,      dead_acute,       U0301          ] };
+    key <AD02> { [ comma,            less,          dead_grave,       U0300          ] };
+    key <AD03> { [ period,	     greater,           dead_macron,      U0304          ] };
+    key <AD04> { [ p,                P,             dead_breve,       U0306          ] };
+    key <AD05> { [ y,                Y,             dead_circumflex,  U0302          ] };
+    key <AD06> { [ f,                F,             dead_diaeresis,   U0308          ] };
+    key <AD07> { [ g,                G,             ssharp,           EuroSign       ] };
+    key <AD08> { [ c,                C,             dead_cedilla,     U0327          ] };
+    key <AD09> { [ r,                R,             dead_ogonek,      U0328          ] };
+    key <AD10> { [ l,                L,             dead_abovering,   U030A          ] };
+    key <AD11> { [ slash,            question,      dead_doubleacute, U030B          ] };
+    key <AD12> { [ equal,            plus,          dead_tilde,       U0303          ] };
 
-    // The extra key on many European keyboards:
-    key <LSGT> {	[ less, greater, bar, brokenbar ] };
+    key <AC01> { [ a,                A,             agrave,           Agrave         ] };
+    key <AC02> { [ o,	             O,             oe,               OE             ] };
+    key <AC03> { [ e,	             E,             eacute,           Eacute         ] };
+    key <AC04> { [ u,	             U,             egrave,           Egrave         ] };
+    key <AC05> { [ i,	             I,             ccedilla,         Ccedilla       ] };
+    key <AC06> { [ d,	             D,             adiaeresis,       Adiaeresis     ] };
+    key <AC07> { [ h,	             H,             odiaeresis,       Odiaeresis     ] };
+    key <AC08> { [ t,	             T,             ediaeresis,       Ediaeresis     ] };
+    key <AC09> { [ n,	             N,             udiaeresis,       Udiaeresis     ] };
+    key <AC10> { [ s,	             S,             idiaeresis,       Idiaeresis     ] };
+    key <AC11> { [ minus,            underscore,    ugrave,           Ugrave         ] };
+    key <BKSL> { [ backslash,        bar,           questiondown,     exclamdown     ] };
 
-    // The following keys are common to all layouts.
-    key <BKSL> {	[ backslash,	bar	]	};
-    key <SPCE> {	[ 	 space		]	};
+    key <AB01> { [ semicolon,	     colon,         acircumflex,      Acircumflex    ] };
+    key <AB02> { [ q,	             Q,             ocircumflex,      Ocircumflex    ] };
+    key <AB03> { [ j,	             J,             ecircumflex,      Ecircumflex    ] };
+    key <AB04> { [ k,	             K,             ucircumflex,      Ucircumflex    ] };
+    key <AB05> { [ x,	             X,             icircumflex,      Icircumflex    ] };
+    key <AB06> { [ b,	             B,             ae,               AE             ] };
+    key <AB07> { [ m,	             M,             leftarrow,        guillemotleft  ] };
+    key <AB08> { [ w,	             W,             rightarrow,       guillemotright ] };
+    key <AB09> { [ v,	             V,             uparrow,          copyright    ] };
+    key <AB10> { [ z,	             Z,             downarrow,        mu    ] };
+    key <AB11> { [ question,         exclam,        questiondown,     exclamdown     ] };
 
-    include "srvr_ctrl(fkey2vt)"
-    include "pc(editing)"
-    include "keypad(x11)"
+    // TODO : what to do with this ?
+    key <LSGT> { [ less,             greater,       bar,              brokenbar ] };
+};
 
-    key <BKSP> {	[ BackSpace, BackSpace	]	};
+partial hidden alphanumeric_keys
+xkb_symbols "special" {
+    key <ESC>  { [ Escape            ] };
 
-//    key  <TAB> {	[ Tab,	ISO_Left_Tab	]	};
-    key <RTRN> {	[ Return		]	};
+    // TODO : define something for AltGr+TLDE
+    key <TLDE> { [ grave,            asciitilde       ] };
+    // TODO : have some real use for AltGr+Tab
+    key <TAB>  { [ Tab,              ISO_Left_Tab     ] };
 
-//    key <CAPS> {	[ Caps_Lock		]	};
-    key <NMLK> {	[ Num_Lock 		]	};
+    // TODO : be creative and use AltGr+Backspace
+    key <CAPS> { [ ISO_Level3_Latch, ISO_Level3_Latch ] };
 
-    key <LFSH> {	[ Shift_L		]	};
-    key <LCTL> {	[ Control_L		]	};
-    key <LWIN> {	[ Super_L		]	};
+    // U3000 = double width space ; U2588 = full block
+    key <SPCE> { [ space,            space,      nobreakspace,     U2588          ] };
+    key <RTRN> { [ Return            ]  };
+};
 
-    key <RTSH> {	[ Shift_R		]	};
-    key <RCTL> {	[ Control_R		]	};
-    key <RWIN> {	[ Super_R		]	};
-    key <MENU> {	[ Menu			]	};
+partial hidden modifier_keys
+xkb_symbols "modifiers" {
+
+    key <NMLK> { [ Num_Lock         ] };
+    key <LFSH> { [ Shift_L          ] };
+    key <LCTL> { [ Control_L        ] };
+    key <LWIN> { [ Super_L          ] };
+
+    key <RTSH> { [ Shift_R          ] };
+    key <RCTL> { [ Control_R        ] };
+    key <RALT> { [ ISO_Level3_Latch, ISO_Level3_Latch ] };
+    key <RWIN> { [ Super_R          ] };
+    key <MENU> { [ Menu             ] };
 
     // Beginning of modifier mappings.
-    modifier_map Shift  { Shift_L, Shift_R };
-    modifier_map Lock   { Caps_Lock };
-    modifier_map Control{ Control_L, Control_R };
-    modifier_map Mod2   { Num_Lock };
-    modifier_map Mod4   { Super_L, Super_R };
+    modifier_map Shift   { Shift_L, Shift_R };
+    modifier_map Lock    { Caps_Lock };
+    modifier_map Control { Control_L, Control_R };
+    modifier_map Mod2    { Num_Lock };
+    modifier_map Mod4    { Super_L, Super_R };
 
     // Fake keys for virtual<->real modifiers mapping:
-    key <LVL3> {	[ ISO_Level3_Shift	]	};
-    key <MDSW> {	[ Mode_switch 		]	};
-    modifier_map Mod5   { <LVL3>, <MDSW> };
+    key <LVL3> { [ ISO_Level3_Shift ] };
+    key <MDSW> { [ Mode_switch      ] };
+    modifier_map Mod5 { <LVL3>, <MDSW> };
 
-    key <ALT>  {	[ NoSymbol, Alt_L	]	};
-    include "altwin(meta_alt)"
+    key <ALT>  { [ NoSymbol, Alt_L ] };
 
-    key <META> {	[ NoSymbol, Meta_L	]	};
+    key <META> { [ NoSymbol, Meta_L ] };
     modifier_map Mod1   { <META> };
 
-    key <SUPR> {	[ NoSymbol, Super_L	]	};
+    key <SUPR> { [ NoSymbol, Super_L ] };
     modifier_map Mod4   { <SUPR> };
 
-    key <HYPR> {	[ NoSymbol, Hyper_L	]	};
+    key <HYPR> { [ NoSymbol, Hyper_L ] };
     modifier_map Mod4   { <HYPR> };
-    // End of modifier mappings.
+};
 
-    key <OUTP> { [ XF86Display ] };
-    key <KITG> { [ XF86KbdLightOnOff ] };
-    key <KIDN> { [ XF86KbdBrightnessDown ] };
-    key <KIUP> { [ XF86KbdBrightnessUp ] };
+partial hidden alphanumeric_keys
+xkb_symbols "inet" {
+    key <MUTE>   {      [ XF86AudioMute         ]       };
+    key <VOL->   {      [ XF86AudioLowerVolume  ]       };
+    key <VOL+>   {      [ XF86AudioRaiseVolume  ]       };
+    key <POWR>   {      [ XF86PowerOff          ]       };
+    key <STOP>   {      [ Cancel                ]       };
+    key <AGAI>   {      [ Redo                  ]       };
+    key <PROP>   {      [ SunProps              ]       };
+    key <UNDO>   {      [ Undo                  ]       };
+    key <FRNT>   {      [ SunFront              ]       };
+    key <COPY>   {      [ XF86Copy              ]       };
+    key <OPEN>   {      [ XF86Open              ]       };
+    key <PAST>   {      [ XF86Paste             ]       };
+    key <FIND>   {      [ Find                  ]       };
+    key <CUT>    {      [ XF86Cut               ]       };
+    key <HELP>   {      [ Help                  ]       };
+    key <LNFD>   {      [ Linefeed              ]       };
+
+// Commented out because HZTG has same keycode as TLDE
+//    key <HZTG>   {      [ Zenkaku_Hankaku       ]       };
+
+    key <HKTG>   {      [ ISO_Level3_Latch, ISO_Level3_Latch ] };
+    key <HENK>   {      [ ISO_Level3_Latch, ISO_Level3_Latch ] };
+    key <MUHE>   {      [ Muhenkan              ]       };
+    key <KATA>   {      [ Katakana              ]       };
+    key <HIRA>   {      [ Hiragana              ]       };
+    key <RO>     {      [ Romaji                ]       };
+
+    key <HNGL>   {      [ Hangul                ]       };
+    key <HJCV>   {      [ Hangul_Hanja          ]       };
+    key <FK21>   {      [ XF86TouchpadToggle    ]       };
+    key <FK22>   {      [ XF86TouchpadOn        ]       };
+    key <FK23>   {      [ XF86TouchpadOff       ]       };
+
+    key <FK20>   {      [ XF86AudioMicMute      ]       };
+
+//  key <I120>   {      [ ]       }; // KEY_MACRO 
+    key <I126>   {      [ plusminus             ]       };
+    key <I128>   {      [ XF86LaunchA           ]       };
+    key <I147>   {      [ XF86MenuKB            ]       };
+    key <I148>   {      [ XF86Calculator        ]       };
+//  key <I149>   {      [ ]       }; // KEY_SETUP
+    key <I150>   {      [ XF86Sleep             ]       };
+    key <I151>   {      [ XF86WakeUp            ]       };
+    key <I152>   {      [ XF86Explorer          ]       };
+    key <I153>   {      [ XF86Send              ]       };
+//  key <I154>   {      [ ]       }; // KEY_DELETEFILE
+    key <I155>   {      [ XF86Xfer              ]       };
+    key <I156>   {      [ XF86Launch1           ]       };
+    key <I157>   {      [ XF86Launch2           ]       };
+    key <I158>   {      [ XF86WWW               ]       };
+    key <I159>   {      [ XF86DOS               ]       };
+    key <I160>   {      [ XF86ScreenSaver       ]       };
+//  key <I161>   {      [ ]       }; // KEY_DIRECTION
+    key <I162>   {      [ XF86RotateWindows     ]       };
+    key <I163>   {      [ XF86Mail              ]       };
+    key <I164>   {      [ XF86Favorites         ]       };
+    key <I165>   {      [ XF86MyComputer        ]       };
+    key <I166>   {      [ XF86Back              ]       };
+    key <I167>   {      [ XF86Forward           ]       };
+//  key <I168>   {      [ ]       }; // KEY_CLOSECD (opposite of eject)
+    key <I169>   {      [ XF86Eject             ]       };
+    key <I170>   {      [ XF86Eject, XF86Eject  ]       };
+    key <I171>   {      [ XF86AudioNext         ]       };
+    key <I172>   {      [ XF86AudioPlay, XF86AudioPause ] };
+    key <I173>   {      [ XF86AudioPrev         ]       };
+    key <I174>   {      [ XF86AudioStop, XF86Eject ]    };
+    key <I175>   {      [ XF86AudioRecord       ]       };
+    key <I176>   {      [ XF86AudioRewind       ]       };
+    key <I177>   {      [ XF86Phone             ]       };
+//  key <I178>   {      [ ]       }; // KEY_ISO
+    key <I179>   {      [ XF86Tools             ]       };
+    key <I180>   {      [ XF86HomePage          ]       };
+    key <I181>   {      [ XF86Reload           ]       };
+    key <I182>   {      [ XF86Close             ]       };
+//  key <I183>   {      [ ]       }; // KEY_MOVE
+//  key <I184>   {      [ ]       }; // KEY_EDIT
+    key <I185>   {      [ XF86ScrollUp          ]       };
+    key <I186>   {      [ XF86ScrollDown        ]       };
+    key <I187>   {      [ parenleft             ]       };
+    key <I188>   {      [ parenright            ]       };
+    key <I189>   {      [ XF86New               ]       };
+    key <I190>   {      [ Redo                  ]       };
+    key <I192>   {      [ XF86LaunchA           ]       };
+    key <I193>   {      [ XF86LaunchC           ]       };
+    key <I194>   {      [ XF86LaunchD           ]       };
+    key <I195>   {      [ XF86LaunchE           ]       };
+    key <I196>   {      [ XF86LaunchF           ]       };
+    key <I208>   {      [ XF86AudioPlay         ]       };
+    key <I209>   {      [ XF86AudioPause        ]       };
+    key <I210>   {      [ XF86Launch3           ]       };
+    key <I211>   {      [ XF86Launch4           ]       };
+    key <I212>   {      [ XF86LaunchB           ]       };
+    key <I213>   {      [ XF86Suspend           ]       };
+    key <I214>   {      [ XF86Close             ]       };
+    key <I215>   {      [ XF86AudioPlay         ]       };
+    key <I216>   {      [ XF86AudioForward      ]       };
+//  key <I217>   {      [ ]       }; // KEY_BASSBOOST
+    key <I218>   {      [ Print                 ]       };
+//  key <I219>   {      [ ]       }; // KEY_HP
+    key <I220>   {      [ XF86WebCam            ]       };
+//  key <I221>   {      [ ]       }; // KEY_SOUND
+//  key <I222>   {      [ ]       }; // KEY_QUESTION
+    key <I223>   {      [ XF86Mail              ]       };
+    key <I224>   {      [ XF86Messenger         ]       }; // KEY_CHAT
+    key <I225>   {      [ XF86Search            ]       };
+    key <I226>   {      [ XF86Go                ]       }; // KEY_CONNECT
+    key <I227>   {      [ XF86Finance           ]       };
+    key <I228>   {      [ XF86Game              ]       }; // KEY_SPORT
+    key <I229>   {      [ XF86Shop              ]       };
+//  key <I230>   {      [ ]       }; // KEY_ALTERASE
+    key <I231>   {      [ Cancel                ]       };
+    key <I232>   {      [ XF86MonBrightnessDown ]       };
+    key <I233>   {      [ XF86MonBrightnessUp   ]       };
+    key <I234>   {      [ XF86AudioMedia        ]       };
+    key <I235>   {      [ XF86Display           ]       };
+    key <I236>   {      [ XF86KbdLightOnOff     ]       }; // KEY_KBDILLUMTOGGLE
+    key <I237>   {      [ XF86KbdBrightnessDown ]       }; // KEY_KBDILLUMDOWN
+    key <I238>   {      [ XF86KbdBrightnessUp   ]       }; // KEY_KBDILLUMUP
+    key <I239>   {      [ XF86Send              ]       };
+    key <I240>   {      [ XF86Reply             ]       };
+    key <I241>   {      [ XF86MailForward       ]       };
+    key <I242>   {      [ XF86Save              ]       };
+    key <I243>   {      [ XF86Documents         ]       };
+    key <I244>   {      [ XF86Battery           ]       };
+    key <I245>   {      [ XF86Bluetooth         ]       };
+    key <I246>   {      [ XF86WLAN              ]       };
+//  key <I249>   {      [ ]       }; // KEY_VIDEO_NEXT  --  drive next video source
+//  key <I250>   {      [ ]       }; // KEY_VIDEO_PREV  --  drive previous video source
+//  key <I251>   {      [ ]       }; // KEY_BRIGHTNESS_CYCLE  --  bright up, max++ == min
+//  key <I252>   {      [ ]       }; // KEY_BRIGHTNESS_ZERO  --  brightness off
+//  key <I253>   {      [ ]       }; // KEY_DISPLAY_OFF  --  turn off display
+//  key <I254>   {      [ ]       }; // KEY_WIMAX
+    key <I255>   {      [ XF86Hibernate         ]       }; // KEY_HIBERNATE
+ 
+    key <FK13>   {      [ XF86Tools         ]       };
+    key <FK14>   {      [ XF86Launch5       ]       };
+    key <FK15>   {      [ XF86Launch6       ]       };
+    key <FK16>   {      [ XF86Launch7       ]       };
+    key <FK17>   {      [ XF86Launch8       ]       };
+    key <FK18>   {      [ XF86Launch9       ]       };
 };
 
 partial hidden alphanumeric_keys
 xkb_symbols "editing" {
     key <PRSC> {
-	type= "PC_ALT_LEVEL2",
-	symbols[Group1]= [ Print, Sys_Req ]
+      type= "PC_ALT_LEVEL2",
+      symbols[Group1]= [ Print, Sys_Req ]
     };
-    key <SCLK> {	[  Scroll_Lock		]	};
+    key <SCLK> { [ Scroll_Lock ] };
     key <PAUS> {
-	type= "PC_CONTROL_LEVEL2",
-	symbols[Group1]= [ Pause, Break ]
+      type= "PC_CONTROL_LEVEL2",
+      symbols[Group1]= [ Pause, Break ]
     };
-    key  <INS> {	[  Insert		]	};
-    key <HOME> {	[  Home			]	};
-    key <PGUP> {	[  Prior		]	};
-    key <DELE> {	[  Delete		]	};
-    key  <END> {	[  End			]	};
-    key <PGDN> {	[  Next			]	};
+    key  <INS> { [ Insert ] };
+    key <HOME> { [ Home ] };
+    key <PGUP> { [ Prior ] };
+    key <DELE> { [ Delete ] };
+    key  <END> { [ End ] };
+    key <PGDN> { [ Next ] };
 
-    key   <UP> {	[  Up			]	};
-    key <LEFT> {	[  Left			]	};
-    key <DOWN> {	[  Down			]	};
-    key <RGHT> {	[  Right		]	};
+    key   <UP> { [ Up ] };
+    key <LEFT> { [ Left ] };
+    key <DOWN> { [ Down ] };
+    key <RGHT> { [ Right ] };
 };
 
-
-
-// XCompose is out! Unicode combining is in!  For those of us who live
-// on the edge: A keymap using Unicode combining characters instead of
-// deadkeys.  This variation does not deviate from the lame MS-style
-// US-intl layout; but it uses AltGr for combining, like altgr-intl.
-//
-// This might break your font layout layout systems (because they
-// suck), caveat emptor.  Also, most of today's software will count
-// individual combining marks for selection, deletion, character
-// counting &c., and won't be smart enough to do canonical equivalence
-// when searching, &c.
-//
-// With Unicode combining you use "handwriting order", not
-// "typewriting order" as with deadkeys.  That is, you first type the
-// base character, then the diacritics/accents/modifiers.  This has
-// the advantage of avoiding hidden states --- each keypress changes
-// something on screen.
-//
-// TODO: as of now, this duplicates all us(intl) functionality with
-// combining.  With care, perhaps we could add more combining marks
-// not present in intl, and support all major languages.
-partial alphanumeric_keys
-xkb_symbols "intl-unicode" {
-
- name[Group1]= "English (US, international AltGr Unicode combining)";
-
- include "us(intl)"
- include "level3(ralt_switch)"
-
- // grave, tilde
- key <TLDE> { [grave, asciitilde, U0300, U0303 ] };
- // double acute
- key <AE02> { [ 2, at, twosuperior, U030B ] };
- // macron
- key <AE03> { [ 3, numbersign, threesuperior, U0304 ] };
- // circumflex
- key <AE06> { [ 6, asciicircum, onequarter, U0302 ] };
- // horn
- key <AE07> { [ 7, ampersand, onehalf, U031B ] };
- // ogonek
- key <AE08> { [ 8, asterisk, threequarters, U0328 ] };
- // breve
- key <AE09> { [	 9, parenleft, leftsinglequotemark, U0306 ] };
- // abovering
- key <AE10> { [	 0, parenright, rightsinglequotemark, U030A ] };
-
- // belowdot
- key <AE11> { [ minus, underscore, yen, U0323 ] };
- // acute, diaeresis
- key <AC11> { [apostrophe, quotedbl, U0301, U0308 ] };
- // abovedot, caron
- key <AB09> { [ period, greater, U0307, U030C ] };
- // hook
- key <AB10> { [ slash, question, questiondown, U0309 ] };
-
- // alt-intl compatibility
- // cedilla, caron
- key <AB08> { [ comma, less,	 U0327, U030C ] };
- // ogonek, diaeresis
- key <AC10> { [ semicolon, colon,	 U0328, U0308 ] };
- // doubleacute, horn
- key <AE12> { [ equal, plus,	 U030B, U031B ] };
-
- // we don't do combining latin letters and combining enclosures
- // because support for those is very rare.
+partial hidden alphanumeric_keys
+xkb_symbols "other" {
+    key <JPCM> { [ kana_comma ] };
+    key <I120> { [ ] };
+    key <I149> { [ ] };
+    key <I154> { [ ] };
+    key <I161> { [ ] };
+    key <I168> { [ ] };
+    key <I178> { [ ] };
+    key <I183> { [ ] };
+    key <I184> { [ ] };
+    key <FK19> { [ ] };
+    key <FK24> { [ ] };
+    key <I217> { [ ] };
+    key <I219> { [ ] };
+    key <I221> { [ ] };
+    key <I222> { [ ] };
+    key <I230> { [ ] };
+    key <I247> { [ ] };
+    key <I248> { [ ] };
+    key <I249> { [ ] };
+    key <I250> { [ ] };
+    key <I251> { [ ] };
+    key <I252> { [ ] };
+    key <I253> { [ ] };
 };
 
-// XCompose is out! Unicode combining is in! For those of us who live
-// on the edge: A keymap using Unicode combining characters instead of
-// deadkeys. This variation does break compatibility with us-intl,
-// whenever I thought it would be more mnemonic or Unicodeish.
-partial alphanumeric_keys
-xkb_symbols "alt-intl-unicode" {
-
- name[Group1]= "English (US, international AltGr Unicode combining, alternative)";
-
- include "us(intl-unicode)"
-
- // easier macron; em-dash.
- // em-dash is available via compose, but I added here since it's such
- // an important typographic character.
- key <AE11> { [ minus, underscore, U0304, U2014 ] };
-
- // belowdot, abovedot (caron at coma/less key, per above)
- key <AB09> { [ period, greater, U0323, U0307 ] };
-
+partial hidden modifier_keys
+xkb_symbols "fix_inet" {
+// Fix up inet(evdev) crap
+    key <HKTG>   {      [ ISO_Level3_Latch, ISO_Level3_Latch ] };
+    key <HENK>   {      [ ISO_Level3_Latch, ISO_Level3_Latch ] };
 };
