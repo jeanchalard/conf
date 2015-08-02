@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/zsh
 pushd `pwd` > /dev/null
 cd `dirname $0`
 cd ..

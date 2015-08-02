@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/zsh
 
 if [ `id -u` != 0 ]; then
   echo "This script must be run as root, as it will modify"

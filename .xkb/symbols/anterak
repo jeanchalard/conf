@@ -22,11 +22,12 @@ xkb_symbols "alpha" {
     key <AE10> { [ 0,	             parenright,    zerosuperior,     infinity       ] };
     key <AE11> { [ bracketleft,	     braceleft,     dead_abovedot,    U0307          ] };
     key <AE12> { [ bracketright,     braceright,    dead_belowdot,    U0323          ] };
-    key <AE13> { [ BackSpace,        BackSpace      ] };
+    key <AE13> { [ BackSpace,        BackSpace,     U0336,            U0336          ] }; // Combining strikethrough
+    key <BKSP> { [ BackSpace,        BackSpace,     U0336,            U0336          ] }; // Combining strikethrough
 
     key <AD01> { [ apostrophe,       quotedbl,      dead_acute,       U0301          ] };
     key <AD02> { [ comma,            less,          dead_grave,       U0300          ] };
-    key <AD03> { [ period,	     greater,           dead_macron,      U0304          ] };
+    key <AD03> { [ period,	     greater,       dead_macron,      U0304          ] };
     key <AD04> { [ p,                P,             dead_breve,       U0306          ] };
     key <AD05> { [ y,                Y,             dead_circumflex,  U0302          ] };
     key <AD06> { [ f,                F,             dead_diaeresis,   U0308          ] };
@@ -38,7 +39,7 @@ xkb_symbols "alpha" {
     key <AD12> { [ equal,            plus,          dead_tilde,       U0303          ] };
 
     key <AC01> { [ a,                A,             agrave,           Agrave         ] };
-    key <AC02> { [ o,	             O,             oe,               OE             ] };
+    key <AC02> { [ o,	             O,             ugrave,           Ugrave         ] };
     key <AC03> { [ e,	             E,             eacute,           Eacute         ] };
     key <AC04> { [ u,	             U,             egrave,           Egrave         ] };
     key <AC05> { [ i,	             I,             ccedilla,         Ccedilla       ] };
@@ -47,7 +48,7 @@ xkb_symbols "alpha" {
     key <AC08> { [ t,	             T,             ediaeresis,       Ediaeresis     ] };
     key <AC09> { [ n,	             N,             udiaeresis,       Udiaeresis     ] };
     key <AC10> { [ s,	             S,             idiaeresis,       Idiaeresis     ] };
-    key <AC11> { [ minus,            underscore,    ugrave,           Ugrave         ] };
+    key <AC11> { [ minus,            underscore,    oe,               OE             ] };
     key <BKSL> { [ backslash,        bar,           questiondown,     exclamdown     ] };
 
     key <AB01> { [ semicolon,	     colon,         acircumflex,      Acircumflex    ] };
@@ -55,11 +56,11 @@ xkb_symbols "alpha" {
     key <AB03> { [ j,	             J,             ecircumflex,      Ecircumflex    ] };
     key <AB04> { [ k,	             K,             ucircumflex,      Ucircumflex    ] };
     key <AB05> { [ x,	             X,             icircumflex,      Icircumflex    ] };
-    key <AB06> { [ b,	             B,             ae,               AE             ] };
-    key <AB07> { [ m,	             M,             leftarrow,        guillemotleft  ] };
-    key <AB08> { [ w,	             W,             rightarrow,       guillemotright ] };
-    key <AB09> { [ v,	             V,             uparrow,          copyright    ] };
-    key <AB10> { [ z,	             Z,             downarrow,        mu    ] };
+    key <AB06> { [ b,	             B,             uparrow,          copyright    ] };
+    key <AB07> { [ m,	             M,             downarrow,        mu    ] };
+    key <AB08> { [ w,	             W,             leftarrow,        guillemotleft  ] };
+    key <AB09> { [ v,	             V,             rightarrow,       guillemotright ] };
+    key <AB10> { [ z,	             Z,             ae,               AE             ] };
     key <AB11> { [ question,         exclam,        questiondown,     exclamdown     ] };
 
     // TODO : what to do with this ?
@@ -75,8 +76,8 @@ xkb_symbols "special" {
     // TODO : have some real use for AltGr+Tab
     key <TAB>  { [ Tab,              ISO_Left_Tab     ] };
 
-    // TODO : be creative and use AltGr+Backspace
-    key <CAPS> { [ ISO_Level3_Latch, ISO_Level3_Latch ] };
+// Turn Caps into another AltGr
+//    key <CAPS> { [ ISO_Level3_Latch, ISO_Level3_Latch ] };
 
     // U3000 = double width space ; U2588 = full block
     key <SPCE> { [ space,            space,      nobreakspace,     U2588          ] };
@@ -158,7 +159,7 @@ xkb_symbols "inet" {
 
     key <FK20>   {      [ XF86AudioMicMute      ]       };
 
-//  key <I120>   {      [ ]       }; // KEY_MACRO 
+//  key <I120>   {      [ ]       }; // KEY_MACRO
     key <I126>   {      [ plusminus             ]       };
     key <I128>   {      [ XF86LaunchA           ]       };
     key <I147>   {      [ XF86MenuKB            ]       };
@@ -256,7 +257,7 @@ xkb_symbols "inet" {
 //  key <I253>   {      [ ]       }; // KEY_DISPLAY_OFF  --  turn off display
 //  key <I254>   {      [ ]       }; // KEY_WIMAX
     key <I255>   {      [ XF86Hibernate         ]       }; // KEY_HIBERNATE
- 
+
     key <FK13>   {      [ XF86Tools         ]       };
     key <FK14>   {      [ XF86Launch5       ]       };
     key <FK15>   {      [ XF86Launch6       ]       };
