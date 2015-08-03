@@ -25,10 +25,10 @@ xkb_symbols "alpha" {
     key <AE13> { [ BackSpace,        BackSpace,     U0336,            U0336          ] }; // Combining strikethrough
     key <BKSP> { [ BackSpace,        BackSpace,     U0336,            U0336          ] }; // Combining strikethrough
 
-    key <AD01> { [ apostrophe,       quotedbl,      dead_acute,       U0301          ] };
-    key <AD02> { [ comma,            less,          dead_grave,       U0300          ] };
-    key <AD03> { [ period,	     greater,       dead_macron,      U0304          ] };
-    key <AD04> { [ p,                P,             dead_breve,       U0306          ] };
+    key <AD01> { [ apostrophe,       quotedbl,      dead_macron,      U0304          ] };
+    key <AD02> { [ comma,            less,          dead_acute,       U0301          ] };
+    key <AD03> { [ period,           greater,       dead_breve,       U0306          ] };
+    key <AD04> { [ p,                P,             dead_grave,       U0300          ] };
     key <AD05> { [ y,                Y,             dead_circumflex,  U0302          ] };
     key <AD06> { [ f,                F,             dead_diaeresis,   U0308          ] };
     key <AD07> { [ g,                G,             ssharp,           EuroSign       ] };
@@ -43,7 +43,7 @@ xkb_symbols "alpha" {
     key <AC03> { [ e,	             E,             eacute,           Eacute         ] };
     key <AC04> { [ u,	             U,             egrave,           Egrave         ] };
     key <AC05> { [ i,	             I,             ccedilla,         Ccedilla       ] };
-    key <AC06> { [ d,	             D,             adiaeresis,       Adiaeresis     ] };
+    key <AC06> { [ d,	             D,             omacron,          Omacron        ] };
     key <AC07> { [ h,	             H,             odiaeresis,       Odiaeresis     ] };
     key <AC08> { [ t,	             T,             ediaeresis,       Ediaeresis     ] };
     key <AC09> { [ n,	             N,             udiaeresis,       Udiaeresis     ] };
