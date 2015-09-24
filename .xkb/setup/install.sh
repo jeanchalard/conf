@@ -57,6 +57,8 @@ add_to_xml() {
 }
 add_to_xml ${RT}/rules/base.xml
 add_to_xml ${RT}/rules/evdev.xml
+# Remove cached compiled keymaps, or your change may not be seen.
+rm /var/lib/xkb/*.xkm
 
 # Restore original directory
 popd > /dev/null
