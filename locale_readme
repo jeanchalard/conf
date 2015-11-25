@@ -1,2 +1,12 @@
-La locale en_JP fixe la merde de locale. Les dates sont dans le bon ordre avec un
-format concis et propre et les id
+La locale en_JP fixe la merde de locale. Les dates sont dans le bon ordre
+avec un format concis et propre et les idéogrammes pour les jours de la
+semaine, la semaine est dans l'ordre et tout va bien.
+
+Il faut copier le fichier en_JP dans /usr/share/i18n/locales et ajouter
+en_JP dans /usr/share/i18n/SUPPORTED. Puis :
+# localedef -i en_JP -c -f UTF-8 en_JP.UTF-8
+# locale-gen en_JP.UTF-8
+(peut-être inutile : # dpkg-reconfigure locales
+
+S'assurer que les locales sont bien à en_JP.UTF-8.
+
