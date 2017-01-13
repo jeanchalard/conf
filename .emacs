@@ -93,7 +93,6 @@ of an error, just add the package to a list of missing packages."
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . html-mode))
 ; Text-mode
 (add-hook 'text-mode-hook 'text-mode-hook-identify)
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
 ; Ruby-mode
 (require 'ruby-mode)
 (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))

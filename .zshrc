@@ -102,7 +102,6 @@ export FPATH=$FPATH:$HOME/.zsh/functions
 # Sanity of my environment
 #
 [[ -t 0 ]] && /bin/stty erase  "^H" intr  "^C" susp "^Z" dsusp "^Y" stop "^S" start "^Q" kill "^U"  >& /dev/null
-export LC_ALL=en_US.UTF-8
 bindkey -e
 #
 # Bindkey setup
@@ -254,6 +253,8 @@ RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(
           bindkey '^Xa' all-matches
           zstyle ':completion:all-matches:*' old-matches only
           zstyle ':completion:all-matches::::' completer _all_matches
+
+export PATH=$PATH:${HOME}/android/sdk/platform-tools
 
 export EDITOR=emacs
 
@@ -505,8 +506,16 @@ colorize()
 }
 alias cp=cp -i --reply=query
 
+function get()
+{
+    rsync -r --links --bwlimit=2000 --partial --progress --rsh=ssh 192.168.0.2:$1 .
+}
 alias commit='git commit -a'
 alias push='git push origin master'
+log()
+{
+  git log --oneline --decorate $@
+}
 
 alias e='iconv -f EUC-JISX0213 -t utf-8'
 alias s='iconv -f SHIFT_JISX0213 -t utf-8'
@@ -662,6 +671,10 @@ function pprint() {
    [[ "$_newline[1]" == "y" ]] && print
 
    return 0
+}
+function put()
+{
+    rsync -r --links --bwlimit=2000 --partial --progress --rsh=ssh $1 192.168.0.2:$2
 }
 alias randomize="ruby -e 'a = ARGV; while not a.empty? do i = rand * a.size; puts a[i]; a -= [a[i]] end'"
 alias rm=rm -i
