@@ -1,6 +1,6 @@
 escape_char /
 comment_char %
-% Locale for English locale in the USA
+% Locale for a sane English locale
 % Contributed by J
 
 LC_IDENTIFICATION

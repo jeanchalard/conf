@@ -1,1 +1,2 @@
-alias cal='cal -m'
+alias cal='ncal -M -b'
+
