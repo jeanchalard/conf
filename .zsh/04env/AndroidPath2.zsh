@@ -1,2 +1,2 @@
-#CONF static test -d ${HOME}/sdk/platform-tools
-export PATH=$PATH:${HOME}/sdk/platform-tools
+#CONF static test -d ${HOME}/Android/Sdk/platform-tools
+export PATH=$PATH:${HOME}/Android/Sdk/platform-tools
