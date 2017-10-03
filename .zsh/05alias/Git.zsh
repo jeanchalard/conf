@@ -8,7 +8,7 @@ alias amend='git commit --amend -a'
 alias aamend='EDITOR=true git commit --amend -a'
 rbi()
 {
-  git rebase -i master
+  git rebase -i m/master
 }
 rbcc()
 {

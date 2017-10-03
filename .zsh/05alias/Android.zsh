@@ -1,9 +1,15 @@
 #CONF static [[ $HOST = *.corp.google.com ]]
-function b() {
+function b()
+{
   setopt local_options sh_word_split
   mmm $@
 }
-function up() {
+function up()
+{
   repo upload --cbr
+}
+function sync()
+{
+  repo sync -c -j50
 }
 hash -d n=~/a/master/frameworks/base/core/java/android/net
