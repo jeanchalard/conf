@@ -18,6 +18,8 @@ bindkey "[8~" end-of-line       # End
 bindkey "[F" end-of-line		# End
 bindkey "OP" run-help		# F1
 bindkey "[23~" run-help		# Shift-F1
+bindkey "" history-incremental-pattern-search-backward
+bindkey "" history-incremental-pattern-search-forward
 bindkey "" copy-prev-shell-word # Ctrl-O
 bindkey "®" insert-last-word # Alt-.
 bindkey "
