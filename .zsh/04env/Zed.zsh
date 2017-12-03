@@ -4,3 +4,5 @@ bindkey -M zed '^x^w' accept-line
 bindkey -M zed '^M' self-insert-unmeta
 bindkey -M zed "\e[A" up-line-or-history
 bindkey -M zed "\e[B" down-line-or-history
+bindkey -M zed "OA" up-line-or-history
+bindkey -M zed "OB" down-line-or-history

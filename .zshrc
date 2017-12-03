@@ -111,6 +111,7 @@ bindkey "[A" history-beginning-search-backward	# Up arrow
 bindkey "OA" history-beginning-search-backward	# Up arrow
 bindkey "[B" history-beginning-search-forward	# Down arrow
 bindkey "OB" history-beginning-search-forward	# Down arrow
+bindkey "" history-incremental-pattern-search-backward # C-R
 bindkey "" backward-delete-word	# Ctrl-Backspace
 bindkey "[1;5C" forward-word		# Ctrl-Right
 bindkey "[1;5D" backward-word		# Ctrl-Left
@@ -121,7 +122,6 @@ bindkey "[7~" beginning-of-line       # Home
 bindkey "[H" beginning-of-line	# Home
 bindkey "[8~" end-of-line       # End
 bindkey "[F" end-of-line		# End
-bindkey "í" menu-select		# Alt-m
 bindkey "OP" run-help		# F1
 bindkey "[23~" run-help		# Shift-F1
 bindkey "" copy-prev-shell-word # Ctrl-O
@@ -139,10 +139,6 @@ autoload zed
 # zmv. THE real useful mv.
 autoload zmv
 
-# zftp. I like it, from time to time.
-autoload zfinit
-zmodload zsh/zftp
-autoload -U zfanon zfautocheck zfcd zfcd_match zfcget zfclose zfcput zfdir zffcache zfgcp zfget zfget_match zfgoto zfhere zfinit zfls zfmark zfopen zfparams zfpcp zfput zfrglob zfrtime zfsession zfstat zftp_chpwd zftp_progress zftransfer zftype zfuget zfuput
 # Nslookup, for the network. Deprecated, but I still use it.
 autoload nslookup
 
@@ -447,6 +443,8 @@ bindkey -M zed '^x^w' accept-line
 bindkey -M zed '^M' self-insert-unmeta
 bindkey -M zed "\e[A" up-line-or-history
 bindkey -M zed "\e[B" down-line-or-history
+bindkey -M zed "OA" up-line-or-history
+bindkey -M zed "OB" down-line-or-history
 export ZLS_COLORS='ow=34;04:di=37:ln=01;37:pi=40;33:so=01;34:bd=40;33;01:cd=40;33;01:or=40;31;01:*.tar=33:*.tgz=33:*.arj=33:*.zip=33:*.gz=33:*.bz2=33:*.jpg=35:*.gif=35:*.bmp=35:*.pgm=35:*.pbm=35:*.ppm=35:*.tga=35:*.png=35:*.GIF=35:*.JPG=35:*.xbm=35:*.xpm=35:*.tif=35:*.mpg=01;35:*.avi=01;35'
 alias cal='ncal -M -b'
 

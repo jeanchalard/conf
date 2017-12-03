@@ -68,6 +68,7 @@ of an error, just add the package to a list of missing packages."
 (setq mouse-autoselect-window t) ; Sloppy focus
 (column-number-mode t)
 (auto-image-file-mode nil) ; Don't open images as images - not using emacs for that
+(setq sentence-end-double-space nil) ; For filling, don't double space after periods
 
 ;;;
 ; Bindings
