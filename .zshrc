@@ -98,11 +98,14 @@ function redo_conf()
 export SHELL=`which zsh`
 export FPATH=$FPATH:$HOME/.zsh/functions
 
-#
 # Sanity of my environment
-#
 [[ -t 0 ]] && /bin/stty erase  "^H" intr  "^C" susp "^Z" dsusp "^Y" stop "^S" start "^Q" kill "^U"  >& /dev/null
+# Default to emacs editing mode, as opposed to vi
 bindkey -e
+# Remove the idiotic "break your input with ^S, restore with ^Q" behavior
+/bin/stty stop "" start ""
+unset flow_control
+
 #
 # Bindkey setup
 #
@@ -124,6 +127,8 @@ bindkey "[8~" end-of-line       # End
 bindkey "[F" end-of-line		# End
 bindkey "OP" run-help		# F1
 bindkey "[23~" run-help		# Shift-F1
+bindkey "" history-incremental-pattern-search-backward
+bindkey "" history-incremental-pattern-search-forward
 bindkey "" copy-prev-shell-word # Ctrl-O
 bindkey "®" insert-last-word # Alt-.
 bindkey "
@@ -150,7 +155,7 @@ zmodload zsh/complist
 # Compinit
 autoload compinit
 compinit -C .zcompdump
-# Enumarate user dirs so that they are replaced by the prompt even if
+# Enumerate user dirs so that they are replaced by the prompt even if
 # they are not directly named
 : $userdirs
 export LESS='--RAW-CONTROL-CHARS --tabs=8'
@@ -241,7 +246,6 @@ setopt no_pushd_to_home
 setopt auto_pushd
 # Ignore duplicate directory stack entries
 setopt pushd_ignore_dups
-PROMPT='%{[01m[34m%}%n%{[0m%}@%{[34m%}%m%{[0m%} %{[01m%}%{[3%0(?,%(!,1,3),4)m%}%35<...<%~%{[0m%} %0(?,^_^,%{[31m%}%1(?,>_<,%139(?,^_^;,%130(?,>_<,%135(?,^_^;,>_<)))))%{[0m%} %{[0m%}'
 PROMPT='%{[01m%}%{[3%0(?,%(!,1,3),4)m%}%35<...<%~%{[0m%} %0(?,^_^,%{[31m%}%1(?,>_<,%139(?,^_^;,%130(?,>_<,%135(?,^_^;,>_<)))))%{[0m%} %{[0m%}'
 RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(?,Bus Error,%141(?,Broken pipe,Err %?))))%{[0m%} )%B%T%b'
 
@@ -251,7 +255,6 @@ RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(
           zstyle ':completion:all-matches::::' completer _all_matches
 
 export PATH=$PATH:${HOME}/android/sdk/platform-tools
-
 export EDITOR=emacs
 
 alias e='ssh -p 42 chalar_j@ssh.epita.fr'
@@ -428,6 +431,7 @@ zle -N zle-toggle-mouse
 bindkey ';' zle-toggle-mouse
 
 ZLE_USE_MOUSE=
+export PATH=${HOME}/perso/bin:${PATH}
 # My reader
 export READNULLCMD=less
 export TERM=xterm
@@ -447,7 +451,6 @@ bindkey -M zed "OA" up-line-or-history
 bindkey -M zed "OB" down-line-or-history
 export ZLS_COLORS='ow=34;04:di=37:ln=01;37:pi=40;33:so=01;34:bd=40;33;01:cd=40;33;01:or=40;31;01:*.tar=33:*.tgz=33:*.arj=33:*.zip=33:*.gz=33:*.bz2=33:*.jpg=35:*.gif=35:*.bmp=35:*.pgm=35:*.pbm=35:*.ppm=35:*.tga=35:*.png=35:*.GIF=35:*.JPG=35:*.xbm=35:*.xpm=35:*.tif=35:*.mpg=01;35:*.avi=01;35'
 alias cal='ncal -M -b'
-
 alias 'cd..'='builtin cd ..'
 alias -- '-'='cd -'
 cd () {
@@ -505,21 +508,58 @@ colorize()
 }
 alias cp=cp -i --reply=query
 
-function get()
-{
-    rsync -r --links --bwlimit=2000 --partial --progress --rsh=ssh 192.168.0.2:$1 .
-}
 alias commit='git commit -a'
 alias push='git push origin master'
 log()
 {
   git log --oneline --decorate $@
 }
+alias amend='git commit --amend -a'
+alias aamend='EDITOR=true git commit --amend -a'
+rbi()
+{
+  git rebase -i m/master
+}
+rbcc()
+{
+  git add .
+  git rebase --continue
+}
+rbc()
+{
+  git rebase --continue
+}
+c()
+{
+  git cherry-pick $@
+}
 
 alias e='iconv -f EUC-JISX0213 -t utf-8'
 alias s='iconv -f SHIFT_JISX0213 -t utf-8'
 alias irb='irb --readline -r irb/completion'
 alias kb='xkbcomp -I${HOME}/.xkb ~/.xkb/j.xkb $DISPLAY'
+popup() {
+  timeout=${3-5}
+  if [[ $2 != "" ]]
+  then
+    title=$1
+    msg=$2
+  else
+    title='Notice'
+    msg=$1
+  fi
+  kdialog --title $title --passivepopup $msg $timeout
+}
+statuspopup() {
+   if [[ 0 = $? ]]
+  then
+    title=${1-Status}
+    popup $title Success
+  else
+    title=${1-Status}
+    popup $title Failure
+  fi
+}
 alias less='less -ir'
 if [[ `ls --color >& /dev/null ; print $?` == 0 ]]
 then
@@ -671,10 +711,6 @@ function pprint() {
 
    return 0
 }
-function put()
-{
-    rsync -r --links --bwlimit=2000 --partial --progress --rsh=ssh $1 192.168.0.2:$2
-}
 alias randomize="ruby -e 'a = ARGV; while not a.empty? do i = rand * a.size; puts a[i]; a -= [a[i]] end'"
 alias rm=rm -i
 
@@ -700,7 +736,8 @@ exec-rb () {
 # Use the function instead of python for .py files.
 alias -s rb=exec-rb
 alias screen='screen -e  -xR '
-alias ssu='su -'
+alias ssu='sudo ZDOTDIR=$HOME HOME=/root zsh'
+alias su='sudo -E sudo -E -s -u'
 wcp()
 {
     dest=$@[-1]

@@ -1,7 +1,7 @@
 #CONF static which kdialog
 popup() {
   timeout=${3-5}
-  if [[ $2 ]]
+  if [[ $2 != "" ]]
   then
     title=$1
     msg=$2

@@ -96,7 +96,7 @@ xkb_symbols "modifiers" {
     key <RCTL> { [ Control_R        ] };
     key <RALT> { [ ISO_Level3_Shift, ISO_Level3_Shift ] };
     key <RWIN> { [ Super_R          ] };
-    key <MENU> { [ Menu             ] };
+    key <MENU> { [ Super_R          ] };
 
     // Beginning of modifier mappings.
     modifier_map Shift   { Shift_L, Shift_R };
@@ -221,7 +221,7 @@ xkb_symbols "inet" {
     key <I215>   {      [ XF86AudioPlay         ]       };
     key <I216>   {      [ XF86AudioForward      ]       };
 //  key <I217>   {      [ ]       }; // KEY_BASSBOOST
-    key <I218>   {      [ Print                 ]       };
+    key <I218>   {      [ Super_L               ]       };
 //  key <I219>   {      [ ]       }; // KEY_HP
     key <I220>   {      [ XF86WebCam            ]       };
 //  key <I221>   {      [ ]       }; // KEY_SOUND
