@@ -79,7 +79,9 @@ Rxvt*color4:                   DeepSkyBlue
 Rxvt*color5:                   violet
 Rxvt*color6:                   cyan
 Rxvt*color7:                   BlanchedAlmond
+Rxvt*color12:                  DeepSkyBlue
 Rxvt*scrollBar:		       False
+URxvt*fading:                  20
 Rxvt.keysym.C-Left:	       \033[1;5D
 Rxvt.keysym.C-Right:	       \033[1;5C
 Rxvt.keysym.M-Left:	       \033[D
