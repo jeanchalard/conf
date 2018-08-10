@@ -23,5 +23,6 @@ bindkey "" history-incremental-pattern-search-backward
 bindkey "" history-incremental-pattern-search-forward
 bindkey "" copy-prev-shell-word # Ctrl-O
 bindkey "®" insert-last-word # Alt-.
+bindkey "m" menu-select
 bindkey "
 " accept-and-infer-next-history
