@@ -18,19 +18,19 @@ xkb_symbols "alpha" {
     key <AE06> { [ 6,	             asciicircum,   sixsuperior,      U2200          ] }; // For all
     key <AE07> { [ 7,                ampersand,     sevensuperior,    U2203          ] }; // There exists
     key <AE08> { [ 8,	             asterisk,      eightsuperior,    U2204          ] }; // There does not exist
-    key <AE09> { [ 9,	             parenleft,     ninesuperior,     U2208          ] }; // Element of
+    key <AE09> { [ 9,	             parenleft,     ninesuperior,     elementof      ] };
     key <AE10> { [ 0,	             parenright,    zerosuperior,     infinity       ] };
     key <AE11> { [ bracketleft,	     braceleft,     dead_abovedot,    U0307          ] };
     key <AE12> { [ bracketright,     braceright,    dead_belowdot,    U0323          ] };
     key <AE13> { [ BackSpace,        BackSpace,     U0336,            U0336          ] }; // Combining strikethrough
     key <BKSP> { [ BackSpace,        BackSpace,     U0336,            U0336          ] }; // Combining strikethrough
 
-    key <AD01> { [ apostrophe,       quotedbl,      dead_macron,      U0304          ] };
-    key <AD02> { [ comma,            less,          dead_acute,       U0301          ] };
-    key <AD03> { [ period,           greater,       dead_breve,       U0306          ] };
-    key <AD04> { [ p,                P,             dead_grave,       U0300          ] };
-    key <AD05> { [ y,                Y,             dead_circumflex,  U0302          ] };
-    key <AD06> { [ f,                F,             dead_diaeresis,   U0308          ] };
+    key <AD01> { [ apostrophe,       quotedbl,      dead_circumflex,  U0302          ] };
+    key <AD02> { [ comma,            less,          dead_diaeresis,   U0308          ] };
+    key <AD03> { [ period,           greater,       dead_macron,      U0304          ] };
+    key <AD04> { [ p,                P,             dead_acute,       U0301          ] };
+    key <AD05> { [ y,                Y,             dead_breve,       U0306          ] };
+    key <AD06> { [ f,                F,             dead_grave,       U0300          ] };
     key <AD07> { [ g,                G,             ssharp,           EuroSign       ] };
     key <AD08> { [ c,                C,             dead_cedilla,     U0327          ] };
     key <AD09> { [ r,                R,             dead_ogonek,      U0328          ] };
@@ -44,27 +44,27 @@ xkb_symbols "alpha" {
     key <AC04> { [ u,	             U,             egrave,           Egrave         ] };
     key <AC05> { [ i,	             I,             ccedilla,         Ccedilla       ] };
     key <AC06> { [ d,	             D,             omacron,          Omacron        ] };
-    key <AC07> { [ h,	             H,             odiaeresis,       Odiaeresis     ] };
-    key <AC08> { [ t,	             T,             ediaeresis,       Ediaeresis     ] };
-    key <AC09> { [ n,	             N,             udiaeresis,       Udiaeresis     ] };
-    key <AC10> { [ s,	             S,             idiaeresis,       Idiaeresis     ] };
+    key <AC07> { [ h,	             H,             copyright,        trademark      ] };
+    key <AC08> { [ t,	             T,             uparrow,          guillemotleft  ] };
+    key <AC09> { [ n,	             N,             downarrow,        guillemotright ] };
+    key <AC10> { [ s,	             S,             U2713,            U2717          ] }; // Check mark, Ballot x
     key <AC11> { [ minus,            underscore,    oe,               OE             ] };
     key <BKSL> { [ backslash,        bar,           endash,           emdash         ] };
 
-    key <AB01> { [ semicolon,	     colon,         acircumflex,      Acircumflex    ] };
-    key <AB02> { [ q,	             Q,             ocircumflex,      Ocircumflex    ] };
-    key <AB03> { [ j,	             J,             ecircumflex,      Ecircumflex    ] };
-    key <AB04> { [ k,	             K,             ucircumflex,      Ucircumflex    ] };
-    key <AB05> { [ x,	             X,             icircumflex,      Icircumflex    ] };
-    key <AB06> { [ b,	             B,             uparrow,          copyright    ] };
-    key <AB07> { [ m,	             M,             downarrow,        mu    ] };
-    key <AB08> { [ w,	             W,             leftarrow,        guillemotleft  ] };
-    key <AB09> { [ v,	             V,             rightarrow,       guillemotright ] };
+    key <AB01> { [ semicolon,	     colon,         U2780,            U278A          ] }; // Circled 1
+    key <AB02> { [ q,	             Q,             U2781,            U278B          ] }; // Circled 2
+    key <AB03> { [ j,	             J,             U2782,            U278C          ] }; // Circled 3
+    key <AB04> { [ k,	             K,             U2783,            U278D          ] }; // Circled 4
+    key <AB05> { [ x,	             X,             U2784,            U278E          ] }; // Circled 4
+    key <AB06> { [ b,	             B,             U2785,            U278F          ] }; // Circled 5
+    key <AB07> { [ m,	             M,             U2194,            U21D4          ] }; // Left right arrow, Left right double arrow
+    key <AB08> { [ w,	             W,             leftarrow,        U21D0          ] }; // Leftwards double arrow
+    key <AB09> { [ v,	             V,             rightarrow,       U21D2          ] }; // Rightwards double arrow
     key <AB10> { [ z,	             Z,             ae,               AE             ] };
     key <AB11> { [ question,         exclam,        questiondown,     exclamdown     ] };
 
     // TODO : what to do with this ?
-    key <LSGT> { [ less,             greater,       bar,              brokenbar ] };
+    key <LSGT> { [ less,             greater,       bar,              brokenbar      ] };
 };
 
 partial hidden alphanumeric_keys
@@ -72,15 +72,15 @@ xkb_symbols "special" {
     key <ESC>  { [ Escape            ] };
 
     // TODO : define something for AltGr+TLDE
-    key <TLDE> { [ grave,            asciitilde       ] };
+    key <TLDE> { [ grave,            asciitilde,    U2022,            U1F600         ] }; // Bullet, smiley
     // TODO : have some real use for AltGr+Tab
-    key <TAB>  { [ Tab,              ISO_Left_Tab     ] };
+    key <TAB>  { [ Tab,              ISO_Left_Tab,  U2B7E,            U27FA          ] }; // Tab arrows, double reciprocal arrows
 
 // Turn Caps into another AltGr
 //    key <CAPS> { [ ISO_Level3_Shift, ISO_Level3_Shift ] };
 
     // U3000 = double width space ; U2588 = full block
-    key <SPCE> { [ space,            space,      nobreakspace,     U2588          ] };
+    key <SPCE> { [ space,            space,      nobreakspace,        U2588          ] };
     key <RTRN> { [ Return            ]  };
 };
 
