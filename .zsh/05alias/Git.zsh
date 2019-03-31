@@ -23,4 +23,8 @@ c()
 {
   git cherry-pick $@
 }
+br()
+{
+  git branch --color | cat
+}
 

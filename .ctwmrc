@@ -3,6 +3,7 @@
 # Behaviour
 #
 
+AutoFocusToTransients
 IgnoreLockModifier
 RandomPlacement "on"
 NoRaiseOnResize
@@ -83,10 +84,6 @@ WorkSpaces
 	"Six"		{ "blue" "black" }
 	"Seven"		{ "blue" "black" }
 	"Eight"		{ "blue" "black" }
-	"Nine"		{ "blue" "black" }
-	"Ten"		{ "blue" "black" }
-	"Eleven"	{ "blue" "black" }
-	"Twelve"	{ "blue" "black" }
 }
 WMgrButtonShadowDepth 0
 WMgrHorizButtonIndent 1
@@ -247,6 +244,9 @@ NoBorder
 	"konqueror*"
 	"Skype*"
 	"Kopete"
+        "google-chrome"
+        "jetbrains-idea-ce"
+        "jetbrains-studio"
 }
 OccupyAll
 {
@@ -274,9 +274,6 @@ WindowRing
 	"XChat*"
 	"Untitled*"
 	"KDE*"
-	"FINAL*"
-	"PlayOnline*"
-	"Sim*"
 	"MPlayer"
 	"Kopete"
 	"Skype"
@@ -300,6 +297,9 @@ function "fill-bl"		{ f.fill "bottom" f.fill "left" }
 function "fill-br"		{ f.fill "bottom" f.fill "right" }
 function "fill-horizontal"	{ f.fill "left" f.fill "right" }
 function "fill-vertical"	{ f.fill "up" f.fill "down" }
+function "move-to-prev-ws"      { f.movetoprevworkspace f.prevworkspace }
+function "move-to-next-ws"      { f.movetonextworkspace f.nextworkspace }
+function "xterm"                { f.exec "rxvt &" f.warpring next }
 
 #
 # Key Bindings
@@ -307,23 +307,23 @@ function "fill-vertical"	{ f.fill "up" f.fill "down" }
 
 Button1 =	: root		: f.menu "start"
 Button1 = m2	: root		: f.menu "start"
-Button1 = s	: root		: f.menu "games"
-Button1 = s|m2	: root		: f.menu "games"
 Button3 = 	: root		: f.menu "Space"
 Button3 = m2	: root		: f.menu "Space"
 Button3 = s	: root		: f.menu "Else"
 Button3 = s|m2	: root		: f.menu "Else"
 
 ##<<<
-Button3 =	: window	: f.function "force-raise-move"
+Button1 = m4	: window	: f.function "force-raise-move"
+Button1 = m4|m2	: window	: f.function "force-raise-move"
+Button3 =       : window	: f.function "force-raise-move"
 Button3 = m2	: window	: f.function "force-raise-move"
 Button3 = m4|m5	  	: window: f.function "force-raise-move"
 Button3 = m4|m2|m5	: window: f.function "force-raise-move"
 
 Button3 = c	: window	: f.function "lower-move"
 Button3 = c|m2	: window	: f.function "lower-move"
-Button3 = s	: window	: f.resize
-Button3 = s|m2	: window	: f.resize
+Button3 = m4	: window	: f.resize
+Button3 = m4|m2	: window	: f.resize
 ##>>>
 
 Button1 =	: frame		: f.resize
@@ -347,18 +347,10 @@ Menu "start"
 {
 	"Xterm"		!"/home/j/.conf/randaterm &"
 	"Emacs"		!"emacs &"
-	"Konqueror"	!"konqueror &"
-	"Firefox"	!"firefox &"
-        "Gimp"          !"gimp &"
-	"IM clients"	!"skype & kopete &"
-}
-
-Menu "games"
-{
-	"Warcraft III"	!"wine c:\\\\Program\\ Files\\\\Warcraft\\ III\\\\Frozen\\ Throne.exe -opengl &"
-	"Sim City 4"	!"wine c:\\\\Program\\ Files\\\\SimCity\\ 4\\\\Apps\\\\SimCity\\\ 4.exe -intro:off -window &"
-	"FFXI"	  	!"LC_ALL=ja_JP.UTF-8 LANG=ja_JP.UTF-8 wine c:\\\\Program\\ Files\\\\PlayOnlineJP\\\\SQUARE\\\\PlayOnlineViewer\\\\pol.exe &"
-	"FFXI anglais"	!"wine c:\\\\Program\\ Files\\\\PlayOnline\\\\SquareEnix\\\\PlayOnlineViewer\\\\pol.exe -opengl &"
+        "Chrome"        !"google-chrome &"
+        "Krita"         !"krita &"
+        "AStudio"       !"/opt/android-studio-3.5/bin/studio.sh &"
+        "IntelliJ"      !"/opt/intellij-ce-stable/bin/idea.sh &"
 }
 
 Menu "Space"
@@ -376,7 +368,7 @@ Menu "Space"
 
 Menu "Else"
 {
-	"Edit conf"	!"emacs ~/.ctwmrc &"
+	"Edit conf"	!"emacs ~/perso/conf/.ctwmrc &"
 	"Identify"	f.identify
 	"Restart"	f.restart
 }
@@ -385,22 +377,24 @@ Menu "Else"
 #Keyboard Shortcut
 
 # Change workspace
-	"Up"	= m4		:all:	f.prevworkspace
-	"Down"	= m4		:all:	f.nextworkspace
-	"Left"	= m4		:all:	f.prevworkspace
-	"Right"	= m4		:all:	f.nextworkspace
-	"Up"	= m4|m5		:all:	f.prevworkspace
-	"Down"	= m4|m5		:all:	f.nextworkspace
-	"Left"	= m4|m5		:all:	f.prevworkspace
-	"Right"	= m4|m5		:all:	f.nextworkspace
-	"Up"	= m4|m2		:all:	f.prevworkspace
-	"Left"	= m4|m2		:all:	f.prevworkspace
-	"Right"	= m4|m2		:all:	f.nextworkspace
-	"Down"	= m4|m2		:all:	f.nextworkspace
-	"Up"	= m4|m2|m5	:all:	f.prevworkspace
-	"Left"	= m4|m2|m5	:all:	f.prevworkspace
-	"Right"	= m4|m2|m5	:all:	f.nextworkspace
-	"Down"	= m4|m2|m5	:all:	f.nextworkspace
+	"XF86Back"	= 		:all:	f.prevworkspace
+	"XF86Forward"	= 		:all:	f.nextworkspace
+	"Up"	        = m4		:all:	f.prevworkspace
+	"Down"		= m4		:all:	f.nextworkspace
+	"Left"		= m4		:all:	f.prevworkspace
+	"Right"		= m4		:all:	f.nextworkspace
+	"Up"		= m4|m5		:all:	f.prevworkspace
+	"Down"		= m4|m5		:all:	f.nextworkspace
+	"Left"		= m4|m5		:all:	f.prevworkspace
+	"Right"		= m4|m5		:all:	f.nextworkspace
+	"Up"		= m4|m2		:all:	f.prevworkspace
+	"Left"		= m4|m2		:all:	f.prevworkspace
+	"Right"		= m4|m2		:all:	f.nextworkspace
+	"Down"		= m4|m2		:all:	f.nextworkspace
+	"Up"		= m4|m2|m5	:all:	f.prevworkspace
+	"Left"		= m4|m2|m5	:all:	f.prevworkspace
+	"Right"		= m4|m2|m5	:all:	f.nextworkspace
+	"Down"		= m4|m2|m5	:all:	f.nextworkspace
 
 # Move and resize window via keyboard
 
@@ -492,8 +486,8 @@ Menu "Else"
 	"Escape"= c|m4|m5	:all:	f.toggleworkspacemgr
 	"Escape"= c|m4|m2|m5	:all:	f.toggleworkspacemgr
 
-	"Escape"= m4|c|m|s	:window:f.occupyall
-	"Escape"= m4|c|m|s|m2	:window:f.occupyall
+	"XF86Back"= m4	        :window:f.function "move-to-prev-ws"
+	"XF86Forward"= m4	:window:f.function "move-to-next-ws"
 
 	"1"	= m4		:all:	f.toggleoccupation "One"
 	"1"	= m4|m2		:all:	f.toggleoccupation "One"
@@ -518,14 +512,12 @@ Menu "Else"
 
 # Commands
 
-        "F1"	= 		:all:	!"rxvt &"
-	"F1"	= c		:all:	!"rxvt &"
-	"F1"	= c|m2		:all:	!"rxvt &"
-	"F1"	= m2		:all:	!"rxvt &"
+        "F1"	= 		:all:	f.function "xterm"
+	"F1"	= c		:all:	f.function "xterm"
+	"F1"	= c|m2		:all:	f.function "xterm"
+	"F1"	= m2		:all:	f.function "xterm"
 	"F2"	= c		:all:	f.exec "sh -c 'bg=$(ra /backgrounds/*); dcop kdesktop KBackgroundIface setWallpaper $bg 4; xv -root -quit -maxpect -rmode 5 $bg'"
 	"F2"	= c|m2		:all:	f.exec "sh -c 'bg=$(ra /backgrounds/*); dcop kdesktop KBackgroundIface setWallpaper $bg 4; xv -root -quit -maxpect -rmode 5 $bg'"
-	"F12"	= m4		:all:   f.exec "sh -c 'ps auxww | grep nsplugin | tr -s \\  | cut -f 2 -d \\  | xargs kill -9'"
-	"F12"	= m4|m2		:all:   f.exec "sh -c 'ps auxww | grep nsplugin | tr -s \\  | cut -f 2 -d \\  | xargs kill -9'"
 
 	"F10"	=		:window:f.fullzoom
 	"F10"	= m2		:window:f.fullzoom
@@ -535,10 +527,3 @@ Menu "Else"
 	"F10"	= m|m2		:window:f.horizoom
 	"F10"	= c		:window:f.iconify
 	"F10"	= c|m2		:window:f.iconify
-
-	"F11"	=		:all:   f.exec "setxkbmap dvorak; xmodmap /home/j/.xmodmap"
-	"F11"	= s		:all:	f.exec "setxkbmap fr"
-	"F11"	= s|c		:all:	f.exec "setxkbmap us"
-	"F11"	= m2		:all:   f.exec "setxkbmap dvorak; xmodmap /home/j/.xmodmap"
-	"F11"	= s|m2		:all:	f.exec "setxkbmap fr"
-	"F11"	= s|c|m2	:all:	f.exec "setxkbmap us"

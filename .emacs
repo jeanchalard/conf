@@ -49,6 +49,11 @@ of an error, just add the package to a list of missing packages."
 ; ;; scala mode hooks
 ; (add-hook 'scala-mode-hook 'scala-turnoff-indent-tabs-mode)
 
+(add-hook 'java-mode-hook
+          (lambda ()
+            (c-set-offset 'arglist-intro '++)
+            (c-set-offset 'arglist-cont '++)
+            (c-set-offset 'arglist-cont-nonempty '++)))
 
 ;;;
 ; Sanity
@@ -143,27 +148,28 @@ News' signature compliant."
 
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(browse-url-browser-function (quote browse-url-kde))
  '(browse-url-galeon-program "konqueror")
  '(browse-url-mosaic-program "konqueror")
  '(browse-url-mozilla-program "konqueror")
  '(browse-url-netscape-program "konqueror")
+ '(fill-column 98)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
- '(partial-completion-mode t nil (complete))
+ '(partial-completion-mode t)
  '(show-trailing-whitespace t)
  '(track-eol t)
  '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify)))
 
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(font-lock-comment-face ((((class color) (background dark)) (:foreground "grey"))))
  '(trailing-whitespace ((((class color) (background dark)) (:background "darkgreen")))))
 
@@ -198,3 +204,11 @@ News' signature compliant."
   (interactive)
   (iswitchb-make-buflist iswitchb-default)
   (setq iswitchb-rescan t))
+
+;; Backups into a separate directory
+(add-to-list 'backup-directory-alist '("." . "~/.saves") :append)
+(customize-set-variable 'backup-by-copying t)
+(customize-set-variable 'delete-old-versions t)
+(customize-set-variable 'kept-new-versions 6)
+(customize-set-variable 'kept-old-versions 2)
+(customize-set-variable 'version-control t)

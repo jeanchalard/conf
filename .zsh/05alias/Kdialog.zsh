@@ -12,7 +12,8 @@ popup() {
   kdialog --title $title --passivepopup $msg $timeout
 }
 statuspopup() {
-   if [[ 0 = $? ]]
+  res=$?
+  if [[ 0 = $res ]]
   then
     title=${1-Status}
     popup $title Success
@@ -20,4 +21,5 @@ statuspopup() {
     title=${1-Status}
     popup $title Failure
   fi
+  return $res
 }
