@@ -51,12 +51,12 @@ xkb_symbols "alpha" {
     key <AC11> { [ minus,            underscore,    oe,               OE             ] };
     key <BKSL> { [ backslash,        bar,           endash,           emdash         ] };
 
-    key <AB01> { [ semicolon,	     colon,         U2780,            U278A          ] }; // Circled 1
-    key <AB02> { [ q,	             Q,             U2781,            U278B          ] }; // Circled 2
-    key <AB03> { [ j,	             J,             U2782,            U278C          ] }; // Circled 3
-    key <AB04> { [ k,	             K,             U2783,            U278D          ] }; // Circled 4
-    key <AB05> { [ x,	             X,             U2784,            U278E          ] }; // Circled 4
-    key <AB06> { [ b,	             B,             U2785,            U278F          ] }; // Circled 5
+    key <AB01> { [ semicolon,	     colon,         U2460,            U2776          ] }; // Circled 1
+    key <AB02> { [ q,	             Q,             U2461,            U2777          ] }; // Circled 2
+    key <AB03> { [ j,	             J,             U2462,            U2778          ] }; // Circled 3
+    key <AB04> { [ k,	             K,             U2463,            U2779          ] }; // Circled 4
+    key <AB05> { [ x,	             X,             U2464,            U277A          ] }; // Circled 5
+    key <AB06> { [ b,	             B,             U2465,            U277B          ] }; // Circled 6
     key <AB07> { [ m,	             M,             U2194,            U21D4          ] }; // Left right arrow, Left right double arrow
     key <AB08> { [ w,	             W,             leftarrow,        U21D0          ] }; // Leftwards double arrow
     key <AB09> { [ v,	             V,             rightarrow,       U21D2          ] }; // Rightwards double arrow
