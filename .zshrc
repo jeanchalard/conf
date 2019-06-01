@@ -131,6 +131,7 @@ bindkey "" history-incremental-pattern-search-backward
 bindkey "" history-incremental-pattern-search-forward
 bindkey "" copy-prev-shell-word # Ctrl-O
 bindkey "®" insert-last-word # Alt-.
+bindkey "m" menu-select
 bindkey "
 " accept-and-infer-next-history
 # Autoload, define the user widget and bind incremental-... on TAB.
@@ -222,6 +223,11 @@ setopt equals
 
 # Assume  '#', '~' and '^' as part of patterns for filename generation
 setopt extended_glob
+# Interpret **.c as **/*.c
+setopt glob_star_short
+# **.c means **/*.c
+setopt glob_star_short
+
 # Note the location of each command
 setopt hash_cmds
 # Whenever a command name is hashed, hash the directory containing it
@@ -231,9 +237,13 @@ setopt hash_dirs
 setopt hist_ignore_all_dups
 # Write history in incremental append mode
 setopt inc_append_history
+# Don't put in history stuff that starts with a space
+setopt hist_ignore_space
 
 # Expand whatever is after = with glob
 setopt magic_equal_subst
+setopt multibyte
+
 setopt no_bg_nice
 
 setopt numeric_globsort
@@ -246,6 +256,7 @@ setopt no_pushd_to_home
 setopt auto_pushd
 # Ignore duplicate directory stack entries
 setopt pushd_ignore_dups
+PROMPT='%{[01m[34m%}%n%{[0m%}@%{[34m%}%m%{[0m%} %{[01m%}%{[3%0(?,%(!,1,3),4)m%}%35<...<%~%{[0m%} %0(?,^_^,%{[31m%}%1(?,>_<,%139(?,^_^;,%130(?,>_<,%135(?,^_^;,>_<)))))%{[0m%} %{[0m%}'
 PROMPT='%{[01m%}%{[3%0(?,%(!,1,3),4)m%}%35<...<%~%{[0m%} %0(?,^_^,%{[31m%}%1(?,>_<,%139(?,^_^;,%130(?,>_<,%135(?,^_^;,>_<)))))%{[0m%} %{[0m%}'
 RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(?,Bus Error,%141(?,Broken pipe,Err %?))))%{[0m%} )%B%T%b'
 
@@ -257,17 +268,6 @@ RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(
 export PATH=$PATH:${HOME}/android/sdk/platform-tools
 export EDITOR=emacs
 
-alias e='ssh -p 42 chalar_j@ssh.epita.fr'
-eget () {
-        total=""
-        while [ -n "$1" ]
-        do
-                total="$total chalar_j@ssh.epita.fr:$1"
-                shift
-        done
-        total="$total ." 
-        scp -P 42 `echo $total`
-}
 # History configuration
 HISTSIZE=20000
 HISTFILE=~/.zshhistory
@@ -276,6 +276,7 @@ export HISTSIZE
 export SAVEHIST
 export WWW_HOME='www.google.com'
 export LS_COLORS='ow=34;04:di=37:ln=01;37:pi=40;33:so=01;34:bd=40;33;01:cd=40;33;01:or=40;31;01:*.tar=33:*.tgz=33:*.arj=33:*.zip=33:*.gz=33:*.bz2=33:*.jpg=35:*.gif=35:*.bmp=35:*.pgm=35:*.pbm=35:*.ppm=35:*.tga=35:*.png=35:*.GIF=35:*.JPG=35:*.xbm=35:*.xpm=35:*.tif=35:*.mpg=01;35:*.avi=01;35'
+
 set-status() { return $1; }
 
 zle-xterm-mouse() {
@@ -431,7 +432,6 @@ zle -N zle-toggle-mouse
 bindkey ';' zle-toggle-mouse
 
 ZLE_USE_MOUSE=
-export PATH=${HOME}/perso/bin:${PATH}
 # My reader
 export READNULLCMD=less
 export TERM=xterm
@@ -450,6 +450,11 @@ bindkey -M zed "\e[B" down-line-or-history
 bindkey -M zed "OA" up-line-or-history
 bindkey -M zed "OB" down-line-or-history
 export ZLS_COLORS='ow=34;04:di=37:ln=01;37:pi=40;33:so=01;34:bd=40;33;01:cd=40;33;01:or=40;31;01:*.tar=33:*.tgz=33:*.arj=33:*.zip=33:*.gz=33:*.bz2=33:*.jpg=35:*.gif=35:*.bmp=35:*.pgm=35:*.pbm=35:*.ppm=35:*.tga=35:*.png=35:*.GIF=35:*.JPG=35:*.xbm=35:*.xpm=35:*.tif=35:*.mpg=01;35:*.avi=01;35'
+function forrest()
+{
+  /google/data/ro/teams/android-test/tools/forrest
+}
+
 alias cal='ncal -M -b'
 alias 'cd..'='builtin cd ..'
 alias -- '-'='cd -'
@@ -467,8 +472,8 @@ cd () {
                 fi
         fi
 }
-alias clean="find . \( -name '*~' -o -name '.*~' -o -name '#*\#' -o -name 'a.out' \) -print -exec rm -f {} \;"
-alias cleanall="find ~ \( -name '*~' -o -name '.*~' -o -name '#*\#' -o -name 'a.out' \) -print -exec rm -f {} \;"
+alias clean="rm -f **/*\~(N) **/.*\~(N) **/\#*\#(N) **/a.out(N) **/.\#*(N)"
+# "find . \( -name '*~' -o -name '.*~' -o -name '#*\#' -o -name 'a.out' \) -print -exec rm -f {} \;"
 typeset -A COLORNAMES
 COLORNAMES=(red 31 green 32 yellow 33 blue 34 magenta 35 cyan 36 cream 37 none 0 white 39 bold 1)
 export COLORNAMES
@@ -508,6 +513,19 @@ colorize()
 }
 alias cp=cp -i --reply=query
 
+e() {
+  args=$@
+  if [[ $#args == 0 ]]; then emacs; return; fi
+  # Remove : and :\d+: at the end of the filenames so as to easily
+  # copy paste the output of grep
+  for i in {1..$#args}
+  do
+    args[$i]=${args[i]%:*(<0-9>):}
+    args[$i]=${args[i]%:}
+  done
+  emacs ${=args}
+}
+
 alias commit='git commit -a'
 alias push='git push origin master'
 log()
@@ -533,9 +551,16 @@ c()
 {
   git cherry-pick $@
 }
+br()
+{
+  git branch --color | cat
+}
 
-alias e='iconv -f EUC-JISX0213 -t utf-8'
-alias s='iconv -f SHIFT_JISX0213 -t utf-8'
+alias -g nondir='**/*(-\^/)'
+alias -g allsrc='**/*.{h,m,mm,c,cc}(N)'
+
+alias grep='grep --color'
+
 alias irb='irb --readline -r irb/completion'
 alias kb='xkbcomp -I${HOME}/.xkb ~/.xkb/j.xkb $DISPLAY'
 popup() {
@@ -551,7 +576,8 @@ popup() {
   kdialog --title $title --passivepopup $msg $timeout
 }
 statuspopup() {
-   if [[ 0 = $? ]]
+  res=$?
+  if [[ 0 = $res ]]
   then
     title=${1-Status}
     popup $title Success
@@ -559,6 +585,7 @@ statuspopup() {
     title=${1-Status}
     popup $title Failure
   fi
+  return $res
 }
 alias less='less -ir'
 if [[ `ls --color >& /dev/null ; print $?` == 0 ]]
@@ -711,6 +738,10 @@ function pprint() {
 
    return 0
 }
+function put()
+{
+    rsync -r --links --bwlimit=2000 --partial --progress --rsh=ssh $1 192.168.0.2:$2
+}
 alias randomize="ruby -e 'a = ARGV; while not a.empty? do i = rand * a.size; puts a[i]; a -= [a[i]] end'"
 alias rm=rm -i
 
@@ -736,8 +767,7 @@ exec-rb () {
 # Use the function instead of python for .py files.
 alias -s rb=exec-rb
 alias screen='screen -e  -xR '
-alias ssu='sudo ZDOTDIR=$HOME HOME=/root zsh'
-alias su='sudo -E sudo -E -s -u'
+alias ssu='su -'
 wcp()
 {
     dest=$@[-1]
