@@ -90,6 +90,8 @@ Rxvt.keysym.End:	       \033[8~
 Rxvt.keysym.Home:	       \033[7~
 URxvt.depth:                   32
 URxvt.background:              [85]black
+URxvt.scrollTtyOutput:         off
+URxvt.scrollWithBuffer:        on
 
 /* xbitmap */
 xbitmap.Background:  		forest green
