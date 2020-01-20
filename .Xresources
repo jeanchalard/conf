@@ -92,6 +92,7 @@ URxvt.depth:                   32
 URxvt.background:              [85]black
 URxvt.scrollTtyOutput:         off
 URxvt.scrollWithBuffer:        on
+URxvt.scrollTtyKeypress:       on
 
 /* xbitmap */
 xbitmap.Background:  		forest green
