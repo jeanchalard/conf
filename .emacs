@@ -105,7 +105,7 @@ of an error, just add the package to a list of missing packages."
 (autoload 'run-ruby "inf-ruby" "Run an inferior Ruby process")
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 (add-hook 'ruby-mode-hook '(lambda () (inf-ruby-keys)))
-
+(setq ruby-insert-encoding-magic-comment nil)
 
 ;;;
 ; My functions
@@ -173,6 +173,10 @@ News' signature compliant."
  '(font-lock-comment-face ((((class color) (background dark)) (:foreground "grey"))))
  '(trailing-whitespace ((((class color) (background dark)) (:background "darkgreen")))))
 
+; Don't remove trailing whitespace on inserting new line
+(defun turnoff-electric-indent-mode () (setq electric-indent-mode nil))
+(add-hook 'text-mode-hook 'turnoff-electric-indent-mode)
+(turnoff-electric-indent-mode)
 
 ; The following works with emacs 23+, not with emacs 22
 (setq split-height-threshold nil)
