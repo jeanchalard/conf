@@ -159,8 +159,6 @@ compinit -C .zcompdump
 # Enumerate user dirs so that they are replaced by the prompt even if
 # they are not directly named
 : $userdirs
-export LESS='--RAW-CONTROL-CHARS --tabs=8'
-eval `lesspipe`
 bindkey '^Xx' all-matches
 zstyle ':completion:all-matches::::' completer _all_matches _complete
 zstyle ':completion:all-matches:*' old-matches true

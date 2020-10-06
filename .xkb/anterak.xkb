@@ -2,6 +2,6 @@ xkb_keymap {
 	xkb_keycodes  { include "evdev+aliases(qwerty)" };
 	xkb_types     { include "complete" };
 	xkb_compat    { include "complete" };
-	xkb_symbols   { include "pc+anterak+inet(evdev)+anterak(fix_inet)" };
+	xkb_symbols   { include "pc+anterak" };
 	xkb_geometry  { include "pc(jp106)" };
 };

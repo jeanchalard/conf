@@ -268,15 +268,9 @@ xkb_symbols "inet" {
 
 partial hidden alphanumeric_keys
 xkb_symbols "editing" {
-    key <PRSC> {
-      type= "PC_ALT_LEVEL2",
-      symbols[Group1] = [ Print, Sys_Req ]
-    };
-    key <SCLK> { [ Scroll_Lock ] };
-    key <PAUS> {
-      type = "PC_CONTROL_LEVEL2",
-      symbols[Group1] = [ Pause, Break ]
-    };
+    key <PRSC> { [ XF86Copy ] };
+    key <SCLK> { [ XF86Cut ] };
+    key <PAUS> { [ XF86Paste ] };
     key  <INS> { [ Insert ] };
     key <HOME> { [ Home ] };
     key <PGUP> { [ Prior ] };
