@@ -254,7 +254,6 @@ setopt no_pushd_to_home
 setopt auto_pushd
 # Ignore duplicate directory stack entries
 setopt pushd_ignore_dups
-PROMPT='%{[01m[34m%}%n%{[0m%}@%{[34m%}%m%{[0m%} %{[01m%}%{[3%0(?,%(!,1,3),4)m%}%35<...<%~%{[0m%} %0(?,^_^,%{[31m%}%1(?,>_<,%139(?,^_^;,%130(?,>_<,%135(?,^_^;,>_<)))))%{[0m%} %{[0m%}'
 PROMPT='%{[01m%}%{[3%0(?,%(!,1,3),4)m%}%35<...<%~%{[0m%} %0(?,^_^,%{[31m%}%1(?,>_<,%139(?,^_^;,%130(?,>_<,%135(?,^_^;,>_<)))))%{[0m%} %{[0m%}'
 RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(?,Bus Error,%141(?,Broken pipe,Err %?))))%{[0m%} )%B%T%b'
 
@@ -765,6 +764,7 @@ exec-rb () {
 # Use the function instead of python for .py files.
 alias -s rb=exec-rb
 alias screen='screen -e  -xR '
+alias showcursor='echo "[?25h"'
 alias ssu='su -'
 wcp()
 {
