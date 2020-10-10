@@ -6,7 +6,7 @@ function b()
 }
 function up()
 {
-  repo upload --cbr
+  repo upload --cbr .
 }
 function sync()
 {
@@ -19,31 +19,37 @@ function sc() {
   adb pull /sdcard/${img} .
   adb shell rm /sdcard/${img}
 }
-hash -d net=~/a/master/frameworks/base/core/java/android/net
+hash -d fb=~/a/aosp/frameworks/base
+hash -d fln=~/a/aosp/frameworks/libs/net
+hash -d ns=~/a/aosp/packages/modules/NetworkStack
+hash -d wifi=~/a/master/opt/net/wifi
+hash -d cs=~/a/aosp/frameworks/base/services/core/java/com/android/server
 hash -d n=~/a/master/vendor/google/tools/NetGrapher
-hash -d a=~/a
+hash -d aosp=~/a/aosp
+hash -d master=~/a/master
 function al()
 {
   adb logcat | grep -v 'vendor.qti\|ActivityManager\|Bluetooth\|bt_\|Obex\|ActivityThread\|a2dp\|A2dp\|Adapter\|libprocessgroup\|providers.contact\|ServiceManagement\|Contacts\|Avrcp\|Hearing\|MediaSession\|ContactLocale\|Headset\|BttOpp\|OMX\|StrictMode\|android.emai\|tombstoned\|LoadedApk\|dumpstate\|SurfaceFlinger\|hardware.health\|phone expire'
 }
 
-function cp()
+# Cherry-pick from another local repo.
+function cpm()
 {
-    branch=shift
-    repo=shift
-
-    current=$(pwd)
-    if [[ current == "*/aosp/*" ]]; then
-        repo=${current/aosp/${repo-master}}
-    elif [[ current == "*/master/*" ]]; then
-        source=${current/master/${repo-aosp}}
-    else
-        print "Can't find current"
-        return
+    if [[ $1 == "" ]]; then
+      print "Usage: $0 <dir>"
+      return
     fi
+    set -x
+    current=$(readlink -f $(pwd))
+    source=/mnt/ssd/$1/${current#/mnt/ssd/*/}
 
+    cd $source
+    destBranch=$(git branch --show-current)
+    cd $current
 
-    print repo start $branch
-    print git fetch $source $branch
-    print git cherry-pick FETCH_HEAD
+    print "git fetch $source $branch"
+    git fetch $source $branch
+    print "git cherry-pick -x FETCH_HEAD"
+    git cherry-pick -x FETCH_HEAD
+    set +x
 }
