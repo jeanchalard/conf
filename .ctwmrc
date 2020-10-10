@@ -299,7 +299,7 @@ function "fill-horizontal"	{ f.fill "left" f.fill "right" }
 function "fill-vertical"	{ f.fill "up" f.fill "down" }
 function "move-to-prev-ws"      { f.movetoprevworkspace f.prevworkspace }
 function "move-to-next-ws"      { f.movetonextworkspace f.nextworkspace }
-function "xterm"                { f.exec "rxvt &" f.warpring next }
+function "xterm"                { f.exec "urxvt &" f.warpring next }
 
 #
 # Key Bindings
@@ -316,7 +316,7 @@ Button3 = s|m2	: root		: f.menu "Else"
 Button1 = m4	: window	: f.function "force-raise-move"
 Button1 = m4|m2	: window	: f.function "force-raise-move"
 Button3 =       : window	: f.function "force-raise-move"
-Button3 = m2	: window	: f.function "force-raise-move"
+# Button3 = m2	: window	: f.function "force-raise-move"
 Button3 = m4|m5	  	: window: f.function "force-raise-move"
 Button3 = m4|m2|m5	: window: f.function "force-raise-move"
 
@@ -345,7 +345,7 @@ UseThreeDMenus
 
 Menu "start"
 {
-	"Xterm"		!"/home/j/.conf/randaterm &"
+	"Xterm"		!"urxvt &"
 	"Emacs"		!"emacs &"
         "Chrome"        !"google-chrome &"
         "Krita"         !"krita &"
