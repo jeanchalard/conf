@@ -4,6 +4,10 @@ log()
 {
   git log --oneline --decorate $@
 }
+logv()
+{
+  git log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --stat
+}
 alias amend='git commit --amend -a'
 alias aamend='EDITOR=true git commit --amend -a'
 rbi()
@@ -25,6 +29,5 @@ c()
 }
 br()
 {
-  git branch --color | cat
+  git branch --color -v | cat
 }
-

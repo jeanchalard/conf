@@ -1,4 +1,4 @@
-#CONF static [[ $HOST = *.corp.google.com ]]
+#CONF static [[ $HOST = *.corp.google.com || $HOST = *.googlers.com ]]
 function b()
 {
   setopt local_options sh_word_split
