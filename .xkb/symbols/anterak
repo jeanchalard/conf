@@ -47,8 +47,8 @@ xkb_symbols "alpha" {
     key <AC07> { [ h,	             H,             copyright,        trademark      ] };
     key <AC08> { [ t,	             T,             uparrow,          guillemotleft  ] };
     key <AC09> { [ n,	             N,             downarrow,        guillemotright ] };
-    key <AC10> { [ s,	             S,             U2713,            U2717          ] }; // Check mark, Ballot x
-    key <AC11> { [ minus,            underscore,    oe,               OE             ] };
+    key <AC10> { [ s,	             S,             oe,               OE             ] };
+    key <AC11> { [ minus,            underscore,    U2713,            U2717          ] }; // Check mark, Ballot x
     key <BKSL> { [ backslash,        bar,           endash,           emdash         ] };
 
     key <AB01> { [ semicolon,	     colon,         onesuperior,      onehalf        ] };
