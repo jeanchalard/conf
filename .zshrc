@@ -529,6 +529,10 @@ log()
 {
   git log --oneline --decorate $@
 }
+logv()
+{
+  git log --pretty=format:"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]" --decorate --stat
+}
 alias amend='git commit --amend -a'
 alias aamend='EDITOR=true git commit --amend -a'
 rbi()
@@ -550,9 +554,8 @@ c()
 }
 br()
 {
-  git branch --color | cat
+  git branch --color -v | cat
 }
-
 alias -g nondir='**/*(-\^/)'
 alias -g allsrc='**/*.{h,m,mm,c,cc}(N)'
 
@@ -560,6 +563,15 @@ alias grep='grep --color'
 
 alias irb='irb --readline -r irb/completion'
 alias kb='xkbcomp -I${HOME}/.xkb ~/.xkb/j.xkb $DISPLAY'
+function kdeenv {
+  export PATH="$PATH:$HOME/kde/src/kdesrc-build"
+  function kdesrc-run
+  {
+    source "$HOME/kde/build/$1/prefix.sh" && "$HOME/kde/usr/bin/$@"
+  }
+}
+
+
 popup() {
   timeout=${3-5}
   if [[ $2 != "" ]]
