@@ -22,7 +22,7 @@ function sc() {
 hash -d fb=~/a/aosp/frameworks/base
 hash -d fln=~/a/aosp/frameworks/libs/net
 hash -d ns=~/a/aosp/packages/modules/NetworkStack
-hash -d wifi=~/a/master/opt/net/wifi
+hash -d wifi=~/a/aosp/packages/modules/Wifi
 hash -d cs=~/a/aosp/frameworks/base/services/core/java/com/android/server
 hash -d n=~/a/master/vendor/google/tools/NetGrapher
 hash -d aosp=~/a/aosp
