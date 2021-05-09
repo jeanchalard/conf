@@ -1,7 +1,4 @@
-#
 # Bindkey setup
-#
-
 bindkey "[A" history-beginning-search-backward	# Up arrow
 bindkey "OA" history-beginning-search-backward	# Up arrow
 bindkey "[B" history-beginning-search-forward	# Down arrow

@@ -1,2 +1,0 @@
-#CONF static [[ $HOST == burst || $HOST == logi || "$HOST" == *.wni.co.jp ]]
-zstyle ':*:hosts' mwsdev{2,1} mwsjpgen2{1,2,3,4,5,6,7,8} 172.16.59.167 172.16.59.157 icdn102 mws{10..16} mws{20..26} mws{100..106} mws{300..310} motionsv01 mjp100 mdb{292,293} commgen02 mdbma{20,21} mwsjpch{22,23} mobdevi mdb{390,391} toko{0,1} mysolfeeddb{00,01} jockey30 krmobile00 mlp{1,2} inetdev mas{20,21} eu{40,41} miserugm{0,1} mwsggen{20,21} wolfgen01

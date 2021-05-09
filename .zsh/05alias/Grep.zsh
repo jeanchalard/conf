@@ -1,2 +1,1 @@
-alias grep='grep --color'
-
+alias grep='grep --color=always'

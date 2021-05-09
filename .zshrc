@@ -91,10 +91,7 @@ function redo_conf()
 }
 
 # Automatic configuration mark
-#
 # Which shell do I use ?
-#
-
 export SHELL=`which zsh`
 export FPATH=$FPATH:$HOME/.zsh/functions
 
@@ -106,10 +103,7 @@ bindkey -e
 /bin/stty stop "" start ""
 unset flow_control
 
-#
 # Bindkey setup
-#
-
 bindkey "[A" history-beginning-search-backward	# Up arrow
 bindkey "OA" history-beginning-search-backward	# Up arrow
 bindkey "[B" history-beginning-search-forward	# Down arrow
@@ -145,9 +139,6 @@ autoload zed
 # zmv. THE real useful mv.
 autoload zmv
 
-# Nslookup, for the network. Deprecated, but I still use it.
-autoload nslookup
-
 # Pass args to commands when the arguments are too numerous
 autoload zargs
 # Module for listing completed words with colors and all
@@ -156,9 +147,6 @@ zmodload zsh/complist
 # Compinit
 autoload compinit
 compinit -C .zcompdump
-# Enumerate user dirs so that they are replaced by the prompt even if
-# they are not directly named
-: $userdirs
 bindkey '^Xx' all-matches
 zstyle ':completion:all-matches::::' completer _all_matches _complete
 zstyle ':completion:all-matches:*' old-matches true
@@ -221,8 +209,7 @@ setopt equals
 
 # Assume  '#', '~' and '^' as part of patterns for filename generation
 setopt extended_glob
-# Interpret **.c as **/*.c
-setopt glob_star_short
+
 # **.c means **/*.c
 setopt glob_star_short
 
@@ -240,14 +227,13 @@ setopt hist_ignore_space
 
 # Expand whatever is after = with glob
 setopt magic_equal_subst
-setopt multibyte
-
+# By default jobs putting a job in the background lowers its
+# priority. Don't do that.
 setopt no_bg_nice
-
+# Sort 11 after 2 in glob
 setopt numeric_globsort
-
+# Perform various expansions in prompts.
 setopt prompt_subst
-
 # Don't cd ~ when I pushd
 setopt no_pushd_to_home
 # Perform a implicit 'pushd' on 'cd'
@@ -274,6 +260,7 @@ export SAVEHIST
 export WWW_HOME='www.google.com'
 export LS_COLORS='ow=34;04:di=37:ln=01;37:pi=40;33:so=01;34:bd=40;33;01:cd=40;33;01:or=40;31;01:*.tar=33:*.tgz=33:*.arj=33:*.zip=33:*.gz=33:*.bz2=33:*.jpg=35:*.gif=35:*.bmp=35:*.pgm=35:*.pbm=35:*.ppm=35:*.tga=35:*.png=35:*.GIF=35:*.JPG=35:*.xbm=35:*.xpm=35:*.tif=35:*.mpg=01;35:*.avi=01;35'
 
+export ZLS_COLORS='ow=34;04:di=37:ln=01;37:pi=40;33:so=01;34:bd=40;33;01:cd=40;33;01:or=40;31;01:*.tar=33:*.tgz=33:*.arj=33:*.zip=33:*.gz=33:*.bz2=33:*.jpg=35:*.gif=35:*.bmp=35:*.pgm=35:*.pbm=35:*.ppm=35:*.tga=35:*.png=35:*.GIF=35:*.JPG=35:*.xbm=35:*.xpm=35:*.tif=35:*.mpg=01;35:*.avi=01;35'
 set-status() { return $1; }
 
 zle-xterm-mouse() {
@@ -435,11 +422,6 @@ export REPORTTIME=10
 
 export TERM=xterm
 
-yay()
-{
-  echo '    _         _'
-  echo "_./' '\-._.-/' '\-._"
-}
 bindkey -N zed main
 bindkey -A main zed-normal-keymap
 bindkey -M zed '^x^w' accept-line
@@ -448,7 +430,6 @@ bindkey -M zed "\e[A" up-line-or-history
 bindkey -M zed "\e[B" down-line-or-history
 bindkey -M zed "OA" up-line-or-history
 bindkey -M zed "OB" down-line-or-history
-export ZLS_COLORS='ow=34;04:di=37:ln=01;37:pi=40;33:so=01;34:bd=40;33;01:cd=40;33;01:or=40;31;01:*.tar=33:*.tgz=33:*.arj=33:*.zip=33:*.gz=33:*.bz2=33:*.jpg=35:*.gif=35:*.bmp=35:*.pgm=35:*.pbm=35:*.ppm=35:*.tga=35:*.png=35:*.GIF=35:*.JPG=35:*.xbm=35:*.xpm=35:*.tif=35:*.mpg=01;35:*.avi=01;35'
 function forrest()
 {
   /google/data/ro/teams/android-test/tools/forrest
@@ -561,8 +542,7 @@ br()
 alias -g nondir='**/*(-\^/)'
 alias -g allsrc='**/*.{h,m,mm,c,cc}(N)'
 
-alias grep='grep --color'
-
+alias grep='grep --color=always'
 alias irb='irb --readline -r irb/completion'
 alias kb='xkbcomp -I${HOME}/.xkb ~/.xkb/j.xkb $DISPLAY'
 function kdeenv {
@@ -609,204 +589,17 @@ else
 fi
 alias md=mkdir
 
-exec-me2() {
-  /usr/wvgs/lib/scripts/me2/me2.fcgi h=${=@}
-}
-
-alias -s me2=exec-me2
 methods () {
   ruby -e "$1.methods.sort.each {|p| puts p }"
-}
-hash -d www=/usr/wvgs/web
-hash -d mws=/usr/wvgs/web/MWS
-hash -d scripts=/usr/wvgs/lib/scripts/
-hash -d ms=/usr/wvgs/lib/scripts/MWS
-hash -d me2=/usr/wvgs/lib/scripts/me2
-hash -d reg=/usr/wvgs/lib/scripts/register
-hash -d reglib=/usr/wvgs/lib/register
-
-allservers()
-{
-  coproc for i in mws{000..011} mjp208 mjp209 mws{21..25} mws{100..106} mws{300..311}; do ssh $i print \`uname -n\` \`${=@}\` &; done && cat <&p
-}
-alias news='emacs -f gnus'
-alias new='emacs -f gnus'
-function pocketize()
-{
-  if [ "" != "$2" ]
-  then
-    name="$2"
-  else
-    echo 'Name ?'
-    read name
-  fi
-  if [[ -f $name ]]; then echo "File $name exists, go get stuffed."; else
-    /usr/bin/mencoder -o $name $1 -oac faac -faacopts mpeg=4:object=2:raw:br=128 -ovc lavc -of lavf -lavfopts format=mp4 -lavcopts vcodec=mpeg4:vbitrate=140:aglobal=1:vglobal=1 -vf scale=640:-2
-  fi
-}
-# Default "pprint" style
-zstyle ":pprint:*" attr none
-zstyle ":pprint:*" fgcolor default
-zstyle ":pprint:*" bgcolor default
-zstyle ":pprint:*" pad none
-zstyle ":pprint:*" width ""
-zstyle ":pprint:*" prestr ""
-zstyle ":pprint:*" posstr ""
-zstyle ":pprint:*" fillchar ""
-zstyle ":pprint:*" newline yes
-zstyle ":pprint:*" rawmode no
-
-# "pprint" style for saying things catching attention
-zstyle ":pprint:say:*" attr bold
-zstyle ":pprint:say:*" fgcolor yellow
-
-# "pprint" style for warnings
-zstyle ":pprint:warning:*" fgcolor yellow
-zstyle ":pprint:warning:*" prestr "* "
-
-# "pprint" style for errors
-zstyle ":pprint:error:*" attr bold
-zstyle ":pprint:error:*" fgcolor red
-zstyle ":pprint:error:*" prestr "*** "
-
-# "pprint" style for debug strings
-zstyle ":pprint:debug:*" prestr "! "
-zstyle ":pprint:debug:*" fgcolor cyan
-zstyle ":pprint:debug:*" newline yes
-zstyle ":pprint:debug:*" rawmode yes
-
-# "pprint" style for about-to-begin actions
-zstyle ":pprint:action:*" attr bold
-zstyle ":pprint:action:*" fgcolor blue
-zstyle ":pprint:action:*" pad right
-zstyle ":pprint:action:*" width '$COLUMNS-${#:-"[*]"}'
-zstyle ":pprint:action:*" posstr "  "
-zstyle ":pprint:action:*" newline no
-
-# "pprint" style for status markers
-zstyle ":pprint:status:*" prestr "[*]"
-zstyle ":pprint:status:*" attr bold
-zstyle ":pprint:status:success:*" fgcolor green
-zstyle ":pprint:status:ignored:*" fgcolor black
-zstyle ":pprint:status:failure:*" fgcolor red
-
-
-# The usage is "pprint <style>"
-function pprint() {
-
-   emulate -LR zsh
-
-   local _attr _fgcolor _bgcolor
-   local _pad _width
-   local _prestr _posstr _fillchar
-   local _newline _rawmode
-
-   for _style_element in attr fgcolor bgcolor\
-                         pad width\
-                         prestr posstr fillchar\
-                         newline rawmode
-   do
-       eval zstyle -s ":pprint:$1:" $_style_element _$_style_element
-   done
-
-   ((#)) && shift
-
-   # The "_width" element may depend on other variables, like $COLUMNS
-   eval "_width=\$(( $_width ))"
-
-   #   If the length of the prestring and the poststring is greater
-   # than the number of available columns, then get rid of both.
-   [[ $_width -gt 0 && $(( $#_prestr + $#_posstr )) -ge $_width ]] && {
-       _prestr=""
-       _posstr=""
-   }
-
-   if [[ "$_rawmode" == "y" ]]
-   then _rawmode="-r"
-   else _rawmode=""
-   fi
-
-   [[ -t 1 ]] && print -n -- "$attr[$_attr]$fg[$_fgcolor]$bg[$_bgcolor]"
-
-   # If the especified width is empty or 0, then we don't do truncation
-   _string="$*"
-   (( _width )) && {
-       (( _width -= ( $#_prestr + $#_posstr ) ))
-       case $_pad[1] in
-       n)
-           eval _string="\"\${\${(pr:$_width::$_fillchar[1]::\0:)_string}%\$'\0'*}\""
-           ;;
-       r|l)
-           eval _string="\"\${($_pad[1]:$_width::$_fillchar[1]:)_string}\""
-           ;;
-       esac
-   }
-   print $_rawmode -n -- "$_prestr$_string$_posstr"
-
-   [[ -t 1 ]] && print -n -- "$bg[default]$fg[default]$attr[none]"
-
-   [[ "$_newline[1]" == "y" ]] && print
-
-   return 0
-}
-function put()
-{
-    rsync -r --links --bwlimit=2000 --partial --progress --rsh=ssh $1 192.168.0.2:$2
 }
 alias randomize="ruby -e 'a = ARGV; while not a.empty? do i = rand * a.size; puts a[i]; a -= [a[i]] end'"
 alias rm=rm -i
 
-exec-rb () {
-  # Collect matches in local array files.  There might
-  # be more than one match in $path.
-  local -a files
-  # This is a very common trick in zsh for searching paths.
-  # ${^path}/$1 becomes $path[1]/$1 $path[2]/$1 ...
-  # i.e. trial matches that might or might not be real files.
-  # The (N) qualifier removes any elements that don't correspond to files.
-  files=(${^path}/$1(N))
-  # If we found a file, replace $1 by the path to the first match,
-  # i.e. the earliest in the $path.
-  # If we didn't find the file in path, leave the arguments alone.
-  # A simpler version would be:
-  #   (( ${#files} )) && 1=$files[1]
-  (( ${#files} )) && set -- $files[1] "${(@)argv[2,-1]}"
-  # Execute ruby with the original command line except with
-  # $1 replaced as above.
-  ruby "$@"
-}
-# Use the function instead of python for .py files.
-alias -s rb=exec-rb
 alias screen='screen -e  -xR '
 alias showcursor='echo "[?25h"'
 alias ssu='su -'
-wcp()
-{
-    dest=$@[-1]
-    source=$@[1,-2]
-    machine=${dest%%:*}
-    dir=${dest##*:}
+# - Changer l'heure pour qu'elle se mette à jour quand la commande est
+#   lancée
+# - Afficher si je suis en train de rebase
 
-    if [[ '' = ${dest//[^:]/} ]]
-    then
-	scp -r $source $dest
-	return
-    fi
-
-    sourcedir=''
-    mkdir -p /tmp/wcp
-    sourcedir=`mktemp /tmp/wcp/XXXXXXXX`
-    rm -f $sourcedir
-    mkdir -p $sourcedir
-    scp -r ${=source} $sourcedir
-    cd $sourcedir
-
-    tar -czf - {*,.*}(N) | ssh $machine sudo -u wvgs tar -C $dir -xzf -
-
-    cd -
-    rm -rf $sourcedir
-}
-compdef wcp=scp
-
-alias x='exit'
 
