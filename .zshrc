@@ -261,9 +261,11 @@ setopt no_pushd_to_home
 setopt auto_pushd
 # Ignore duplicate directory stack entries
 setopt pushd_ignore_dups
-PROMPT='%{[01m%}%{[3%0(?,%(!,1,3),4)m%}%35<...<%~%{[0m%} %0(?,^_^,%{[31m%}%1(?,>_<,%139(?,^_^;,%130(?,>_<,%135(?,^_^;,>_<)))))%{[0m%} %{[0m%}'
-RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(?,Bus Error,%141(?,Broken pipe,Err %?))))%{[0m%} )%B%T%b'
+# My old prompt, for reference.
+#PROMPT='%{[01m%}%{[3%0(?,%(!,1,3),4)m%}%35<...<%~%{[0m%} %0(?,^_^,%{[31m%}%1(?,>_<,%139(?,^_^;,%130(?,>_<,%135(?,^_^;,>_<)))))%{[0m%} %{[0m%}'
 
+PROMPT='%B%F{%0(?,%(!,196,226),087)}%~${vcs_info_msg_0_}%k%b%f '
+RPROMPT='%{[3m%}%(?,,%B%F{1}%139(?,Segmentation fault,%130(?,Interrupt,%138(?,Bus Error,%141(?,Broken pipe,Err %?))))%f%b )%{[3m%}%B%T%b%{[0m%}'
           zle -C all-matches complete-word _generic
           bindkey '^Xa' all-matches
           zstyle ':completion:all-matches:*' old-matches only
@@ -272,6 +274,24 @@ RPROMPT='%(?,,%{[01m%}%{[31m%}%139(?,Segmentation fault,%130(?,Interrupt,%138(
 export PATH=$PATH:${HOME}/android/sdk/platform-tools
 export EDITOR=emacs
 
+autoload vcs_info
+zstyle ':vcs_info:*' enable git
+# Must use the literal [0m to reset instead of %b to stop bg color and %f to stop fg color, because vcs_info overrides %b to be the branch name.
+zstyle ':vcs_info:*' actionformats ' %f%K{166}!%k%F{red}%B%a%{[0m%}%K{166}!%k'
+# My home is under git – which in hindsight might not be a great idea.
+# I don't want a branch name whenever I'm in my home or anywhere under,
+# and I'm willing to abandon showing the branch name when I am in a place
+# where it would be useful. Maybe when my home is no longer under git
+# but instead .conf or something is and home links there, this can be
+# reactivated because it's pretty nice.
+# zstyle ':vcs_info:*' formats '%k %K{113}%b'
+# This always displays nothing (for some reason the empty string
+# resolves to the literal 'a:', and %a replaces the action when
+# format is only used when there is no action.
+zstyle ':vcs_info:*' formats '%a'
+functions[precmd]+='
+vcs_info
+'
 # History configuration
 HISTSIZE=20000
 HISTFILE=~/.zshhistory
