@@ -431,6 +431,8 @@ bindkey ';' zle-toggle-mouse
 ZLE_USE_MOUSE=
 # My reader
 export READNULLCMD=less
+export REPORTTIME=10
+
 export TERM=xterm
 
 yay()
@@ -563,15 +565,6 @@ alias grep='grep --color'
 
 alias irb='irb --readline -r irb/completion'
 alias kb='xkbcomp -I${HOME}/.xkb ~/.xkb/j.xkb $DISPLAY'
-function kdeenv {
-  export PATH="$PATH:$HOME/kde/src/kdesrc-build"
-  function kdesrc-run
-  {
-    source "$HOME/kde/build/$1/prefix.sh" && "$HOME/kde/usr/bin/$@"
-  }
-}
-
-
 popup() {
   timeout=${3-5}
   if [[ $2 != "" ]]
