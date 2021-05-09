@@ -147,6 +147,27 @@ zmodload zsh/complist
 # Compinit
 autoload compinit
 compinit -C .zcompdump
+typeset -AHg FX FG BG
+ZSH_SPECTRUM_TEXT=${ZSH_SPECTRUM_TEXT:-Some text}
+
+for color in {000..255}; do
+  FG[$color]="%{[38;5;${color}m%}"
+  BG[$color]="%{[48;5;${color}m%}"
+done
+
+# Show all 256 colors with color number
+function spectrum_ls() {
+  for code in {000..255}; do
+    print -P -- "$code: %{$FG[$code]%}$ZSH_SPECTRUM_TEXT%{$reset_color%}"
+  done
+}
+
+# Show all 256 colors where the background is set to specific color
+function spectrum_bls() {
+  for code in {000..255}; do
+    print -P -- "$code: %{$BG[$code]%}$ZSH_SPECTRUM_TEXT%{$reset_color%}"
+  done
+}
 bindkey '^Xx' all-matches
 zstyle ':completion:all-matches::::' completer _all_matches _complete
 zstyle ':completion:all-matches:*' old-matches true
@@ -420,8 +441,7 @@ ZLE_USE_MOUSE=
 export READNULLCMD=less
 export REPORTTIME=10
 
-export TERM=xterm
-
+export TERM=rxvt-unicode-256color
 bindkey -N zed main
 bindkey -A main zed-normal-keymap
 bindkey -M zed '^x^w' accept-line
