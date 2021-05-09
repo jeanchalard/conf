@@ -81,7 +81,7 @@ function redo_conf()
 
     curpwd=`pwd`
     cd $HOME
-    nlines=`grep -n '^# Automatic configuration mark' .zshrc | cut -d':' -f1`
+    nlines=`\grep -n '^# Automatic configuration mark' .zshrc | cut -d':' -f1`
     head -n $nlines .zshrc > $tmpfile
     conf_adddir $SETUPDIR $tmpfile
 
