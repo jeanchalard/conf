@@ -72,7 +72,7 @@ xkb_symbols "special" {
     key <ESC>  { [ Escape            ] };
 
     // TODO : define something for AltGr+TLDE
-    key <TLDE> { [ grave,            asciitilde,    U2022,            U1F600         ] }; // Bullet, smiley
+    key <TLDE> { [ grave,            asciitilde,    U2022,            U25A0          ] }; // Bullet, black square
     // TODO : have some real use for AltGr+Tab
     key <TAB>  { [ Tab,              ISO_Left_Tab,  U2B7E,            U27FA          ] }; // Tab arrows, double reciprocal arrows
 
@@ -80,7 +80,7 @@ xkb_symbols "special" {
 //    key <CAPS> { [ ISO_Level3_Shift, ISO_Level3_Shift ] };
 
     // U3000 = double width space ; U2588 = full block
-    key <SPCE> { [ space,            space,      nobreakspace,        U2588          ] };
+    key <SPCE> { [ space,            space,      U1F600,        U1F61E               ] }; // Smiley, Disappointed face
     key <RTRN> { [ Return            ]  };
 };
 
@@ -146,7 +146,7 @@ xkb_symbols "inet" {
 
     key <HKTG>   {      [ ISO_Level3_Shift, ISO_Level3_Shift ] };
     key <HENK>   {      [ ISO_Level3_Shift, ISO_Level3_Shift ] };
-    key <MUHE>   {      [ Muhenkan              ]       };
+    key <MUHE>   {      [ nobreakspace,     U2588            ] }; // Full block
     key <KATA>   {      [ Katakana              ]       };
     key <HIRA>   {      [ Hiragana              ]       };
     key <RO>     {      [ Romaji                ]       };
