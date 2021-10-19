@@ -258,22 +258,22 @@ WarpRingOnScreen
 WarpUnmapped
 WindowRing
 {
-	"xterm*"
-	"rxvt*"
-	"aterm*"
-	"emacs*"
-	"Acrobat*"
-	"Gecko*"
-	"konqueror*"
-	"*Chrome*"
+	"xterm.*"
+	"rxvt.*"
+	"aterm.*"
+	"emacs.*"
+	"Acrobat.*"
+	"Gecko.*"
+	"konqueror.*"
+	".*Chrome.*"
 	"gv*"
 	"gwenview"
 	"Gwenview"
 	"xpdf"
 	"kpdf"
-	"XChat*"
-	"Untitled*"
-	"KDE*"
+	"XChat*."
+	"Untitled.*"
+	"KDE.*"
 	"MPlayer"
 	"Kopete"
 	"Skype"
@@ -299,7 +299,7 @@ function "fill-horizontal"	{ f.fill "left" f.fill "right" }
 function "fill-vertical"	{ f.fill "up" f.fill "down" }
 function "move-to-prev-ws"      { f.movetoprevworkspace f.prevworkspace }
 function "move-to-next-ws"      { f.movetonextworkspace f.nextworkspace }
-function "xterm"                { f.exec "urxvt &" f.warpring next }
+function "xterm"                { f.exec "urxvt &" f.warpring "next" }
 
 #
 # Key Bindings
