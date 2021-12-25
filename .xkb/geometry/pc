@@ -1,5 +1,5 @@
-xkb_geometry "jp109" {
-    description= "Generic 109-key Japanese JIS keyboard";
+xkb_geometry "pc109" {
+    description= "Generic 109-key PC keyboard";
     width= 470;
     height= 180;
 
@@ -155,4 +155,4 @@ xkb_geometry "jp109" {
     alias <AC00> = <CAPS>;
     alias <AA00> = <LCTL>;
 
-}; // End of "jp109" geometry
+}; // End of "pc109" geometry

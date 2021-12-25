@@ -3,6 +3,6 @@ xkb_keymap {
 	xkb_keycodes  { include "evdev+aliases(qwerty)" };
 	xkb_types     { include "complete" };
 	xkb_compat    { include "complete" };
-	xkb_symbols   { include "pc+anterak" };
-	xkb_geometry  { include "pc(jp109)" }; // Used to be pc(jp106), but now there seems to be no non-vendor-specific JP geometry ? Should be jp109 really for a modern keyboard
+	xkb_symbols   { include "pc+anterak+inet(evdev)+anterak(fix_inet)" };
+	xkb_geometry  { include "pc(pc109)" }; // Used to be pc(jp106), but now there seems to be no non-vendor-specific JP geometry ? Should be pc109 or jp109 really for a modern keyboard
 };

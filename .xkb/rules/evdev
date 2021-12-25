@@ -1,2 +1,10 @@
-! model      layout      =   symbols
-  *          anterak     =  +anterak(fix_inet)
+// ! model
+//   pc109 Generic 109-key PC
+//
+// ! layout
+//   anterak     Universal (Anterak)
+
+! model    layout  =   symbols
+  *        anterak =  +anterak(fix_inet)
+! model  = geometry
+  *      = pc(pc109)

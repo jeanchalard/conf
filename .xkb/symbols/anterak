@@ -316,4 +316,5 @@ xkb_symbols "fix_inet" {
 // Fix up inet(evdev) crap
     key <HKTG>   {      [ ISO_Level3_Shift, ISO_Level3_Shift ] };
     key <HENK>   {      [ ISO_Level3_Shift, ISO_Level3_Shift ] };
+    key <MUHE>   {      [ nobreakspace,     U2588            ] }; // Full block
 };

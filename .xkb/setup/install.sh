@@ -18,6 +18,49 @@ cd ..
 echo "Copying symbols to ${RT}/symbols/anterak"
 cp symbols/anterak ${RT}/symbols
 
+# Add the geometries.
+for file in geometry/*; do
+    print "Installing $file"
+
+    geometries=()
+    grep xkb_geometry $file | while read g; do
+        g=${${g##xkb_geometry \"}%%\" *}
+        geometries+=$g
+    done
+
+    print "Found geometries $geometries"
+
+    rm -f tmp_geometries
+    accept=1
+    # `read` will split according to $IFS and there doesn't seem to be an option to prevent that
+    IFS=
+    cat ${RT}/${file} | while read i; do
+        for g in $geometries; do
+            if [[ $i = "xkb_geometry \"$g\""* ]]; then
+                print "Removing geometry $g"
+                accept=0
+            fi
+        done
+
+        if [[ $accept = 1 ]]; then
+            print $i >> tmp_geometries
+        fi
+
+        for g in $geometries; do
+            if [[ $i = *"// End of \"$g\""* ]]; then
+                print "End of geometry $g"
+                accept=1
+            fi
+        done
+    done
+    cat ${file} >> tmp_geometries
+
+    savefile=setup/geometry.`basename $file`.save
+    cp ${RT}/${file} ${savefile}
+
+    mv tmp_geometries ${RT}/${file}
+done
+
 # Add the rules.
 grep anterak ${RT}/rules/evdev > /dev/null
 if [ $? = 0 ]; then
