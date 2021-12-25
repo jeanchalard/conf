@@ -247,6 +247,13 @@ NoBorder
         "google-chrome"
         "jetbrains-idea-ce"
         "jetbrains-studio"
+        ".*Kerbal.*"
+        "gwenview"
+        "dolphin"
+        ".*Trine.*"
+        "Trine2"
+        "Opus Magnum"
+        "vlc"
 }
 OccupyAll
 {
@@ -286,7 +293,7 @@ function "move-or-iconify"	{ f.move f.deltastop f.iconify }
 function "raise-resize"		{ f.raise f.resize }
 function "lower-resize"		{ f.lower f.resize }
 function "force-raise-move"	{ f.forcemove f.deltastop f.raise }
-function "lower-move"		{ f.movepack f.deltastop f.lower }
+function "resize-move"		{ f.resize f.deltastop f.lower }
 function "pack-tl"		{ f.pack "top" f.pack "left" }
 function "pack-tr"		{ f.pack "top" f.pack "right" }
 function "pack-bl"		{ f.pack "bottom" f.pack "left" }
@@ -320,10 +327,8 @@ Button3 =       : window	: f.function "force-raise-move"
 Button3 = m4|m5	  	: window: f.function "force-raise-move"
 Button3 = m4|m2|m5	: window: f.function "force-raise-move"
 
-Button3 = c	: window	: f.function "lower-move"
-Button3 = c|m2	: window	: f.function "lower-move"
-Button3 = m4	: window	: f.resize
-Button3 = m4|m2	: window	: f.resize
+Button3 = m4	: window	: f.function "resize-move"
+Button3 = m4|m2	: window	: f.function "resize-move"
 ##>>>
 
 Button1 =	: frame		: f.resize
@@ -351,6 +356,8 @@ Menu "start"
         "Krita"         !"krita &"
         "AStudio"       !"/opt/android-studio-3.5/bin/studio.sh &"
         "IntelliJ"      !"/opt/intellij-ce-stable/bin/idea.sh &"
+        "Dolphin"       !"dolphin &"
+        "Gwenview"      !"gwenview &"
 }
 
 Menu "Space"
@@ -368,7 +375,7 @@ Menu "Space"
 
 Menu "Else"
 {
-	"Edit conf"	!"emacs ~/perso/conf/.ctwmrc &"
+	"Edit conf"	!"emacs ~/.ctwmrc &"
 	"Identify"	f.identify
 	"Restart"	f.restart
 }
@@ -516,8 +523,6 @@ Menu "Else"
 	"F1"	= c		:all:	f.function "xterm"
 	"F1"	= c|m2		:all:	f.function "xterm"
 	"F1"	= m2		:all:	f.function "xterm"
-	"F2"	= c		:all:	f.exec "sh -c 'bg=$(ra /backgrounds/*); dcop kdesktop KBackgroundIface setWallpaper $bg 4; xv -root -quit -maxpect -rmode 5 $bg'"
-	"F2"	= c|m2		:all:	f.exec "sh -c 'bg=$(ra /backgrounds/*); dcop kdesktop KBackgroundIface setWallpaper $bg 4; xv -root -quit -maxpect -rmode 5 $bg'"
 
 	"F10"	=		:window:f.fullzoom
 	"F10"	= m2		:window:f.fullzoom
