@@ -93,6 +93,7 @@ URxvt.background:              [85]black
 URxvt.scrollTtyOutput:         off
 URxvt.scrollWithBuffer:        on
 URxvt.scrollTtyKeypress:       on
+URxvt.perl-ext:                default,-confirm-paste
 
 /* xbitmap */
 xbitmap.Background:  		forest green

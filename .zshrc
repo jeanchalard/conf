@@ -93,8 +93,6 @@ function redo_conf()
 # Automatic configuration mark
 # Which shell do I use ?
 export SHELL=`which zsh`
-export FPATH=$FPATH:$HOME/.zsh/functions
-
 # Sanity of my environment
 [[ -t 0 ]] && /bin/stty erase  "^H" intr  "^C" susp "^Z" dsusp "^Y" stop "^S" start "^Q" kill "^U"  >& /dev/null
 # Default to emacs editing mode, as opposed to vi
@@ -579,9 +577,8 @@ br()
 {
   git branch --color -v | cat
 }
-alias -g nondir='**/*(-\^/)'
+alias -g nondir='**/*(-\^@/)'
 alias -g allsrc='**/*.{h,m,mm,c,cc}(N)'
-
 alias grep='grep --color=always'
 alias irb='irb --readline -r irb/completion'
 alias kb='xkbcomp -I${HOME}/.xkb ~/.xkb/j.xkb $DISPLAY'

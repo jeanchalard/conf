@@ -45,8 +45,8 @@ xkb_symbols "alpha" {
     key <AC05> { [ i,	             I,             ccedilla,         Ccedilla       ] };
     key <AC06> { [ d,	             D,             omacron,          Omacron        ] };
     key <AC07> { [ h,	             H,             copyright,        trademark      ] };
-    key <AC08> { [ t,	             T,             uparrow,          guillemotleft  ] };
-    key <AC09> { [ n,	             N,             downarrow,        guillemotright ] };
+    key <AC08> { [ t,	             T,             lstroke,          Lstroke        ] };
+    key <AC09> { [ n,	             N,             questiondown,     exclamdown     ] };
     key <AC10> { [ s,	             S,             oe,               OE             ] };
     key <AC11> { [ minus,            underscore,    U2713,            U2717          ] }; // Check mark, Ballot x
     key <BKSL> { [ backslash,        bar,           endash,           emdash         ] };
@@ -58,13 +58,31 @@ xkb_symbols "alpha" {
     key <AB05> { [ x,	             X,             U2200,            elementof      ] }; // For all
     key <AB06> { [ b,	             B,             U2248,            U2260          ] }; // Almost equals to, Not equals to
     key <AB07> { [ m,	             M,             U2194,            U21D4          ] }; // Left right arrow, Left right double arrow
-    key <AB08> { [ w,	             W,             leftarrow,        U21D0          ] }; // Leftwards double arrow
-    key <AB09> { [ v,	             V,             rightarrow,       U21D2          ] }; // Rightwards double arrow
+    key <AB08> { [ w,	             W,             guillemotleft,    U21D0          ] }; // Leftwards double arrow
+    key <AB09> { [ v,	             V,             guillemotright,   U21D2          ] }; // Rightwards double arrow
     key <AB10> { [ z,	             Z,             ae,               AE             ] };
-    key <AB11> { [ question,         exclam,        questiondown,     exclamdown     ] };
+    key <AB11> { [ F15 ] };
 
     // TODO : what to do with this ?
     key <LSGT> { [ less,             greater,       bar,              brokenbar      ] };
+
+    // in num lock, SEGMENTED DIGIT 0 and friends
+    key <KP0>  { [ KP_0, U1FBF0, 0x1002195, 0x10021D5 ] }; // 0 0 ↕ ⇕
+    key <KP1>  { [ KP_1, U1FBF1, 0x1002199, 0x10021D9 ] }; // 1 1 ↙ ⇙
+    key <KP2>  { [ KP_2, U1FBF2, U1F80B,    0x10021D3 ] }; // 2 2 🠋 ⇓
+    key <KP3>  { [ KP_3, U1FBF3, 0x1002198, 0x10021D8 ] }; // 3 3 ↘ ⇘
+    key <KP4>  { [ KP_4, U1FBF4, U1F808,    0x10021D0 ] }; // 4 4 🠈 ⇐
+    key <KP5>  { [ KP_5, U1FBF5, 0x1002194, 0x10021D4 ] }; // 5 5 ↔ ⇔
+    key <KP6>  { [ KP_6, U1FBF6, U1F80A,    0x10021D2 ] }; // 6 6 🠊 ⇒
+    key <KP7>  { [ KP_7, U1FBF7, 0x1002196, 0x10021D6 ] }; // 7 7 ↖ ⇖
+    key <KP8>  { [ KP_8, U1FBF8, U1F809,    0x10021D1 ] }; // 8 8 🠉 ⇑
+    key <KP9>  { [ KP_9, U1FBF9, 0x1002197, 0x10021D7 ] }; // 9 9 ↗ ⇗
+    key <KPDL> { [ KP_Decimal, KP_Delete ] };
+
+    key <DOWN> { [ Down , Down , 0x1002193, 0x10021D3 ] }; // ↓ ⇓
+    key <LEFT> { [ Left , Left , 0x1002190, 0x10021D0 ] }; // ← ⇐
+    key <RGHT> { [ Right, Right, 0x1002192, 0x10021D2 ] }; // → ⇒
+    key <UP>   { [ Up,    Up,    0x1002191, 0x10021D1 ] }; // ↑ ⇑
 };
 
 partial hidden alphanumeric_keys
@@ -94,9 +112,9 @@ xkb_symbols "modifiers" {
 
     key <RTSH> { [ Shift_R          ] };
     key <RCTL> { [ Control_R        ] };
-    key <RALT> { [ ISO_Level3_Shift, ISO_Level3_Shift ] };
     key <RWIN> { [ Super_R          ] };
-    key <MENU> { [ Super_R          ] };
+    key <RALT> { [ F13     ] };
+    key <MENU> { [ F14     ] };
 
     // Beginning of modifier mappings.
     modifier_map Shift   { Shift_L, Shift_R };
@@ -110,7 +128,7 @@ xkb_symbols "modifiers" {
     key <MDSW> { [ Mode_switch      ] };
     modifier_map Mod5 { <LVL3>, <MDSW> };
 
-    key <ALT>  { [ NoSymbol, Alt_L ] };
+    key <LALT>  { [ NoSymbol, Alt_L ] };
 
     key <META> { [ NoSymbol, Meta_L ] };
     modifier_map Mod1   { <META> };
@@ -317,4 +335,5 @@ xkb_symbols "fix_inet" {
     key <HKTG>   {      [ ISO_Level3_Shift, ISO_Level3_Shift ] };
     key <HENK>   {      [ ISO_Level3_Shift, ISO_Level3_Shift ] };
     key <MUHE>   {      [ nobreakspace,     U2588            ] }; // Full block
+    key <ALT>    { [ Super_L, Super_L ] };
 };
