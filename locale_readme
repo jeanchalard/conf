@@ -5,8 +5,10 @@ semaine, la semaine est dans l'ordre et tout va bien.
 Il faut copier le fichier en_JP dans /usr/share/i18n/locales et ajouter
 en_JP dans /usr/share/i18n/SUPPORTED. Puis :
 # localedef -i en_JP -c -f UTF-8 en_JP.UTF-8
-# locale-gen en_JP.UTF-8
+(ici, j'ai édité /etc/locale.gen à la main pour activer en_JP, je ne sais pas pourquoi il était commenté)
+# locale-gen
 (peut-être inutile : # dpkg-reconfigure locales
 
-S'assurer que les locales sont bien à en_JP.UTF-8.
+S'assurer que les locales sont bien à en_JP.UTF-8, en particulier
+le fichier /etc/default-locale
 
