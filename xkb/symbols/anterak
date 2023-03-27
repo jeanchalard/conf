@@ -66,17 +66,17 @@ xkb_symbols "alpha" {
     // TODO : what to do with this ?
     key <LSGT> { [ less,             greater,       bar,              brokenbar      ] };
 
-    // in num lock, SEGMENTED DIGIT 0 and friends
-    key <KP0>  { [ KP_0, U1FBF0, 0x1002195, 0x10021D5 ] }; // 0 0 ↕ ⇕
-    key <KP1>  { [ KP_1, U1FBF1, 0x1002199, 0x10021D9 ] }; // 1 1 ↙ ⇙
-    key <KP2>  { [ KP_2, U1FBF2, U1F80B,    0x10021D3 ] }; // 2 2 🠋 ⇓
-    key <KP3>  { [ KP_3, U1FBF3, 0x1002198, 0x10021D8 ] }; // 3 3 ↘ ⇘
-    key <KP4>  { [ KP_4, U1FBF4, U1F808,    0x10021D0 ] }; // 4 4 🠈 ⇐
-    key <KP5>  { [ KP_5, U1FBF5, 0x1002194, 0x10021D4 ] }; // 5 5 ↔ ⇔
-    key <KP6>  { [ KP_6, U1FBF6, U1F80A,    0x10021D2 ] }; // 6 6 🠊 ⇒
-    key <KP7>  { [ KP_7, U1FBF7, 0x1002196, 0x10021D6 ] }; // 7 7 ↖ ⇖
-    key <KP8>  { [ KP_8, U1FBF8, U1F809,    0x10021D1 ] }; // 8 8 🠉 ⇑
-    key <KP9>  { [ KP_9, U1FBF9, 0x1002197, 0x10021D7 ] }; // 9 9 ↗ ⇗
+    // In num lock (or shift), arrows. With AltGr, SEGMENTED DIGIT 0 and friends
+    key <KP0>  { [ KP_0, 0x1002195, U1FBF0, 0x10021D5 ] }; // 0 0 ↕ ⇕
+    key <KP1>  { [ KP_1, 0x1002199, U1FBF1, 0x10021D9 ] }; // 1 1 ↙ ⇙
+    key <KP2>  { [ KP_2, 0x1002193, U1FBF2, 0x10021D3 ] }; // 2 2 ↓ ⇓
+    key <KP3>  { [ KP_3, 0x1002198, U1FBF3, 0x10021D8 ] }; // 3 3 ↘ ⇘
+    key <KP4>  { [ KP_4, 0x1002190, U1FBF4, 0x10021D0 ] }; // 4 4 ← ⇐
+    key <KP5>  { [ KP_5, 0x1002194, U1FBF5, 0x10021D4 ] }; // 5 5 ↔ ⇔
+    key <KP6>  { [ KP_6, 0x1002192, U1FBF6, 0x10021D2 ] }; // 6 6 → ⇒
+    key <KP7>  { [ KP_7, 0x1002196, U1FBF7, 0x10021D6 ] }; // 7 7 ↖ ⇖
+    key <KP8>  { [ KP_8, 0x1002191, U1FBF8, 0x10021D1 ] }; // 8 8 ↑ ⇑
+    key <KP9>  { [ KP_9, 0x1002197, U1FBF9, 0x10021D7 ] }; // 9 9 ↗ ⇗
     key <KPDL> { [ KP_Decimal, KP_Delete ] };
 
     key <DOWN> { [ Down , Down , 0x1002193, 0x10021D3 ] }; // ↓ ⇓

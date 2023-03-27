@@ -17,6 +17,7 @@ cd ..
 # Copy the symbol file.
 echo "Copying symbols to ${RT}/symbols/anterak"
 cp symbols/anterak ${RT}/symbols
+chmod 644 ${RT}/symbols/anterak
 
 # Add the geometries.
 for file in geometry/*; do
