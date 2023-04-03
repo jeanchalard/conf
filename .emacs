@@ -62,10 +62,12 @@ of an error, just add the package to a list of missing packages."
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
+(ido-mode t)
 (delete-selection-mode t)
 (setq next-line-add-newlines nil)
 (setq default-major-mode 'text-mode)
 (global-font-lock-mode t)
+(global-auto-revert-mode)
 (prefer-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
@@ -74,6 +76,15 @@ of an error, just add the package to a list of missing packages."
 (column-number-mode t)
 (auto-image-file-mode nil) ; Don't open images as images - not using emacs for that
 (setq sentence-end-double-space nil) ; For filling, don't double space after periods
+(add-hook 'fill-no-break-predicate 'fill-french-nobreak-p)
+(global-visual-line-mode t)
+
+(set-fontset-font t '(?─ . ?➿) '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
+(set-fontset-font t '(?🀀 . ?🯹) '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
+; "emoji" shortcut for character ranges are supported from emacs 28, use the
+; following when emacs 28 is available
+;(set-fontset-font t 'emoji '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
+
 
 ;;;
 ; Bindings
@@ -81,7 +92,6 @@ of an error, just add the package to a list of missing packages."
 (global-set-key "d" 'delete-trailing-whitespace)
 (global-set-key "" 'do_insert_time)
 (global-set-key "" 'std-file-header)
-(global-set-key [f3]		'font-lock-mode)
 (global-set-key [f4]		'kill-this-buffer)
 (global-set-key [f12]		'goto-line)
 (global-set-key [delete]        'delete-char)
@@ -90,7 +100,7 @@ of an error, just add the package to a list of missing packages."
 (global-set-key [C-home]         'beginning-of-buffer)
 (global-set-key [C-end]          'end-of-buffer)
 (global-set-key [kp-divide]     '(lambda nil (interactive) (insert ?/)))
-
+(global-set-key "" '(lambda nil (interactive) (progn (dabbrev-expand 1) (insert " "))))
 
 ;;;
 ; Various modes setup
@@ -106,6 +116,7 @@ of an error, just add the package to a list of missing packages."
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 (add-hook 'ruby-mode-hook '(lambda () (inf-ruby-keys)))
 (setq ruby-insert-encoding-magic-comment nil)
+(add-hook 'markdown-hook 'treemacs)
 
 ;;;
 ; My functions
@@ -152,7 +163,7 @@ News' signature compliant."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(browse-url-browser-function (quote browse-url-kde))
+ '(browse-url-browser-function 'browse-url-kde)
  '(browse-url-galeon-program "konqueror")
  '(browse-url-mosaic-program "konqueror")
  '(browse-url-mozilla-program "konqueror")
@@ -160,18 +171,12 @@ News' signature compliant."
  '(fill-column 98)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(neo-smart-open t t)
  '(partial-completion-mode t)
  '(show-trailing-whitespace t)
  '(track-eol t)
- '(uniquify-buffer-name-style (quote post-forward-angle-brackets) nil (uniquify)))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(font-lock-comment-face ((((class color) (background dark)) (:foreground "grey"))))
- '(trailing-whitespace ((((class color) (background dark)) (:background "darkgreen")))))
+ '(uniquify-buffer-name-style 'post-forward-angle-brackets nil (uniquify))
+ '(warning-suppress-log-types '((comp))))
 
 ; Don't remove trailing whitespace on inserting new line
 (defun turnoff-electric-indent-mode () (setq electric-indent-mode nil))
@@ -182,32 +187,44 @@ News' signature compliant."
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
 
+; Treemacs configuration
+(global-set-key [f2]            'treemacs)
+(with-eval-after-load 'treemacs
+  (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action))
+(customize-set-variable 'treemacs-show-hidden-files nil)
+
+; Markdown-mode configuration
+(defun markdown-j-hook ()
+  (set-window-margins (selected-window) 4 4)
+  (if (not (fboundp 'treemacs-current-visibility))
+      (treemacs))
+)
+(add-hook 'markdown-mode-hook 'markdown-j-hook)
+
+; Autosave every time focus is lost
+(defun save-all ()
+  (interactive)
+  (save-some-buffers t))
+(add-hook 'focus-out-hook 'save-all)
+; Don't have # in auto-save file names because Android doesn't
+; like them and that causes sync errors
+(defun make-auto-save-file-name ()
+  "Return file name to use for auto-saves \
+of current buffer.
+..."
+  (if buffer-file-name
+      (concat
+       (file-name-directory buffer-file-name)
+       "_"
+       (file-name-nondirectory buffer-file-name)
+       "_")
+    (expand-file-name
+     (concat "_%" (buffer-name) "_"))))
 
 ;;;
 ; Test area. Don't leave too much crud accumulate here ; either make it
 ; permanent by moving it up in the appropriate place, or remove it.
-(iswitchb-mode 1)
 (require 'edmacro)
-(defun iswitchb-local-keys ()
-  (mapc (lambda (K)
-          (let* ((key (car K)) (fun (cdr K)))
-            (define-key iswitchb-mode-map (edmacro-parse-keys key) fun)))
-        '(("<right>" . iswitchb-next-match)
-          ("<left>"  . iswitchb-prev-match)
-          ("<up>"    . ignore             )
-          ("<down>"  . ignore             ))))
-(add-hook 'iswitchb-define-mode-map-hook 'iswitchb-local-keys)
-(defadvice iswitchb-kill-buffer (after rescan-after-kill activate)
-  "*Regenerate the list of matching buffer names after a kill.
-    Necessary if using `uniquify' with `uniquify-after-kill-buffer-p'
-    set to non-nil."
-  (setq iswitchb-buflist iswitchb-matches)
-  (iswitchb-rescan))
-(defun iswitchb-rescan ()
-  "*Regenerate the list of matching buffer names."
-  (interactive)
-  (iswitchb-make-buflist iswitchb-default)
-  (setq iswitchb-rescan t))
 
 ;; Backups into a separate directory
 (add-to-list 'backup-directory-alist '("." . "~/.saves") :append)
@@ -216,3 +233,9 @@ News' signature compliant."
 (customize-set-variable 'kept-new-versions 6)
 (customize-set-variable 'kept-old-versions 2)
 (customize-set-variable 'version-control t)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
