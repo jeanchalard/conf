@@ -79,6 +79,7 @@ of an error, just add the package to a list of missing packages."
 (add-hook 'fill-no-break-predicate 'fill-french-nobreak-p)
 (global-visual-line-mode t)
 
+(set-frame-font "DejaVu Sans" nil t)
 (set-fontset-font t '(?─ . ?➿) '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
 (set-fontset-font t '(?🀀 . ?🯹) '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
 ; "emoji" shortcut for character ranges are supported from emacs 28, use the
@@ -233,9 +234,3 @@ of current buffer.
 (customize-set-variable 'kept-new-versions 6)
 (customize-set-variable 'kept-old-versions 2)
 (customize-set-variable 'version-control t)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
