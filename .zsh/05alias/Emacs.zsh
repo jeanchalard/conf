@@ -8,6 +8,5 @@ e() {
     args[$i]=${args[i]%:*(<0-9>):}
     args[$i]=${args[i]%:}
   done
-  emacs ${=args}
+  XMODIFIERS= emacs ${=args}
 }
-

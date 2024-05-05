@@ -102,6 +102,8 @@ of an error, just add the package to a list of missing packages."
 (global-set-key [C-end]          'end-of-buffer)
 (global-set-key [kp-divide]     '(lambda nil (interactive) (insert ?/)))
 (global-set-key "" '(lambda nil (interactive) (progn (dabbrev-expand 1) (insert " "))))
+; I hit insert by mistake all the time but never want overwrite mode.
+(global-unset-key (kbd "<insert>"))
 
 ;;;
 ; Various modes setup
@@ -179,7 +181,7 @@ News' signature compliant."
  '(uniquify-buffer-name-style 'post-forward-angle-brackets nil (uniquify))
  '(warning-suppress-log-types '((comp))))
 
-; Don't remove trailing whitespace on inserting new line
+; Don't remove trailing whitespace on inserting new line (except in markdown mode, see below)
 (defun turnoff-electric-indent-mode () (setq electric-indent-mode nil))
 (add-hook 'text-mode-hook 'turnoff-electric-indent-mode)
 (turnoff-electric-indent-mode)
@@ -195,7 +197,10 @@ News' signature compliant."
 (customize-set-variable 'treemacs-show-hidden-files nil)
 
 ; Markdown-mode configuration
+(defun remove-whitespace-enter () (interactive "*") (delete-horizontal-space nil) (newline nil t))
+(defun add-remove-whitespace-binding () (local-set-key (kbd "<return>") 'remove-whitespace-enter))
 (defun markdown-j-hook ()
+  (add-remove-whitespace-binding)
   (set-window-margins (selected-window) 4 4)
   (if (not (fboundp 'treemacs-current-visibility))
       (treemacs))
