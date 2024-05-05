@@ -1,0 +1,5 @@
+alias cat='batcat'
+alias ls='exa'
+alias l='exa -l'
+alias la='exa -la'
+alias df='duf'
