@@ -10,5 +10,8 @@ en_JP dans /usr/share/i18n/SUPPORTED. Puis :
 (peut-être inutile : # dpkg-reconfigure locales
 
 S'assurer que les locales sont bien à en_JP.UTF-8, en particulier
-le fichier /etc/default-locale
+le fichier /etc/default/locale
+
+D'autres fichiers peuvent nécessiter des changements, j'ai trouvé
+- /boot/grub/grub.cfg
 
