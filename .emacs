@@ -78,6 +78,16 @@ of an error, just add the package to a list of missing packages."
 (setq sentence-end-double-space nil) ; For filling, don't double space after periods
 (add-hook 'fill-no-break-predicate 'fill-french-nobreak-p)
 (global-visual-line-mode t)
+; Frigging emacs has no way to set this for every mode and prefers to use
+; huge horizontal indent size by default for everything
+(setq-default c-basic-offset 2)
+(setq-default javascript-indent-level 2)
+(setq-default js-indent-level 2)
+(setq-default js2-basic-offset 2)
+(setq-default css-indent-offset 2)
+(setq-default rust-indent-offset 2)
+(setq-default sh-basic-offset 2)
+(setq-default sh-indentation 2)
 
 (set-frame-font "DejaVu Sans" nil t)
 (set-fontset-font t '(?─ . ?➿) '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
