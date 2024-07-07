@@ -6,5 +6,7 @@
 
 ! model    layout  =   symbols
   *        anterak =  +anterak(fix_inet)
+! model    layout  =   types
+  *        anterak =  +anterak(keypad)
 ! model  = geometry
   *      = pc(pc109)

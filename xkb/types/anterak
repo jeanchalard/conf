@@ -1,0 +1,22 @@
+xkb_types "keypad" {
+virtual_modifiers LevelThree;
+  type "MORE_KEYPAD" {
+    modifiers = NumLock+Shift+LevelThree;
+    map[None] = Level1;
+    map[Shift] = Level2;
+    map[NumLock] = Level3;
+    map[NumLock+Shift] = Level4;
+    map[LevelThree] = Level5;
+    map[LevelThree+Shift] = Level6;
+    map[LevelThree+NumLock] = Level7;
+    map[LevelThree+NumLock+Shift] = Level8;
+    level_name[Level1] = "Base";
+    level_name[Level2] = "Shift";
+    level_name[Level3] = "NumLock";
+    level_name[Level4] = "NumLock+Shift";
+    level_name[Level5] = "AltGr+Base";
+    level_name[Level6] = "AltGr+Shift";
+    level_name[Level7] = "AltGr+NumLock";
+    level_name[Level8] = "AltGr+NumLock+Shift";
+  };
+};

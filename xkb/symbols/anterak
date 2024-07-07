@@ -1,6 +1,7 @@
-default alphanumeric_keys modifier_keys
-xkb_symbols "basic" {
+default xkb_symbols "complete" {
+  name[Group1] = "Anterak";
   include "anterak(alpha)"
+  include "anterak(keypad)"
   include "anterak(special)"
   include "anterak(modifiers)"
   include "anterak(editing)"
@@ -66,23 +67,44 @@ xkb_symbols "alpha" {
     // TODO : what to do with this ?
     key <LSGT> { [ less,             greater,       bar,              brokenbar      ] };
 
-    // In num lock (or shift), arrows. With AltGr, SEGMENTED DIGIT 0 and friends
-    key <KP0>  { [ KP_0, 0x1002195, U1FBF0, 0x10021D5 ] }; // 0 0 ↕ ⇕
-    key <KP1>  { [ KP_1, 0x1002199, U1FBF1, 0x10021D9 ] }; // 1 1 ↙ ⇙
-    key <KP2>  { [ KP_2, 0x1002193, U1FBF2, 0x10021D3 ] }; // 2 2 ↓ ⇓
-    key <KP3>  { [ KP_3, 0x1002198, U1FBF3, 0x10021D8 ] }; // 3 3 ↘ ⇘
-    key <KP4>  { [ KP_4, 0x1002190, U1FBF4, 0x10021D0 ] }; // 4 4 ← ⇐
-    key <KP5>  { [ KP_5, 0x1002194, U1FBF5, 0x10021D4 ] }; // 5 5 ↔ ⇔
-    key <KP6>  { [ KP_6, 0x1002192, U1FBF6, 0x10021D2 ] }; // 6 6 → ⇒
-    key <KP7>  { [ KP_7, 0x1002196, U1FBF7, 0x10021D6 ] }; // 7 7 ↖ ⇖
-    key <KP8>  { [ KP_8, 0x1002191, U1FBF8, 0x10021D1 ] }; // 8 8 ↑ ⇑
-    key <KP9>  { [ KP_9, 0x1002197, U1FBF9, 0x10021D7 ] }; // 9 9 ↗ ⇗
-    key <KPDL> { [ KP_Decimal, KP_Delete ] };
-
     key <DOWN> { [ Down , Down , 0x1002193, 0x10021D3 ] }; // ↓ ⇓
     key <LEFT> { [ Left , Left , 0x1002190, 0x10021D0 ] }; // ← ⇐
     key <RGHT> { [ Right, Right, 0x1002192, 0x10021D2 ] }; // → ⇒
     key <UP>   { [ Up,    Up,    0x1002191, 0x10021D1 ] }; // ↑ ⇑
+};
+
+partial hidden keypad_keys
+xkb_symbols "keypad" {
+    key.type[Group1] = "MORE_KEYPAD";
+
+    // No AltGr :
+    //  No numlock :
+    //    No shift : digits
+    //    Shift : segmented digits
+    //  Numlock : directions
+    // AltGr :
+    //   No numlock :
+    //    No shift : single arrows
+    //    Shift : double arrows
+    //   Numlock :
+    //     No shift :
+    //     Shift :
+    // None Shift NumLock NumLock+Shift AltGr AltGr+Shift AltGr+NumLock AltGr+NumLock+Shift
+    key <KP0>  { [ KP_0, U1FBF0, KP_Insert, KP_Insert, 0x1002195, 0x10021D5, 0x1002195, 0x10021D5 ] }; // 0 🯰 Ins Ins ↕ ⇕ ↕ ⇕
+    key <KP1>  { [ KP_1, U1FBF1, KP_End,    KP_End,    0x1002199, 0x10021D9, 0x1002199, 0x10021D9 ] }; // 1 🯱 End End ↙ ⇙ ↙ ⇙
+    key <KP2>  { [ KP_2, U1FBF2, KP_Down,   KP_Down,   0x1002193, 0x10021D3, 0x1002193, 0x10021D3 ] }; // 2 🯲 Down Down ↓ ⇓ ↓ ⇓
+    key <KP3>  { [ KP_3, U1FBF3, KP_Next,   KP_Next,   0x1002198, 0x10021D8, 0x1002198, 0x10021D8 ] }; // 3 🯳 Next Next ↘ ⇘ ↘ ⇘
+    key <KP4>  { [ KP_4, U1FBF4, KP_Left,   KP_Left,   0x1002190, 0x10021D0, 0x1002190, 0x10021D0 ] }; // 4 🯴 Left Left ← ⇐ ← ⇐
+    key <KP5>  { [ KP_5, U1FBF5, KP_Begin,  KP_Begin,  0x1002194, 0x10021D4, 0x1002194, 0x10021D4 ] }; // 5 🯵 Begin Begin ↔ ⇔ ↔ ⇔
+    key <KP6>  { [ KP_6, U1FBF6, KP_Right,  KP_Right,  0x1002192, 0x10021D2, 0x1002192, 0x10021D2 ] }; // 6 🯶 Right Right → ⇒ → ⇒
+    key <KP7>  { [ KP_7, U1FBF7, KP_Home,   KP_Home,   0x1002196, 0x10021D6, 0x1002196, 0x10021D6 ] }; // 7 🯷 Home Home ↖ ⇖ ↖ ⇖
+    key <KP8>  { [ KP_8, U1FBF8, KP_Up,     KP_Up,     0x1002191, 0x10021D1, 0x1002191, 0x10021D1 ] }; // 8 🯸 Up Up ↑ ⇑ ↑ ⇑
+    key <KP9>  { [ KP_9, U1FBF9, KP_Prior,  KP_Prior,  0x1002197, 0x10021D7, 0x1002197, 0x10021D7 ] }; // 9 🯹 Prior Prior ↗ ⇗ ↗ ⇗
+    key <KPDL> { [ KP_Decimal,  0x1002B24, KP_Delete,   KP_Delete, U1F846,      U1F882,    U1F846,      U1F882    ] }; // . ⬤ Del Del 🡆 🢂 🡆 🢂
+    key <KPDV> { [ KP_Divide,   0x1002705, KP_Divide,   0x1002705, KP_Divide,   0x1002705, KP_Divide,   0x1002705 ] }; // / ✅ / ✅ / ✅ / ✅
+    key <KPMU> { [ KP_Multiply, U1F537,    KP_Multiply, U1F537,    KP_Multiply, U1F537,    KP_Multiply, U1F537    ] }; // * 🔷 * 🔷 * 🔷 * 🔷
+    key <KPSU> { [ KP_Subtract, 0x100274C, KP_Subtract, 0x100274C, KP_Subtract, 0x100274C, KP_Subtract, 0x100274C ] }; // - ❌ - ❌ - ❌ - ❌
+    key <KPAD> { [ KP_Add,      U1F4AF,    KP_Add,      U1F4AF,    KP_Add,      U1F4AF,    KP_Add,      U1F4AF    ] }; // + 💯 + 💯 + 💯 + 💯
 };
 
 partial hidden alphanumeric_keys

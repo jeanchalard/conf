@@ -19,47 +19,56 @@ echo "Copying symbols to ${RT}/symbols/anterak"
 cp symbols/anterak ${RT}/symbols
 chmod 644 ${RT}/symbols/anterak
 
+# Copy the types file.
+echo "Copying types to ${RT}/symbols/anterak"
+cp types/anterak ${RT}/types
+chmod 644 ${RT}/types/anterak
+
 # Add the geometries.
 for file in geometry/*; do
-    print "Installing $file"
+  print "Installing $file"
 
-    geometries=()
-    grep xkb_geometry $file | while read g; do
-        g=${${g##xkb_geometry \"}%%\" *}
-        geometries+=$g
-    done
+  geometries=()
+  grep xkb_geometry $file | while read g; do
+    g=${${g##xkb_geometry \"}%%\" *}
+    geometries+=$g
+  done
 
-    print "Found geometries $geometries"
+  print "Found geometries $geometries"
 
-    rm -f tmp_geometries
-    accept=1
-    # `read` will split according to $IFS and there doesn't seem to be an option to prevent that
-    IFS=
+  rm -f tmp_geometries
+  accept=1
+  # `read` will split according to $IFS and there doesn't seem to be an option to prevent that
+  IFS=
+  if [[ -f ${RT}/${file} ]]; then
     cat ${RT}/${file} | while read i; do
-        for g in $geometries; do
-            if [[ $i = "xkb_geometry \"$g\""* ]]; then
-                print "Removing geometry $g"
-                accept=0
-            fi
-        done
-
-        if [[ $accept = 1 ]]; then
-            print $i >> tmp_geometries
+      for g in $geometries; do
+        if [[ $i = "xkb_geometry \"$g\""* ]]; then
+          print "Removing geometry $g"
+          accept=0
         fi
+      done
 
-        for g in $geometries; do
-            if [[ $i = *"// End of \"$g\""* ]]; then
-                print "End of geometry $g"
-                accept=1
-            fi
-        done
+      if [[ $accept = 1 ]]; then
+        print $i >> tmp_geometries
+      fi
+
+      for g in $geometries; do
+        if [[ $i = *"// End of \"$g\""* ]]; then
+          print "End of geometry $g"
+          accept=1
+        fi
+      done
     done
-    cat ${file} >> tmp_geometries
+  fi
+  cat ${file} >> tmp_geometries
 
-    savefile=setup/geometry.`basename $file`.save
+  savefile=setup/geometry.`basename $file`.save
+  if [[ -f ${RT}/${file} ]]; then
     cp ${RT}/${file} ${savefile}
+  fi
 
-    mv tmp_geometries ${RT}/${file}
+  mv tmp_geometries ${RT}/${file}
 done
 
 # Add the rules.

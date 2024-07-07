@@ -1,8 +1,8 @@
 xkb_keymap {
         // xkb_XXX { include "YYY(ZZZ)" } means to look up in /usr/share/X11/xkb/XXX/YYY for a section named ZZZ
 	xkb_keycodes  { include "evdev+aliases(qwerty)" };
-	xkb_types     { include "complete" };
+	xkb_types     { include "complete+anterak(keypad)" };
 	xkb_compat    { include "complete" };
 	xkb_symbols   { include "pc+anterak+inet(evdev)+anterak(fix_inet)" };
-	xkb_geometry  { include "pc(pc109)" }; // Used to be pc(jp106), but now there seems to be no non-vendor-specific JP geometry ? Should be pc109 or jp109 really for a modern keyboard
+	xkb_geometry  { include "jp(pc109)" }; // Used to be pc(jp106), but now there seems to be no non-vendor-specific JP geometry ? Should be pc109 or jp109 really for a modern keyboard
 };
