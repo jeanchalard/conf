@@ -11,16 +11,16 @@ default xkb_symbols "complete" {
 
 partial hidden alphanumeric_keys
 xkb_symbols "alpha" {
-    key <AE01> { [ 1,	             exclam,        U2776,            U2460          ] }; // Circled 1
-    key <AE02> { [ 2,	             at,            U2777,            U2461          ] }; // Circled 2
-    key <AE03> { [ 3,	             numbersign,    U2778,            U2462          ] }; // Circled 3
-    key <AE04> { [ 4,	             dollar,        U2779,            U2463          ] }; // Circled 4
-    key <AE05> { [ 5,	             percent,       U277A,            U2464          ] }; // Circled 5
-    key <AE06> { [ 6,	             asciicircum,   U277B,            U2465          ] }; // Circled 6
-    key <AE07> { [ 7,                ampersand,     U277C,            U2466          ] }; // Circled 7
-    key <AE08> { [ 8,	             asterisk,      U277D,            U2467          ] }; // Circled 8
-    key <AE09> { [ 9,	             parenleft,     U277E,            U2468          ] }; // Circled 9
-    key <AE10> { [ 0,	             parenright,    U277F,            U2469          ] }; // Circled 10
+    key <AE01> { [ 1,	             exclam,        U2776,            U2460          ] }; // ❶ ①
+    key <AE02> { [ 2,	             at,            U2777,            U2461          ] }; // ❷ ②
+    key <AE03> { [ 3,	             numbersign,    U2778,            U2462          ] }; // ❸ ③
+    key <AE04> { [ 4,	             dollar,        U2779,            U2463          ] }; // ❹ ④
+    key <AE05> { [ 5,	             percent,       U277A,            U2464          ] }; // ❺ ⑤
+    key <AE06> { [ 6,	             asciicircum,   U277B,            U2465          ] }; // ❻ ⑥
+    key <AE07> { [ 7,               ampersand,     U277C,            U2466          ] }; // ❼ ⑦
+    key <AE08> { [ 8,	             asterisk,      U277D,            U2467          ] }; // ❽ ⑧
+    key <AE09> { [ 9,	             parenleft,     U277E,            U2468          ] }; // ❾ ⑨
+    key <AE10> { [ 0,	             parenright,    U277F,            U2469          ] }; // ❿ ⑩
     key <AE11> { [ bracketleft,	     braceleft,     dead_abovedot,    U0307          ] };
     key <AE12> { [ bracketright,     braceright,    dead_belowdot,    U0323          ] };
     key <AE13> { [ BackSpace,        BackSpace,     U0336,            U0336          ] }; // Combining strikethrough
@@ -49,69 +49,72 @@ xkb_symbols "alpha" {
     key <AC08> { [ t,	             T,             lstroke,          Lstroke        ] };
     key <AC09> { [ n,	             N,             questiondown,     exclamdown     ] };
     key <AC10> { [ s,	             S,             oe,               OE             ] };
-    key <AC11> { [ minus,            underscore,    U2713,            U2717          ] }; // Check mark, Ballot x
+    key <AC11> { [ minus,            underscore,    ae,               AE             ] };
     key <BKSL> { [ backslash,        bar,           endash,           emdash         ] };
 
-    key <AB01> { [ semicolon,	     colon,         onesuperior,      onehalf        ] };
-    key <AB02> { [ q,	             Q,             twosuperior,      onethird       ] };
-    key <AB03> { [ j,	             J,             threesuperior,    onequarter     ] };
-    key <AB04> { [ k,	             K,             U2203,            U2204          ] }; // There exists, there does not exist
-    key <AB05> { [ x,	             X,             U2200,            elementof      ] }; // For all
-    key <AB06> { [ b,	             B,             U2248,            U2260          ] }; // Almost equals to, Not equals to
-    key <AB07> { [ m,	             M,             U2194,            U21D4          ] }; // Left right arrow, Left right double arrow
-    key <AB08> { [ w,	             W,             guillemotleft,    U21D0          ] }; // Leftwards double arrow
-    key <AB09> { [ v,	             V,             guillemotright,   U21D2          ] }; // Rightwards double arrow
-    key <AB10> { [ z,	             Z,             ae,               AE             ] };
+    key <AB01> { [ semicolon,	     colon,         U2705,            U274C          ] }; // ✅ ❌
+    key <AB02> { [ q,	             Q,             onesuperior,      U2081          ] }; // ¹ ₁
+    key <AB03> { [ j,	             J,             twosuperior,      U2082          ] }; // ² ₂
+    key <AB04> { [ k,	             K,             threesuperior,    U2083          ] }; // ³ ₃
+    key <AB05> { [ x,	             X,             U2203,            U2204          ] }; // ∃ ∄
+    key <AB06> { [ b,	             B,             U2200,            U2282          ] }; // ∀ ⊂
+    key <AB07> { [ m,	             M,             elementof,        U2209          ] }; // ∈ ∉
+    key <AB08> { [ w,	             W,             U2248,            U2260          ] }; // ≈ ≠
+    key <AB09> { [ v,	             V,             U2211,            U220F          ] }; // ∑ ∏
+    key <AB10> { [ z,	             Z,             guillemotleft,    guillemotright ] }; // « »
     key <AB11> { [ F15 ] };
 
     // TODO : what to do with this ?
     key <LSGT> { [ less,             greater,       bar,              brokenbar      ] };
 
-    key <DOWN> { [ Down , Down , 0x1002193, 0x10021D3 ] }; // ↓ ⇓
-    key <LEFT> { [ Left , Left , 0x1002190, 0x10021D0 ] }; // ← ⇐
-    key <RGHT> { [ Right, Right, 0x1002192, 0x10021D2 ] }; // → ⇒
-    key <UP>   { [ Up,    Up,    0x1002191, 0x10021D1 ] }; // ↑ ⇑
+    key <DOWN> { [ Down , Down , U2193, U21D3 ] }; // ↓ ⇓
+    key <LEFT> { [ Left , Left , U2190, U21D0 ] }; // ← ⇐
+    key <RGHT> { [ Right, Right, U2192, U21D2 ] }; // → ⇒
+    key <UP>   { [ Up,    Up,    U2191, U21D1 ] }; // ↑ ⇑
 };
 
 partial hidden keypad_keys
 xkb_symbols "keypad" {
     key.type[Group1] = "MORE_KEYPAD";
 
-    // No AltGr :
-    //  No numlock :
-    //    No shift : digits
-    //    Shift : segmented digits
-    //  Numlock : directions
-    // AltGr :
-    //   No numlock :
-    //    No shift : single arrows
-    //    Shift : double arrows
-    //   Numlock :
-    //     No shift :
-    //     Shift :
-    // None Shift NumLock NumLock+Shift AltGr AltGr+Shift AltGr+NumLock AltGr+NumLock+Shift
-    key <KP0>  { [ KP_0, U1FBF0, KP_Insert, KP_Insert, 0x1002195, 0x10021D5, 0x1002195, 0x10021D5 ] }; // 0 🯰 Ins Ins ↕ ⇕ ↕ ⇕
-    key <KP1>  { [ KP_1, U1FBF1, KP_End,    KP_End,    0x1002199, 0x10021D9, 0x1002199, 0x10021D9 ] }; // 1 🯱 End End ↙ ⇙ ↙ ⇙
-    key <KP2>  { [ KP_2, U1FBF2, KP_Down,   KP_Down,   0x1002193, 0x10021D3, 0x1002193, 0x10021D3 ] }; // 2 🯲 Down Down ↓ ⇓ ↓ ⇓
-    key <KP3>  { [ KP_3, U1FBF3, KP_Next,   KP_Next,   0x1002198, 0x10021D8, 0x1002198, 0x10021D8 ] }; // 3 🯳 Next Next ↘ ⇘ ↘ ⇘
-    key <KP4>  { [ KP_4, U1FBF4, KP_Left,   KP_Left,   0x1002190, 0x10021D0, 0x1002190, 0x10021D0 ] }; // 4 🯴 Left Left ← ⇐ ← ⇐
-    key <KP5>  { [ KP_5, U1FBF5, KP_Begin,  KP_Begin,  0x1002194, 0x10021D4, 0x1002194, 0x10021D4 ] }; // 5 🯵 Begin Begin ↔ ⇔ ↔ ⇔
-    key <KP6>  { [ KP_6, U1FBF6, KP_Right,  KP_Right,  0x1002192, 0x10021D2, 0x1002192, 0x10021D2 ] }; // 6 🯶 Right Right → ⇒ → ⇒
-    key <KP7>  { [ KP_7, U1FBF7, KP_Home,   KP_Home,   0x1002196, 0x10021D6, 0x1002196, 0x10021D6 ] }; // 7 🯷 Home Home ↖ ⇖ ↖ ⇖
-    key <KP8>  { [ KP_8, U1FBF8, KP_Up,     KP_Up,     0x1002191, 0x10021D1, 0x1002191, 0x10021D1 ] }; // 8 🯸 Up Up ↑ ⇑ ↑ ⇑
-    key <KP9>  { [ KP_9, U1FBF9, KP_Prior,  KP_Prior,  0x1002197, 0x10021D7, 0x1002197, 0x10021D7 ] }; // 9 🯹 Prior Prior ↗ ⇗ ↗ ⇗
-    key <KPDL> { [ KP_Decimal,  0x1002B24, KP_Delete,   KP_Delete, U1F846,      U1F882,    U1F846,      U1F882    ] }; // . ⬤ Del Del 🡆 🢂 🡆 🢂
-    key <KPDV> { [ KP_Divide,   0x1002705, KP_Divide,   0x1002705, KP_Divide,   0x1002705, KP_Divide,   0x1002705 ] }; // / ✅ / ✅ / ✅ / ✅
-    key <KPMU> { [ KP_Multiply, U1F537,    KP_Multiply, U1F537,    KP_Multiply, U1F537,    KP_Multiply, U1F537    ] }; // * 🔷 * 🔷 * 🔷 * 🔷
-    key <KPSU> { [ KP_Subtract, 0x100274C, KP_Subtract, 0x100274C, KP_Subtract, 0x100274C, KP_Subtract, 0x100274C ] }; // - ❌ - ❌ - ❌ - ❌
-    key <KPAD> { [ KP_Add,      U1F4AF,    KP_Add,      U1F4AF,    KP_Add,      U1F4AF,    KP_Add,      U1F4AF    ] }; // + 💯 + 💯 + 💯 + 💯
+    // No numlock : digits
+    //   No AltGr :
+    //     No shift : digits
+    //     Shift : subscripts
+    //   AltGr :
+    //     No shift : negative circled numbers 0 and 11~19
+    //     Shift : circled numbers 0 and 11~19
+    // Numlock : directions / arrows
+    //   No AltGr :
+    //     No shift : directions
+    //     Shift : single arrows
+    //   AltGr :
+    //      No shift : double arrows
+    //      Shift : heavy arrows and misc
+    //
+    //             None         Shift   AltGr  AltGr+Shift NumLock    NumLock+Shift NumLock+AltGr NumLock+AltGr+Shift
+    key <KP0>  { [ KP_0,        U2080,  U24FF, U24EA,      KP_Insert, U24FF,        U21D5,        U21BA               ] }; // 0 ₀ ⓿ ⓪ Ins   ↕ ⇕ ↺
+    key <KP1>  { [ KP_1,        U2081,  U24EB, U246A,      KP_End,    U2195,        U21D9,        U1F887              ] }; // 1 ₁ ⓫ ⑪ End   ↙ ⇙ 🢇
+    key <KP2>  { [ KP_2,        U2082,  U24EC, U246B,      KP_Down,   U2199,        U21D3,        U1F883              ] }; // 2 ₂ ⓬ ⑫ Down  ↓ ⇓ 🢃
+    key <KP3>  { [ KP_3,        U2083,  U24ED, U246C,      KP_Next,   U2193,        U21D8,        U1F886              ] }; // 3 ₃ ⓭ ⑬ Next  ↘ ⇘ 🢆
+    key <KP4>  { [ KP_4,        U2084,  U24EE, U246D,      KP_Left,   U2198,        U21D0,        U1F880              ] }; // 4 ₄ ⓮ ⑭ Left  ← ⇐ 🢀
+    key <KP5>  { [ KP_5,        U2085,  U24EF, U246E,      KP_Begin,  U2190,        U21D4,        U21BB               ] }; // 5 ₅ ⓯ ⑮ Begin ↔ ⇔ ↻
+    key <KP6>  { [ KP_6,        U2086,  U24F0, U246F,      KP_Right,  U2194,        U21D2,        U1F882              ] }; // 6 ₆ ⓰ ⑯ Right → ⇒ 🢂
+    key <KP7>  { [ KP_7,        U2087,  U24F1, U2470,      KP_Home,   U2192,        U21D6,        U1F884              ] }; // 7 ₇ ⓱ ⑰ Home  ↖ ⇖ 🢄
+    key <KP8>  { [ KP_8,        U2088,  U24F2, U2471,      KP_Up,     U2196,        U21D1,        U1F881              ] }; // 8 ₈ ⓲ ⑱ Up    ↑ ⇑ 🢁
+    key <KP9>  { [ KP_9,        U2089,  U24F3, U2472,      KP_Prior,  U2191,        U21D7,        U1F885              ] }; // 9 ₉ ⓳ ⑲ Prior ↗ ⇗ 🢅
+
+    key <KPDL> { [ KP_Decimal,  U2099,  U207F, U2071,      KP_Delete, U2B24,        U2BC8,        U2B50               ] }; // . ₙ ⁿ ⁱ Del ⬤ ⯈ ⭐
+    key <KPDV> { [ KP_Divide,   U2074,  U00BD, U2152,      U2705,     U2713,        U2665,        U2663               ] }; // / ⁴ ½ ⅒ ✅ ✓ ♥ ♣
+    key <KPMU> { [ KP_Multiply, U2075,  U2153, U2154,      U1F537,    U25C7,        U2642,        U2640               ] }; // * ⁵ ⅓ ⅔ 🔷 ◇ ♂ ♀
+    key <KPSU> { [ KP_Subtract, U2076,  U00BC, U00BE,      U274C,     U2717,        U26D4,        U26A0               ] }; // - ⁶ ¼ ¾ ❌ ✗ ⛔ ⚠
+    key <KPAD> { [ KP_Add,      U1F4AF, U221A, U222B,      U2103,     U3012,        U03C0,        U221E               ] }; // + 💯 √ ∫ ℃ 〒 π ∞
 };
 
 partial hidden alphanumeric_keys
 xkb_symbols "special" {
     key <ESC>  { [ Escape            ] };
 
-    // TODO : define something for AltGr+TLDE
     key <TLDE> { [ grave,            asciitilde,    U2022,            U25A0          ] }; // Bullet, black square
     // TODO : have some real use for AltGr+Tab
     key <TAB>  { [ Tab,              ISO_Left_Tab,  U2B7E,            U27FA          ] }; // Tab arrows, double reciprocal arrows
@@ -354,8 +357,8 @@ xkb_symbols "other" {
 partial hidden modifier_keys
 xkb_symbols "fix_inet" {
 // Fix up inet(evdev) crap
-    key <HKTG>   {      [ ISO_Level3_Shift, ISO_Level3_Shift ] };
-    key <HENK>   {      [ ISO_Level3_Shift, ISO_Level3_Shift ] };
-    key <MUHE>   {      [ nobreakspace,     U2588            ] }; // Full block
-    key <ALT>    { [ Super_L, Super_L ] };
+    key <HKTG>   { [ ISO_Level3_Shift, ISO_Level3_Shift ] };
+    key <HENK>   { [ ISO_Level3_Shift, ISO_Level3_Shift ] };
+    key <MUHE>   { [ nobreakspace,     U2588            ] }; // Full block
+    key <ALT>    { [ Super_L,          Super_L          ] };
 };
