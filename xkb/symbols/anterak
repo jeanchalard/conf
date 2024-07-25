@@ -77,38 +77,38 @@ partial hidden keypad_keys
 xkb_symbols "keypad" {
     key.type[Group1] = "MORE_KEYPAD";
 
-    // No numlock : digits
-    //   No AltGr :
-    //     No shift : digits
-    //     Shift : subscripts
-    //   AltGr :
-    //     No shift : negative circled numbers 0 and 11~19
-    //     Shift : circled numbers 0 and 11~19
-    // Numlock : directions / arrows
+    // No numlock : directions / arrows
     //   No AltGr :
     //     No shift : directions
     //     Shift : single arrows
     //   AltGr :
     //      No shift : double arrows
     //      Shift : heavy arrows and misc
+    // Numlock : digits
+    //   No AltGr :
+    //     No shift : digits
+    //     Shift : subscripts
+    //   AltGr :
+    //     No shift : negative circled numbers 0 and 11~19
+    //     Shift : circled numbers 0 and 11~19
     //
-    //             None         Shift   AltGr  AltGr+Shift NumLock    NumLock+Shift NumLock+AltGr NumLock+AltGr+Shift
-    key <KP0>  { [ KP_0,        U2080,  U24FF, U24EA,      KP_Insert, U2195,        U21D5,        U21BA               ] }; // 0 ₀ ⓿ ⓪ Ins   ↕ ⇕ ↺
-    key <KP1>  { [ KP_1,        U2081,  U24EB, U246A,      KP_End,    U2199,        U21D9,        U1F887              ] }; // 1 ₁ ⓫ ⑪ End   ↙ ⇙ 🢇
-    key <KP2>  { [ KP_2,        U2082,  U24EC, U246B,      KP_Down,   U2193,        U21D3,        U1F883              ] }; // 2 ₂ ⓬ ⑫ Down  ↓ ⇓ 🢃
-    key <KP3>  { [ KP_3,        U2083,  U24ED, U246C,      KP_Next,   U2198,        U21D8,        U1F886              ] }; // 3 ₃ ⓭ ⑬ Next  ↘ ⇘ 🢆
-    key <KP4>  { [ KP_4,        U2084,  U24EE, U246D,      KP_Left,   U2190,        U21D0,        U1F880              ] }; // 4 ₄ ⓮ ⑭ Left  ← ⇐ 🢀
-    key <KP5>  { [ KP_5,        U2085,  U24EF, U246E,      KP_Begin,  U2194,        U21D4,        U21BB               ] }; // 5 ₅ ⓯ ⑮ Begin ↔ ⇔ ↻
-    key <KP6>  { [ KP_6,        U2086,  U24F0, U246F,      KP_Right,  U2192,        U21D2,        U1F882              ] }; // 6 ₆ ⓰ ⑯ Right → ⇒ 🢂
-    key <KP7>  { [ KP_7,        U2087,  U24F1, U2470,      KP_Home,   U2196,        U21D6,        U1F884              ] }; // 7 ₇ ⓱ ⑰ Home  ↖ ⇖ 🢄
-    key <KP8>  { [ KP_8,        U2088,  U24F2, U2471,      KP_Up,     U2191,        U21D1,        U1F881              ] }; // 8 ₈ ⓲ ⑱ Up    ↑ ⇑ 🢁
-    key <KP9>  { [ KP_9,        U2089,  U24F3, U2472,      KP_Prior,  U2197,        U21D7,        U1F885              ] }; // 9 ₉ ⓳ ⑲ Prior ↗ ⇗ 🢅
+    //             None       Shift  AltGr  AltGr+Shift NumLock      NumLock+Shift NumLock+AltGr NumLock+AltGr+Shift
+    key <KP0>  { [ KP_Insert, U2195, U21D5, U21BA,      KP_0,        U2080,        U24FF,        U24EA               ] }; // Ins   ↕ ⇕ ↺ 0 ₀ ⓿ ⓪
+    key <KP1>  { [ KP_End,    U2199, U21D9, U1F887,     KP_1,        U2081,        U24EB,        U246A               ] }; // End   ↙ ⇙ 🢇 1 ₁ ⓫ ⑪
+    key <KP2>  { [ KP_Down,   U2193, U21D3, U1F883,     KP_2,        U2082,        U24EC,        U246B               ] }; // Down  ↓ ⇓ 🢃 2 ₂ ⓬ ⑫
+    key <KP3>  { [ KP_Next,   U2198, U21D8, U1F886,     KP_3,        U2083,        U24ED,        U246C               ] }; // Next  ↘ ⇘ 🢆 3 ₃ ⓭ ⑬
+    key <KP4>  { [ KP_Left,   U2190, U21D0, U1F880,     KP_4,        U2084,        U24EE,        U246D               ] }; // Left  ← ⇐ 🢀 4 ₄ ⓮ ⑭
+    key <KP5>  { [ KP_Begin,  U2194, U21D4, U21BB,      KP_5,        U2085,        U24EF,        U246E               ] }; // Begin ↔ ⇔ ↻ 5 ₅ ⓯ ⑮
+    key <KP6>  { [ KP_Right,  U2192, U21D2, U1F882,     KP_6,        U2086,        U24F0,        U246F               ] }; // Right → ⇒ 🢂 6 ₆ ⓰ ⑯
+    key <KP7>  { [ KP_Home,   U2196, U21D6, U1F884,     KP_7,        U2087,        U24F1,        U2470               ] }; // Home  ↖ ⇖ 🢄 7 ₇ ⓱ ⑰
+    key <KP8>  { [ KP_Up,     U2191, U21D1, U1F881,     KP_8,        U2088,        U24F2,        U2471               ] }; // Up    ↑ ⇑ 🢁 8 ₈ ⓲ ⑱
+    key <KP9>  { [ KP_Prior,  U2197, U21D7, U1F885,     KP_9,        U2089,        U24F3,        U2472               ] }; // Prior ↗ ⇗ 🢅 9 ₉ ⓳ ⑲
 
-    key <KPDL> { [ KP_Decimal,  U2099,  U207F, U2071,      KP_Delete, U2B24,        U2BC8,        U2B50               ] }; // . ₙ ⁿ ⁱ Del ⬤ ⯈ ⭐
-    key <KPDV> { [ KP_Divide,   U2074,  U00BD, U2152,      U2705,     U2713,        U2665,        U2663               ] }; // / ⁴ ½ ⅒ ✅ ✓ ♥ ♣
-    key <KPMU> { [ KP_Multiply, U2075,  U2153, U2154,      U1F537,    U25C7,        U2642,        U2640               ] }; // * ⁵ ⅓ ⅔ 🔷 ◇ ♂ ♀
-    key <KPSU> { [ KP_Subtract, U2076,  U00BC, U00BE,      U274C,     U2717,        U26D4,        U26A0               ] }; // - ⁶ ¼ ¾ ❌ ✗ ⛔ ⚠
-    key <KPAD> { [ KP_Add,      U1F4AF, U221A, U222B,      U2103,     U3012,        U03C0,        U221E               ] }; // + 💯 √ ∫ ℃ 〒 π ∞
+    key <KPDL> { [ KP_Delete, U2B24, U2BC8, U2B50,      KP_Decimal,  U2099,        U207F,        U2071               ] }; // Del ⬤ ⯈ ⭐ . ₙ ⁿ ⁱ
+    key <KPDV> { [ U1F4C8,    U2713, U2665, U2663,      KP_Divide,   U2074,        U00BD,        U2152               ] }; // 📈 ✓ ♥ ♣ / ⁴ ½ ⅒
+    key <KPMU> { [ U1F537,    U25C7, U2642, U2640,      KP_Multiply, U2075,        U2153,        U2154               ] }; // 🔷 ◇ ♂ ♀ * ⁵ ⅓ ⅔
+    key <KPSU> { [ U1F4C9,    U2717, U26D4, U26A0,      KP_Subtract, U2076,        U00BC,        U00BE               ] }; // 📉 ✗ ⛔ ⚠ - ⁶ ¼ ¾
+    key <KPAD> { [ U2103,     U3012, U03C0, U221E,      KP_Add,      U1F4AF,       U221A,        U222B               ] }; // ℃ 〒 π ∞ + 💯 √ ∫
 };
 
 partial hidden alphanumeric_keys
