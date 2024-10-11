@@ -105,9 +105,9 @@ xkb_symbols "keypad" {
     key <KP9>  { [ KP_9,        U2089,  U24F3, U2472,      KP_Prior,  U2197,        U21D7,        U1F885              ] }; // 9 ₉ ⓳ ⑲ Prior ↗ ⇗ 🢅
 
     key <KPDL> { [ KP_Decimal,  U2099,  U207F, U2071,      KP_Delete, U2B24,        U2BC8,        U2B50               ] }; // . ₙ ⁿ ⁱ Del ⬤ ⯈ ⭐
-    key <KPDV> { [ KP_Divide,   U2074,  U00BD, U2152,      U2705,     U2713,        U2665,        U2663               ] }; // / ⁴ ½ ⅒ ✅ ✓ ♥ ♣
+    key <KPDV> { [ KP_Divide,   U2074,  U00BD, U2152,      U1F4C8,    U2713,        U2665,        U2663               ] }; // / ⁴ ½ ⅒ 📈 ✓ ♥ ♣
     key <KPMU> { [ KP_Multiply, U2075,  U2153, U2154,      U1F537,    U25C7,        U2642,        U2640               ] }; // * ⁵ ⅓ ⅔ 🔷 ◇ ♂ ♀
-    key <KPSU> { [ KP_Subtract, U2076,  U00BC, U00BE,      U274C,     U2717,        U26D4,        U26A0               ] }; // - ⁶ ¼ ¾ ❌ ✗ ⛔ ⚠
+    key <KPSU> { [ KP_Subtract, U2076,  U00BC, U00BE,      U1F4C9,    U2717,        U26D4,        U26A0               ] }; // - ⁶ ¼ ¾ 📉 ✗ ⛔ ⚠
     key <KPAD> { [ KP_Add,      U1F4AF, U221A, U222B,      U2103,     U3012,        U03C0,        U221E               ] }; // + 💯 √ ∫ ℃ 〒 π ∞
 };
 
