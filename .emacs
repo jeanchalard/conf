@@ -76,6 +76,7 @@ of an error, just add the package to a list of missing packages."
 (column-number-mode t)
 (auto-image-file-mode nil) ; Don't open images as images - not using emacs for that
 (setq sentence-end-double-space nil) ; For filling, don't double space after periods
+(setq default-input-method nil) ; Why is this latin-1-prefix by default ?!
 (add-hook 'fill-no-break-predicate 'fill-french-nobreak-p)
 (global-visual-line-mode t)
 ; Frigging emacs has no way to set this for every mode and prefers to use
@@ -130,7 +131,6 @@ of an error, just add the package to a list of missing packages."
 (autoload 'inf-ruby-keys "inf-ruby" "Set local key defs for inf-ruby in ruby-mode")
 (add-hook 'ruby-mode-hook '(lambda () (inf-ruby-keys)))
 (setq ruby-insert-encoding-magic-comment nil)
-(add-hook 'markdown-hook 'treemacs)
 
 ;;;
 ; My functions
