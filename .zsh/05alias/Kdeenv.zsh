@@ -1,10 +1,4 @@
-#CONF static [[ "$USER" == j ]]
+#CONF static [[ -d ~/.local/bin ]]
 function kdeenv {
-  export PATH="$PATH:$HOME/kde/src/kdesrc-build"
-  function kdesrc-run
-  {
-    source "$HOME/kde/build/$1/prefix.sh" && "$HOME/kde/usr/bin/$@"
-  }
+  export PATH="$PATH:$HOME/.local/bin"
 }
-
-
