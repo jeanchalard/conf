@@ -110,6 +110,7 @@ of an error, just add the package to a list of missing packages."
 (global-set-key [end]           'end-of-line)
 (global-set-key [C-home]         'beginning-of-buffer)
 (global-set-key [C-end]          'end-of-buffer)
+(global-set-key [C-backspace] 'backward-delete-word)
 (global-set-key [kp-divide]     '(lambda nil (interactive) (insert ?/)))
 (global-set-key "" '(lambda nil (interactive) (progn (dabbrev-expand 1) (insert " "))))
 ; I hit insert by mistake all the time but never want overwrite mode.
@@ -170,6 +171,14 @@ News' signature compliant."
                 (goto-char (match-end 0))))
           (delete-region (point) (match-end 0)))))))
 
+(defun backward-delete-word ()
+  "Delete word like backward-kill-word but don't touch the kill ring"
+  (interactive "*")
+  (let ((before (point)))
+    (backward-word)
+    (delete-region (point) before)
+  )
+)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
