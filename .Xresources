@@ -121,3 +121,6 @@ gv*background:			gray
 Xmessage.Form.background: black
 Xmessage.Form.foreground: green
 Xmessage.Form.Text.background: dark blue
+
+Xcursor.size:                   96
+
