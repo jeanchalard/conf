@@ -218,7 +218,7 @@ News' signature compliant."
 
 ; Markdown-mode configuration
 (defun md-toggle-strikethrough () (interactive)
-  (save-excursion
+  (save-mark-and-excursion
     (beginning-of-line)
     (if (looking-at "~~")
         (progn
@@ -236,12 +236,19 @@ News' signature compliant."
 (defun move-to-done () (interactive)
   (save-mark-and-excursion
     (beginning-of-line)
+    (if (not (looking-at "~~")) (md-toggle-strikethrough))
     (set-mark (point))
-    (next-line)
-    (kill-region 0 0 t)
-    (beginning-of-buffer)
-    (forward-paragraph)
-    (yank)
+    (forward-line)
+    (let ((my-line (delete-and-extract-region (point) (mark))))
+      (beginning-of-buffer)
+      (if (looking-at "~~")
+        (forward-paragraph)
+        (if (not (looking-at "^$"))
+          (progn (insert "\n") (backward-char))
+        )
+      )
+      (insert my-line)
+    )
     (end-of-line)
   )
 )
