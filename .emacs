@@ -194,6 +194,7 @@ News' signature compliant."
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(neo-smart-open t t)
+ '(package-selected-packages '(fcitx5 markdown-mode rust-mode treemacs))
  '(partial-completion-mode t)
  '(show-trailing-whitespace t)
  '(track-eol t)
