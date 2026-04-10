@@ -91,12 +91,14 @@ of an error, just add the package to a list of missing packages."
 (setq-default sh-indentation 2)
 
 (set-frame-font "DejaVu Sans" nil t)
-(set-fontset-font t '(?─ . ?➿) '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
-(set-fontset-font t '(?🀀 . ?🯹) '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
-; "emoji" shortcut for character ranges are supported from emacs 28, use the
-; following when emacs 28 is available
-;(set-fontset-font t 'emoji '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
-
+(set-fontset-font t 'japanese-jisx0208 '("Noto Sans CJK JP" . "iso10646-1") nil 'prepend)
+(if (version< emacs-version "28")
+  (progn
+    (set-fontset-font t '(?─ . ?➿) '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
+    (set-fontset-font t '(?🀀 . ?🯹) '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
+  )
+  (set-fontset-font t 'emoji '("Noto Color Emoji" . "iso10646-1") nil 'prepend)
+)
 
 ;;;
 ; Bindings
