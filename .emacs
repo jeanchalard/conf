@@ -135,12 +135,12 @@ of an error, just add the package to a list of missing packages."
 ;;;
 ; My functions
 ;
-; Substract n from a region
-(defun substract-to-region (value)
- "This function substracts value to the number between point and mark"
+; Subtract n from a region
+(defun subtract-to-region (value)
+ "This function subtracts value to the number between point and mark"
  (interactive "p")
  (save-excursion
-   (insert-string (int-to-string (- (string-to-int
+   (insert (number-to-string (- (string-to-number
     (delete-and-extract-region (point) (mark))) value)))))
 
 
