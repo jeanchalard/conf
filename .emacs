@@ -268,6 +268,9 @@ News' signature compliant."
   (add-remove-tab-binding)
   (set-window-margins (selected-window) 4 4)
   (setq dabbrev-case-replace nil)
+  ; Make sure dabbrev doesn't consider an apostrophe a limit for a word, so I can complete "don't" or "jardin d'enfants".
+  ; Should this be global instead of just for markdown ?
+  (modify-syntax-entry ?' "w")
   (if (not (fboundp 'treemacs-current-visibility))
       (treemacs))
   (local-set-key (kbd "C-o") 'md-toggle-strikethrough)
